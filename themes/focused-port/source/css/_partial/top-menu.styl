@@ -1,0 +1,63 @@
+#main-nav
+  float: left
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  display: block;
+  margin-top: -16px;
+  @media mq-tablet
+    margin-top: 10px
+  @media mq-mobile
+    position: absolute;
+    top: 0px;
+    border-bottom: 0;
+    border: none
+
+$nav-link
+  float: left
+  color: color-default
+  font-weight: bold
+  text-decoration: none
+  text-shadow: 0 1px rgba(0, 0, 0, 0.2)
+  transition: opacity 0.2s
+  display: block
+  padding: 20px 13px 32px 26px;
+  &:hover
+    color: color-sub-text
+
+.nav-icon
+  @extend $nav-link
+  font-family: font-icon
+  text-align: center
+  font-size: font-size
+  width: font-size
+  height: font-size
+  padding: 20px 15px
+  position: relative
+  cursor: pointer
+
+.main-nav-link
+  @extend $nav-link
+  letter-spacing: 1px
+  text-transform: uppercase;
+  @media mq-mobile
+    display: none
+
+#main-nav-toggle
+  display: none
+  color: color-sub-text
+  &:before
+    content: "\f0c9"
+  @media mq-mobile
+    display: block
+
+#sub-nav
+  float: right
+  margin-right: -15px
+
+#nav-rss-link
+  &:before
+    content: "\f09e"
+
+#nav-search-btn
+  &:before
+    content: "\f002"

@@ -1,0 +1,90 @@
+.archives-wrap
+  margin: block-margin 0
+  padding-left: 27px
+  padding-top: 20px
+  @media mq-mobile
+    padding-left: 0;
+
+.archives
+  clearfix()
+
+.archive-year-wrap
+  margin-bottom: 1em
+
+.archive-year
+  @extend $block-caption
+
+.archives
+  column-gap: 10px
+  @media mq-tablet
+    column-count: 2
+  @media mq-normal
+    column-count: 3
+
+.archive-title
+  font-size: 20px;
+  font-weight: bold;
+  color: color-sub-text
+
+.archive-article
+  avoid-column-break()
+
+.archive-article-inner
+  @extend $block
+  padding: 10px 0px
+
+.archive-article-title
+  text-decoration: none
+  font-weight: bold
+  color: color-default
+  transition: color 0.2s
+  line-height: line-height
+  font-size: 20px;
+  &:hover
+    color: color-link
+
+.archive-article-footer
+  margin-top: 1em
+
+.archive-article-date
+  color: color-default
+  text-decoration: none
+  font-size: 0.85em
+  line-height: 1em
+  margin-bottom: 0.5em
+  display: block
+  time
+    &:before
+      content: "\f073";
+      font-family: FontAwesome;
+      padding-right: 6px;
+
+#page-nav
+  clearfix()
+  margin: block-margin auto
+  text-align: center
+  color: color-grey
+  overflow: hidden
+  a, span
+    padding: 10px 20px
+    line-height: 1
+    height: 4ex
+  a
+    color: color-grey
+    text-decoration: none
+    &:hover
+      background: color-grey
+      color: #fff
+  .prev
+    float: left
+  .next
+    float: right
+  .page-number
+    display: inline-block
+    @media mq-mobile
+      display: none
+  .current
+    color: color-default
+    font-weight: bold
+  .space
+    color: color-border
