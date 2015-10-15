@@ -59,6 +59,6 @@ Làm tương tự với các giá trị orientation khác là coi như giải qu
 
 Ngoài ra, mình thấy hiện tại bên trình duyệt firefox đang hỗ trợ một thuộc tính `image-orientation` (https://developer.mozilla.org/en-US/docs/Web/CSS/image-orientation) nhưng mà cũng chỉ có duy nhất mỗi nó đang hỗ trợ, nên có lẽ cần đợi thêm thời giãn xem sao.
 
-Hoặc là cũng có một cách sử dụng thư việc load image để load hình ảnh vào canvas như ở đây http://stackoverflow.com/questions/20600800/js-client-side-exif-orientation-rotate-and-mirror-jpeg-images
+Hoặc là cũng có một cách sử dụng thư viện load image để load hình ảnh vào canvas như ở đây http://stackoverflow.com/questions/20600800/js-client-side-exif-orientation-rotate-and-mirror-jpeg-images
 
 Cách giải quyết của mình ở đây là chỉ ở phía client, còn khi mình upload lên server thì mình có sử dung thư viện để sửa lại hình ảnh cho đúng rồi. :D Hy vọng bài viết này mang lại cho các bạn một chút thú vị trong ngày.
