@@ -21,7 +21,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit 
 hexo generate
 ```
 
-# Deploy to FPT server
+# Deploy to PHP server
 
 ```
 node deploy.js
