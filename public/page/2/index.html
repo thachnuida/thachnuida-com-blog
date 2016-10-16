@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Saysua Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Saysua Blog">
+<meta property="og:url" content="http://saysua.com/page/2/index.html">
+<meta property="og:site_name" content="Saysua Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Saysua Blog">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+   
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+  #mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; }
+  #mc_embed_signup form {padding: 0px;}
+  #mc_embed_signup .button {    background-color: #26C9FF;}
+  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+  
+</head>
+<body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=166177166899797";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <img class="author-avatar"/>
+          <div class="text">Saysua Blog</div>
+        </a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+          <nav id="main-nav">
+  <a id="main-nav-toggle" class="nav-icon"></a>
+  
+    <a class="main-nav-link" href="/">Home</a>
+  
+    <a class="main-nav-link" href="http://app.saysua.com">Apps</a>
+  
+    <a class="main-nav-link" href="/about">About</a>
+  
+</nav>
+          <div class="content">
+            
+  
+    <article id="post-xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/" class="article-date">
+  <time datetime="2015-08-06T03:13:37.000Z" itemprop="datePublished">2015-08-06</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/">Xử lý hình ảnh hiển thị sai hướng bằng cách xác định giá trị EXIF orientation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Trong thời gian này mình có làm một ứng dụng chat, trong đó có tính năng upload file và hình ảnh. Và mình đã gặp một vấn đề với các hình ảnh được chụp bằng điện thoại. Đó là hình ảnh bị hiển thị sai hướng, do khi chụp người dùng đã để dọc điện thoại, dẫn đến lúc hiển thị hình ảnh trên trang web, thay vì hình ảnh hiển thị thẳng đứng thì lại nằm ngang. Giống như thế này:</p>
+<p><img src="/images/orientation-6.jpg" alt="Orientation 6"></p>
+<p>Và công việc của mình là phải xác định được, hình ảnh đó bị sai thế nào, để hiển thị lại cho đúng.</p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/" data-id="ciubaakrq001wkovlwxhux8i3" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
+    <article id="post-khoi-tao-du-an-angularjs-voi-generator-boom" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/" class="article-date">
+  <time datetime="2014-10-11T09:03:00.000Z" itemprop="datePublished">2014-10-11</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/">Khởi tạo dự án AngularJS với generator-boom</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Khi bắt đầu một dự án AngularJS chúng ta có rất nhiều việc phải làm như tạo cấu trúc thư mục, viết code để tự động build các file js, css, chuẩn bị code để test… Dĩ nhiên ta có thể tự mình lần lượt làm các việc đó, hoặc như trước đây, tôi tạo sẵn một thư mục dự án mẫu rồi khi nào dùng sẽ copy qua dùng lại. Tuy nhiên vẫn tốt hơn nếu như có một công cụ giúp mình làm các việc kể trên, và trong bài này tôi giới thiệu đến các bạn công cụ <a href="https://www.npmjs.org/package/generator-boom">generator-boom</a>, một công cụ sinh code AngularJS dành cho Yeoman.</p>
+<h1 id="Cai-dat-generator-boom"><a href="#Cai-dat-generator-boom" class="headerlink" title="Cài đặt generator-boom"></a>Cài đặt generator-boom</h1>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/" data-id="ciubaakpi000fkovl8zzafd1b" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angularjs/">Angularjs</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
+    <article id="post-Build-your-code-with-Gulp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/01/14/Build-your-code-with-Gulp/" class="article-date">
+  <time datetime="2014-01-14T14:28:28.000Z" itemprop="datePublished">2014-01-14</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/14/Build-your-code-with-Gulp/">Build your code with Gulp</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://gulpjs.com/">Gulp</a> is the streaming build system. Gulp’s use of streams and code-over-configuration makes for a simpler and more intuitive build. I didn’t use Gulp or Grunt before. Today, I hear about it and decide to use it on my project. What I write here is not a tutorial, it just what I do with Gulp.</p>
+<h2 id="1-Install-–-NodeJS-Gulp"><a href="#1-Install-–-NodeJS-Gulp" class="headerlink" title="1. Install – NodeJS - Gulp:"></a>1. Install – NodeJS - Gulp:</h2><p>To install Gulp we must have node installed. Nodejs can be installed from here <a href="http://nodejs.org/">http://nodejs.org/</a></p>
+<p>– Gulp: We should install gulp globally</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm <span class="keyword">install</span> -g gulp</div></pre></td></tr></table></figure>
+<h2 id="2-Using-Gulp-in-project-First-jump-to-your-project-folder"><a href="#2-Using-Gulp-in-project-First-jump-to-your-project-folder" class="headerlink" title="2. Using Gulp in project First, jump to your project folder."></a>2. Using Gulp in project First, jump to your project folder.</h2>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2014/01/14/Build-your-code-with-Gulp/" data-id="ciubaako90000kovljaedi29o" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2014/01/14/Build-your-code-with-Gulp/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gulp/">Gulp</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
+    <article id="post-quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/07/quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower/" class="article-date">
+  <time datetime="2013-12-06T23:35:07.000Z" itemprop="datePublished">2013-12-07</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/07/quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower/">Quản lý các gói thư viện phía client site bằng Bower</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Thời gian trước, có người nói với tôi rằng nên sử dụng Bower để cài đặt những gói thư viện js, css phía client site của một plugin tôi đang phát triển. Tôi cũng chỉ ậm ừ qua, và nghĩ rằng không cần thiết lắm bởi vì hiện tại những thư viện đó vẫn đang chạy tốt.</p>
+<p>Vậy tại sao hôm nay tôi lại giới thiệu về bower cho các bạn, đơn giản vì anh bạn đó của tôi đã sử dụng bower cho dự án của mình. Khi anh ta gởi source code cho tôi nó không hề có các thư viện nào như jquery, angulajs, boostrap… và anh ta bảo tôi cài vào đi.</p>
+<p>Lúc đó tôi mới mày mò lên các trang web để tải về các thư viện từ jquery, angularjs, boostrap …. rồi copy nó vào thư mục code.</p>
+<p>– Không! Không cần phải làm như vậy.</p>
+<p>Anh ta nói. “Chỉ cần sử dụng bower install “. Và quả nhiên, bower đã tự động cài hết các gói thư viện cho tôi. Thật tuyệt vời!</p>
+<p><img src="/images/bower-logo-300x300.png" alt="bower logo"></p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2013/12/07/quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower/" data-id="ciubaakqn001ckovl6gtp4f1s" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2013/12/07/quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bower/">Bower</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
+    <article id="post-viet-chuc-nang-upload-bang-ajax-voi-jquery-va-javascrip-chay" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/11/05/viet-chuc-nang-upload-bang-ajax-voi-jquery-va-javascrip-chay/" class="article-date">
+  <time datetime="2013-11-04T23:43:31.000Z" itemprop="datePublished">2013-11-05</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/11/05/viet-chuc-nang-upload-bang-ajax-voi-jquery-va-javascrip-chay/">Viết chức năng upload bằng ajax với jquery và javascript chay</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Trong bài viết này, tôi sẽ chỉ ra hai cách để tạo ajax upload. Cách thứ nhất sử dụng Jquery cùng với plugin <a href="http://jquery.malsup.com/form/#file-upload">Form Plugin</a> của nó và cách thứ hai dành cho bạn nào muốn mày mò vọc code để tự mình viết riêng phần upload chỉ dùng javacript. Ở bài viết này, tôi sử dụng PHP để viết phần server.</p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2013/11/05/viet-chuc-nang-upload-bang-ajax-voi-jquery-va-javascrip-chay/" data-id="ciubaakri001pkovlawp7el1y" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2013/11/05/viet-chuc-nang-upload-bang-ajax-voi-jquery-va-javascrip-chay/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jquery/">Jquery</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
+    <article id="post-bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/" class="article-date">
+  <time datetime="2013-10-23T23:49:01.000Z" itemprop="datePublished">2013-10-24</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/">Bắt sự kiện kích chuột bên ngoài một phần tử và kiểm tra phần tử ẩn/hiện bằng JQuery</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Ngày hôm nay, trong khi đang làm, tôi bắt gặp 2 trường hợp cần giải quyết với jquery. Trường hợp thứ nhất là bắt sự kiện khi người dùng kích chuột bên ngoài một phần tử và trường hợp thứ hai là kiểm tra một phần tử có đang hiển thị hay không.</p>
+<p>Cách giải quyết hai trường hợp này cũng khá đơn giản, nhưng tôi nghĩ nõ cũng sẽ làm ta mất một số thời gian nếu như chưa biết. Vì vậy tôi sẽ chia sẽ hai thủ thuật này ở đây.</p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/" data-id="ciubaakov0004kovl63oh1pql" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jquery/">Jquery</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
+    <article id="post-kiem-tra-mot-phan-tu-ton-tai-bang-jquery" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/" class="article-date">
+  <time datetime="2013-10-14T23:52:43.000Z" itemprop="datePublished">2013-10-15</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/">Kiểm tra một phần tử tồn tại bằng JQuery</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa.</p>
+<p>Ngay khi nảy ra câu hỏi tôi nghĩ ngay đến một cách kiểm tra đơn giản:</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="symbol">$</span>(<span class="string">'#exist'</span>)) &#123;</div><div class="line">  console.<span class="built-in">log</span>(<span class="string">'exist'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Nhưng thực tế thì cách trên hoàn toàn sai bởi vì khi sử dụng <code>$()</code>  nó luôn trả về một đối tượng cho dù không tồn tại phần tử ta muốn xác định thì nó cũng sẽ trả về một đối tượng rỗng.  Vì vậy điều kiện trong câu lệnh if  sẽ luôn luôn đúng.</p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/" data-id="ciubaakpo000ikovlgr9kiaag" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jquery/">Jquery</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
+    <article id="post-xoa-1-phan-tu-trong-mang-bang-javascript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/12/xoa-1-phan-tu-trong-mang-bang-javascript/" class="article-date">
+  <time datetime="2013-10-11T23:56:13.000Z" itemprop="datePublished">2013-10-12</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/12/xoa-1-phan-tu-trong-mang-bang-javascript/">Xóa 1 phần tử trong mảng bằng Javascript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Khi lập trình với javascript và một vài ngôn ngữ khác, có một thao tác tưởng chừng rất đơn giản nhưng lại luôn khiến tôi bối rối về cách thực hiện nó. Đó chính là Xóa một phần tử trong mảng.</p>
+<h1 id="Javascript-Splice"><a href="#Javascript-Splice" class="headerlink" title="Javascript: Splice"></a>Javascript: Splice</h1><p>Trong javascript, để xóa một phần tử trong mảng ta có thể dùng hàm <code>splice()</code></p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2013/10/12/xoa-1-phan-tu-trong-mang-bang-javascript/" data-id="ciubaakrl001rkovlu0beftg3" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2013/10/12/xoa-1-phan-tu-trong-mang-bang-javascript/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
+    <article id="post-doi-doi-tuong-jquery-sang-dom" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/09/doi-doi-tuong-jquery-sang-dom/" class="article-date">
+  <time datetime="2013-10-09T07:48:10.000Z" itemprop="datePublished">2013-10-09</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/09/doi-doi-tuong-jquery-sang-dom/">Đổi đối tượng JQuery sang DOM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Trong đối tượng JQuery nó đã có chứa thành phần DOM. Để lấy được thành phần DOM từ đối tượng JQuery ta có thể sử dụng phương thức get() .</p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2013/10/09/doi-doi-tuong-jquery-sang-dom/" data-id="ciubaakon0002kovl3cg7mjwi" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2013/10/09/doi-doi-tuong-jquery-sang-dom/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jquery/">Jquery</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
+    <article id="post-trich-xuat-du-lieu-web-bang-php-voi-pqlite" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/" class="article-date">
+  <time datetime="2013-09-14T07:58:32.000Z" itemprop="datePublished">2013-09-14</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/">Trích xuất dữ liệu web bằng PHP với PQLite</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Đã bao giờ bạn muốn trích xuất thông tin từ một trang web bằng PHP, chẳng hạn như giá cổ phiếu, giá vàng, nội dung bài báo… công việc đầu tiên là bạn sẽ đọc nội dung của trang web đó rồi tìm đến phần tử chứa nội dung cần lấy. Hẳn các bạn đã từng thử nhiều cách bằng hàm tìm chuỗi hoặc dùng biểu thức chính quy và bạn thấy nó thật phức tạp, hoặc nếu trên trang web đó có thay đổi lại cấu trúc thì chúng ta cũng phải rất vất vã để sửa lại hàm lấy thông tin của mình.</p>
+<p>Và rồi bạn tự hỏi rằng, ước gì mình có thể thao tác với nội dung trang web đó đơn giản như bạn đã làm với JQuery, bạn có thể lấy các thẻ bằng ID hoặc là class của nó.</p>
+<p>Và đây, tôi xin giới thiệu đến cho các bạn một thư viện PHP có thể giúp bạn làm việc với các phần tử HTML đơn giản như các bạn đang làm với Jquery. Các bạn có thể đi qua từng phần tử, lấy nội dung của nó, thậm chí có thể thay đổi nội dung bên trong của 1 phần tử, thay đổi class,…</p>
+<p>PQlite sẽ giúp chúng ta làm phần khó.</p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/" data-id="ciubaakqv001ikovlnssyuf6h" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Scrape/">Scrape</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    </nav>
+  
+
+          </div>
+        </section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Like my blog?</h3>
+    <div class="widget">
+        <div id="mc_embed_signup">
+            <form action="//saysua.us13.list-manage.com/subscribe/post?u=f73e6f67cd2f017d41a3e3d41&amp;id=f866d9a20e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate">
+                <div id="mc_embed_signup_scroll">
+            <div class="mc-field-group">
+                <label>Enter your email to subscribe my blog.</label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address" aria-required="true">
+            </div>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f73e6f67cd2f017d41a3e3d41_f866d9a20e" tabindex="-1" value=""></div>
+                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 12px;">Ajax</a> <a href="/tags/Angular2/" style="font-size: 18px;">Angular2</a> <a href="/tags/Angularjs/" style="font-size: 12px;">Angularjs</a> <a href="/tags/Bower/" style="font-size: 12px;">Bower</a> <a href="/tags/Facebook/" style="font-size: 12px;">Facebook</a> <a href="/tags/Gulp/" style="font-size: 12px;">Gulp</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Jquery/" style="font-size: 18px;">Jquery</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/PHP/" style="font-size: 14px;">PHP</a> <a href="/tags/Scrape/" style="font-size: 12px;">Scrape</a> <a href="/tags/TeamCity/" style="font-size: 12px;">TeamCity</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/07/teamcity-build-agent-disconnected/">TeamCity – Build agent disconnected</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/19/nodejs-module-cache-trying/">Nodejs Module Caching</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/01/nodejs-request-Error-socket-hang-up-code-ECONNRESET/">Nodejs - Request - Error socket hang up code - ECONNRESET</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/">Làm quen với Angular 2 - Zoo app - part 3 - Dependency Injection</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/">Làm quen với Angular 2 - Zoo app - part 2 - Form</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Thach Nguyen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+      Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="http://app.saysua.com" class="mobile-nav-link">Apps</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'saysua';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

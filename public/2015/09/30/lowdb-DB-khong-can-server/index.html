@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Lowdb - DB không cần server | Saysua Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Từ yêu cầu cá nhân, mình cần  tạo một server API giả bằng nodejs để phục vụ cho việc làm frontend. Mình có ý muốn tìm một thư viện DB nhỏ gọn, dễ cài đặt sử dụng, hỗ trợ JSON, chỉ dựa trên file text đ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lowdb - DB không cần server">
+<meta property="og:url" content="http://saysua.com/2015/09/30/lowdb-DB-khong-can-server/index.html">
+<meta property="og:site_name" content="Saysua Blog">
+<meta property="og:description" content="Từ yêu cầu cá nhân, mình cần  tạo một server API giả bằng nodejs để phục vụ cho việc làm frontend. Mình có ý muốn tìm một thư viện DB nhỏ gọn, dễ cài đặt sử dụng, hỗ trợ JSON, chỉ dựa trên file text đ">
+<meta property="og:updated_time" content="2016-10-16T01:42:23.797Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lowdb - DB không cần server">
+<meta name="twitter:description" content="Từ yêu cầu cá nhân, mình cần  tạo một server API giả bằng nodejs để phục vụ cho việc làm frontend. Mình có ý muốn tìm một thư viện DB nhỏ gọn, dễ cài đặt sử dụng, hỗ trợ JSON, chỉ dựa trên file text đ">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+   
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+  #mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; }
+  #mc_embed_signup form {padding: 0px;}
+  #mc_embed_signup .button {    background-color: #26C9FF;}
+  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+  
+</head>
+<body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=166177166899797";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <img class="author-avatar"/>
+          <div class="text">Saysua Blog</div>
+        </a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+          <nav id="main-nav">
+  <a id="main-nav-toggle" class="nav-icon"></a>
+  
+    <a class="main-nav-link" href="/">Home</a>
+  
+    <a class="main-nav-link" href="http://app.saysua.com">Apps</a>
+  
+    <a class="main-nav-link" href="/about">About</a>
+  
+</nav>
+          <div class="content">
+            <article id="post-lowdb-DB-khong-can-server" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/30/lowdb-DB-khong-can-server/" class="article-date">
+  <time datetime="2015-09-30T02:34:51.000Z" itemprop="datePublished">2015-09-30</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Lowdb - DB không cần server
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Từ yêu cầu cá nhân, mình cần  tạo một server API giả bằng nodejs để phục vụ cho việc làm frontend. Mình có ý muốn tìm một thư viện DB nhỏ gọn, dễ cài đặt sử dụng, hỗ trợ JSON, chỉ dựa trên file text đơn giản, chứ không cần phải cài đặt server như mongoDB và nếu thao tác giống như mongoDB thì tốt.</p>
+<p>Sau một hồi dạo quanh thì mình đã tìm thấy <a href="https://github.com/typicode/lowdb" target="_blank" rel="external">LowDB</a></p>
+<blockquote><p>Need a quick way to get a local database?</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Cai-dat"><a href="#Cai-dat" class="headerlink" title="Cài đặt"></a>Cài đặt</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> lowdb <span class="comment">--save</span></div></pre></td></tr></table></figure>
+<h1 id="Su-dung"><a href="#Su-dung" class="headerlink" title="Sử dụng"></a>Sử dụng</h1><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">var</span> low = require(<span class="string">'lowdb'</span>)</div><div class="line"><span class="selector-tag">var</span> db = low(<span class="string">'db.json'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="title">db</span><span class="params">(<span class="string">'posts'</span>)</span></span>.push(&#123; title: <span class="string">'lowdb is awesome'</span>&#125;)</div></pre></td></tr></table></figure>
+<p>Ở đây, dự liệu sẽ được tự động lưu vào file <code>db.json</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"posts"</span>: [</div><div class="line">    &#123; <span class="attr">"title"</span>: <span class="string">"lowdb is awesome"</span> &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Mot-vai-thao-tac-su-dung-co-ban"><a href="#Mot-vai-thao-tac-su-dung-co-ban" class="headerlink" title="Một vài thao tác sử dụng cơ bản"></a>Một vài thao tác sử dụng cơ bản</h1><p><code>LowDB</code> này sử dụng <code>lodash</code>, nên thao tác với API của nó cũng giống như thao tác với API của <code>lodash</code> vậy.</p>
+<h2 id="Them-du-lieu"><a href="#Them-du-lieu" class="headerlink" title="Thêm dữ liệu"></a>Thêm dữ liệu</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">db</span>(<span class="string">'users'</span>)<span class="selector-class">.push</span>(&#123; <span class="attribute">name</span>: <span class="string">'Thach Nguyen'</span>, <span class="attribute">email</span>: <span class="string">'thach@email.com'</span>, <span class="attribute">role</span>: <span class="string">'admin'</span>&#125;);</div></pre></td></tr></table></figure>
+<h2 id="Tim-1-doi-tuong"><a href="#Tim-1-doi-tuong" class="headerlink" title="Tìm 1 đối tượng"></a>Tìm 1 đối tượng</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">db</span>(<span class="string">'users'</span>)<span class="selector-class">.find</span>(&#123;<span class="attribute">email</span>: <span class="string">'thach@email.com'</span>&#125;);</div></pre></td></tr></table></figure>
+<h2 id="Tim-nhieu-doi-tuong"><a href="#Tim-nhieu-doi-tuong" class="headerlink" title="Tìm nhiều đối tượng"></a>Tìm nhiều đối tượng</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">db</span><span class="params">(<span class="string">'users'</span>)</span></span>.<span class="attribute">filter</span>(&#123;role: <span class="string">'admin'</span>&#125;);</div></pre></td></tr></table></figure>
+<h2 id="Cap-nhat-du-lieu"><a href="#Cap-nhat-du-lieu" class="headerlink" title="Cập nhật dữ liệu"></a>Cập nhật dữ liệu</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">db</span>(<span class="string">'users'</span>)</div><div class="line">  <span class="selector-class">.chain</span>()</div><div class="line">  <span class="selector-class">.find</span>(&#123;<span class="attribute">email</span>: <span class="string">'thach@email.com'</span>&#125;)</div><div class="line">  <span class="selector-class">.assign</span>(&#123;<span class="attribute">role</span>: <span class="string">'member'</span>&#125;)</div><div class="line">  <span class="selector-class">.value</span>();</div></pre></td></tr></table></figure>
+<h2 id="Xoa-du-lieu"><a href="#Xoa-du-lieu" class="headerlink" title="Xóa dữ liệu"></a>Xóa dữ liệu</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">db</span>(<span class="string">'users'</span>)<span class="selector-class">.remove</span>(&#123;<span class="attribute">role</span>: <span class="string">'member'</span>&#125;);</div></pre></td></tr></table></figure>
+<h2 id="Lay-so-luong-users"><a href="#Lay-so-luong-users" class="headerlink" title="Lấy số lượng users"></a>Lấy số lượng users</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">db</span>(<span class="string">'users'</span>)<span class="selector-class">.size</span>();</div></pre></td></tr></table></figure>
+<h2 id="Ho-tro-ID"><a href="#Ho-tro-ID" class="headerlink" title="Hỗ trợ ID"></a>Hỗ trợ ID</h2><p>Có 2 cách tạo ID cho dữ liệu.</p>
+<ul>
+<li>Sử dụng <a href="https://github.com/typicode/underscore-db" target="_blank" rel="external">underscore-db</a></li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">var</span> db = low(<span class="string">'db.json'</span>)</div><div class="line"></div><div class="line">db._.mixin(require(<span class="string">'underscore-db'</span>))</div><div class="line"></div><div class="line"><span class="selector-tag">var</span> songId = db(<span class="string">'songs'</span>).insert(&#123; title: <span class="string">'low!'</span> &#125;)<span class="selector-class">.id</span></div><div class="line"><span class="selector-tag">var</span> song   = db(<span class="string">'songs'</span>).getById(songId)</div></pre></td></tr></table></figure>
+<ul>
+<li>Dùng <a href="https://github.com/broofa/node-uuid" target="_blank" rel="external">uuid</a></li>
+</ul>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> uuid = <span class="built_in">require</span>(<span class="string">'uuid'</span>)</div><div class="line"></div><div class="line"><span class="built_in">var</span> songId = db(<span class="string">'songs'</span>).push(&#123; <span class="attribute">id:</span><span class="string"> uuid</span>(), <span class="attribute">title</span>: <span class="string">'low!'</span> &#125;).id</div><div class="line"><span class="built_in">var</span> song   = db(<span class="string">'songs'</span>).find(&#123; <span class="attribute">id:</span><span class="string"> songId</span> &#125;)</div></pre></td></tr></table></figure>
+<h1 id="Ket"><a href="#Ket" class="headerlink" title="Kết"></a>Kết</h1><p>Theo tác giả của lowDB thì:</p>
+<p>Nếu các bạn muốn tìm một DB nhanh gọn, không cần cài đặt server thì <code>lowdb</code> này là một lựa chọn hợp lý. Còn bình thường thì cứ dùng MongoDB hoặc các DB khác. :)</p>
+<p>Các bạn có thể đọc thêm cách sử dụng ở đây: <a href="https://github.com/typicode/lowdb" target="_blank" rel="external">https://github.com/typicode/lowdb</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2015/09/30/lowdb-DB-khong-can-server/" data-id="ciubaakq80011kovl5kqhizmb" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2015/09/30/lowdb-DB-khong-can-server/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/02/lam-quen-voi-Angular2-Tao-mot-ung-dung-don-gian-bang-TypeScript/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Làm quen với Angular 2 - Tạo một ứng dụng bằng TypeScript
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/08/import-mysql-tu-file-zip/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Import mysql từ file zip</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<hr>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+          </div>
+        </section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Like my blog?</h3>
+    <div class="widget">
+        <div id="mc_embed_signup">
+            <form action="//saysua.us13.list-manage.com/subscribe/post?u=f73e6f67cd2f017d41a3e3d41&amp;id=f866d9a20e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate">
+                <div id="mc_embed_signup_scroll">
+            <div class="mc-field-group">
+                <label>Enter your email to subscribe my blog.</label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address" aria-required="true">
+            </div>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f73e6f67cd2f017d41a3e3d41_f866d9a20e" tabindex="-1" value=""></div>
+                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 12px;">Ajax</a> <a href="/tags/Angular2/" style="font-size: 18px;">Angular2</a> <a href="/tags/Angularjs/" style="font-size: 12px;">Angularjs</a> <a href="/tags/Bower/" style="font-size: 12px;">Bower</a> <a href="/tags/Facebook/" style="font-size: 12px;">Facebook</a> <a href="/tags/Gulp/" style="font-size: 12px;">Gulp</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Jquery/" style="font-size: 18px;">Jquery</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/PHP/" style="font-size: 14px;">PHP</a> <a href="/tags/Scrape/" style="font-size: 12px;">Scrape</a> <a href="/tags/TeamCity/" style="font-size: 12px;">TeamCity</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/07/teamcity-build-agent-disconnected/">TeamCity – Build agent disconnected</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/19/nodejs-module-cache-trying/">Nodejs Module Caching</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/01/nodejs-request-Error-socket-hang-up-code-ECONNRESET/">Nodejs - Request - Error socket hang up code - ECONNRESET</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/">Làm quen với Angular 2 - Zoo app - part 3 - Dependency Injection</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/">Làm quen với Angular 2 - Zoo app - part 2 - Form</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Thach Nguyen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+      Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="http://app.saysua.com" class="mobile-nav-link">Apps</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'saysua';
+  
+  var disqus_url = 'http://saysua.com/2015/09/30/lowdb-DB-khong-can-server/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

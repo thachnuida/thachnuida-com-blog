@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Làm quen với Angular 2 - Zoo app - part 3 - Dependency Injection | Saysua Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Trong phần này, chúng ta sẽ cùng nhau tạo một service AnimalService để quản lý danh sách các con vật và nhúng nó vào AppComponent.
+Ta tạo file animal-service.ts cùng cấp với app.ts:
+123456789101112131">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Làm quen với Angular 2 - Zoo app - part 3 - Dependency Injection">
+<meta property="og:url" content="http://saysua.com/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/index.html">
+<meta property="og:site_name" content="Saysua Blog">
+<meta property="og:description" content="Trong phần này, chúng ta sẽ cùng nhau tạo một service AnimalService để quản lý danh sách các con vật và nhúng nó vào AppComponent.
+Ta tạo file animal-service.ts cùng cấp với app.ts:
+123456789101112131">
+<meta property="og:updated_time" content="2016-10-16T02:45:35.935Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Làm quen với Angular 2 - Zoo app - part 3 - Dependency Injection">
+<meta name="twitter:description" content="Trong phần này, chúng ta sẽ cùng nhau tạo một service AnimalService để quản lý danh sách các con vật và nhúng nó vào AppComponent.
+Ta tạo file animal-service.ts cùng cấp với app.ts:
+123456789101112131">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+   
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+  #mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; }
+  #mc_embed_signup form {padding: 0px;}
+  #mc_embed_signup .button {    background-color: #26C9FF;}
+  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+  
+</head>
+<body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=166177166899797";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <img class="author-avatar"/>
+          <div class="text">Saysua Blog</div>
+        </a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+          <nav id="main-nav">
+  <a id="main-nav-toggle" class="nav-icon"></a>
+  
+    <a class="main-nav-link" href="/">Home</a>
+  
+    <a class="main-nav-link" href="http://app.saysua.com">Apps</a>
+  
+    <a class="main-nav-link" href="/about">About</a>
+  
+</nav>
+          <div class="content">
+            <article id="post-lam-quen-voi-angular2-zoo-app-part-3-dependency-injection" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/" class="article-date">
+  <time datetime="2015-12-14T04:05:24.000Z" itemprop="datePublished">2015-12-14</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Làm quen với Angular 2 - Zoo app - part 3 - Dependency Injection
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Trong phần này, chúng ta sẽ cùng nhau tạo một service <code>AnimalService</code> để quản lý danh sách các con vật và nhúng nó vào <code>AppComponent</code>.</p>
+<p>Ta tạo file <code>animal-service.ts</code> cùng cấp với <code>app.ts</code>:</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">export <span class="class"><span class="keyword">class</span> <span class="title">AnimalService</span> </span>&#123;</div><div class="line">  animals: [];</div><div class="line"></div><div class="line">  constructor() &#123;</div><div class="line">    <span class="keyword">this</span>.animals = <span class="type">ANIMALS</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  getAnimals() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.animals;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  addAnimal(<span class="class"><span class="keyword">type</span></span>: <span class="type">String</span>, name: <span class="type">String</span>) &#123;</div><div class="line">    <span class="keyword">this</span>.animals.push(&#123; <span class="symbol">'typ</span>e': <span class="class"><span class="keyword">type</span>, '<span class="title">name</span>'</span>: name&#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> <span class="type">ANIMALS</span> = [</div><div class="line">  &#123; <span class="class"><span class="keyword">type</span></span>: <span class="symbol">'Tige</span>r', name: <span class="symbol">'Bob</span>o'&#125;,</div><div class="line">  &#123; <span class="class"><span class="keyword">type</span></span>: <span class="symbol">'Do</span>g', name: <span class="symbol">'Mi</span>c'&#125;,</div><div class="line">  &#123; <span class="class"><span class="keyword">type</span></span>: <span class="symbol">'Elepha</span>n', name: <span class="symbol">'Bi</span>g'&#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>Một cách đơn giản, <code>service</code> trong Angular 2 chỉ là một class bình thường. Ở đây, ta có class <code>AnimalService</code> nó có hai phương thức sẽ được sử dụng trong <code>AppComponent</code> là <code>getAnimals</code> và <code>addAnimal</code>.</p>
+<p>Trong <code>AppComponent</code> ta inject <code>AnimalService</code> vào như sau:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;AnimalService&#125; from <span class="string">'./animal-service'</span>;</div><div class="line"></div><div class="line">...</div><div class="line"><span class="meta">@Component(&#123;</span></div><div class="line">  ...</div><div class="line">&#125;)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppComponent</span> </span>&#123;</div><div class="line">  <span class="keyword">public</span> selectedAnimal;</div><div class="line">  <span class="keyword">public</span> newAnimal = &#123;</div><div class="line">    type: <span class="string">''</span>,</div><div class="line">    name: <span class="string">''</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  animals = [];</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(<span class="keyword">private</span> animalService: AnimalService) &#123;</div><div class="line">    <span class="keyword">this</span>.animals = animalService.getAnimals();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  select(animal) &#123; <span class="keyword">this</span>.selectedAnimal = animal; &#125;</div><div class="line"></div><div class="line">  getSelectedClass(animal) &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="string">'selected'</span>: animal === <span class="keyword">this</span>.selectedAnimal</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  onSubmit() &#123;</div><div class="line">    <span class="keyword">this</span>.animalService.addAnimal(<span class="keyword">this</span>.newAnimal.type, <span class="keyword">this</span>.newAnimal.name);</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.newAnimal.type = <span class="string">''</span>;</div><div class="line">    <span class="keyword">this</span>.newAnimal.name = <span class="string">''</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">bootstrap(AppComponent, [AnimalService]);</div></pre></td></tr></table></figure>
+<p>Trong <code>constructor</code> của <code>AppComponent</code> ta thêm vào tham số <code>animalService</code>, từ khóa <code>private</code> trước tham số sẽ báo cho TypeScript biết để tự động gán <code>animalService</code> trở thành một private member của <code>AppComponent</code>. Do đó trong hàm <code>onSubmit</code> ta có thể sử dụng <code>this.animalService</code>.</p>
+<p>Angular 2 được xây dựng đi kèm với nó là <code>Dependency Injection framwork</code>, framwork này sẽ tự động nhúng một instance của <code>AnimalService</code> vào <code>AppComponent</code>. Tuy nhiên để được như vậy, ta cũng cần phải đồng thời khai báo <code>AnimalService</code> khi bootstrap App.</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bootstrap(<span class="name">AppComponent</span>, [AnimalService])<span class="comment">;</span></div></pre></td></tr></table></figure>
+<h1 id="Nhung-service-vao-service"><a href="#Nhung-service-vao-service" class="headerlink" title="Nhúng service vào service"></a>Nhúng service vào service</h1><p>Nếu <code>AnimalService</code> của chúng ta cũng cần một service khác thì sao, ví dụ <code>LogService</code>. Khi đó <code>AnimalService</code> có thể như thế này:</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;<span class="type">Injectable</span>&#125; from <span class="symbol">'angular2</span>/angular2';</div><div class="line"><span class="keyword">import</span> &#123;<span class="type">LogService</span>&#125; from './log-service';</div><div class="line"></div><div class="line"><span class="meta">@Injectable</span>()</div><div class="line">export <span class="class"><span class="keyword">class</span> <span class="title">AnimalService</span> </span>&#123;</div><div class="line">  animals: [];</div><div class="line"></div><div class="line">  constructor(<span class="keyword">private</span> logger: <span class="type">LogService</span>) &#123;</div><div class="line">    <span class="keyword">this</span>.animals = <span class="type">ANIMALS</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  getAnimals() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.animals;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  addAnimal(<span class="class"><span class="keyword">type</span></span>: <span class="type">String</span>, name: <span class="type">String</span>) &#123;</div><div class="line">    <span class="keyword">this</span>.logger.log(<span class="symbol">'Adding</span> <span class="keyword">new</span> animal.');</div><div class="line">    <span class="keyword">this</span>.animals.push(&#123; <span class="symbol">'typ</span>e': <span class="class"><span class="keyword">type</span>, '<span class="title">name</span>'</span>: name&#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> <span class="type">ANIMALS</span> = [</div><div class="line">  &#123; <span class="class"><span class="keyword">type</span></span>: <span class="symbol">'Tige</span>r', name: <span class="symbol">'Bob</span>o'&#125;,</div><div class="line">  &#123; <span class="class"><span class="keyword">type</span></span>: <span class="symbol">'Do</span>g', name: <span class="symbol">'Mi</span>c'&#125;,</div><div class="line">  &#123; <span class="class"><span class="keyword">type</span></span>: <span class="symbol">'Elepha</span>n', name: <span class="symbol">'Bi</span>g'&#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+<p>Như vậy, để inject một service vào service khác, ta nhớ phải sử dụng <code>@Injectable()</code>.</p>
+<h1 id="Tong-ket"><a href="#Tong-ket" class="headerlink" title="Tổng kết"></a>Tổng kết</h1><p>Trên đây là cách đơn giản để inject dependency vào Angular2. Thực tế có nhiều cách khác nhau để tạo một instance của service tùy từng mục đích mà chúng ta sẽ cùng nhau tìm hiểu trong những phần sau.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/" data-id="ciubaakq1000xkovluj8nte1t" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular2/">Angular2</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/01/nodejs-request-Error-socket-hang-up-code-ECONNRESET/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Nodejs - Request - Error socket hang up code - ECONNRESET
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Làm quen với Angular 2 - Zoo app - part 2 - Form</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<hr>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+          </div>
+        </section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Like my blog?</h3>
+    <div class="widget">
+        <div id="mc_embed_signup">
+            <form action="//saysua.us13.list-manage.com/subscribe/post?u=f73e6f67cd2f017d41a3e3d41&amp;id=f866d9a20e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate">
+                <div id="mc_embed_signup_scroll">
+            <div class="mc-field-group">
+                <label>Enter your email to subscribe my blog.</label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address" aria-required="true">
+            </div>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f73e6f67cd2f017d41a3e3d41_f866d9a20e" tabindex="-1" value=""></div>
+                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 12px;">Ajax</a> <a href="/tags/Angular2/" style="font-size: 18px;">Angular2</a> <a href="/tags/Angularjs/" style="font-size: 12px;">Angularjs</a> <a href="/tags/Bower/" style="font-size: 12px;">Bower</a> <a href="/tags/Facebook/" style="font-size: 12px;">Facebook</a> <a href="/tags/Gulp/" style="font-size: 12px;">Gulp</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Jquery/" style="font-size: 18px;">Jquery</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/PHP/" style="font-size: 14px;">PHP</a> <a href="/tags/Scrape/" style="font-size: 12px;">Scrape</a> <a href="/tags/TeamCity/" style="font-size: 12px;">TeamCity</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/07/teamcity-build-agent-disconnected/">TeamCity – Build agent disconnected</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/19/nodejs-module-cache-trying/">Nodejs Module Caching</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/01/nodejs-request-Error-socket-hang-up-code-ECONNRESET/">Nodejs - Request - Error socket hang up code - ECONNRESET</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/">Làm quen với Angular 2 - Zoo app - part 3 - Dependency Injection</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/">Làm quen với Angular 2 - Zoo app - part 2 - Form</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Thach Nguyen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+      Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="http://app.saysua.com" class="mobile-nav-link">Apps</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'saysua';
+  
+  var disqus_url = 'http://saysua.com/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

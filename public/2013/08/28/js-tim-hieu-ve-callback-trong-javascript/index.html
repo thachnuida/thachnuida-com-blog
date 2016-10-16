@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tìm hiểu về Callback trong JavaScript | Saysua Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Tôi bắt đầu chú ý đến callback của javascript trong thời gian làm đồ án tốt nghiệp ra trường. Khi đó đọc thông tin thấy js cũng viết server side được bằng cách sử dụng node.js, thấy cũng hay hay thế l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tìm hiểu về Callback trong JavaScript">
+<meta property="og:url" content="http://saysua.com/2013/08/28/js-tim-hieu-ve-callback-trong-javascript/index.html">
+<meta property="og:site_name" content="Saysua Blog">
+<meta property="og:description" content="Tôi bắt đầu chú ý đến callback của javascript trong thời gian làm đồ án tốt nghiệp ra trường. Khi đó đọc thông tin thấy js cũng viết server side được bằng cách sử dụng node.js, thấy cũng hay hay thế l">
+<meta property="og:updated_time" content="2016-10-16T01:41:28.378Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tìm hiểu về Callback trong JavaScript">
+<meta name="twitter:description" content="Tôi bắt đầu chú ý đến callback của javascript trong thời gian làm đồ án tốt nghiệp ra trường. Khi đó đọc thông tin thấy js cũng viết server side được bằng cách sử dụng node.js, thấy cũng hay hay thế l">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+   
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+  #mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; }
+  #mc_embed_signup form {padding: 0px;}
+  #mc_embed_signup .button {    background-color: #26C9FF;}
+  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+  
+</head>
+<body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=166177166899797";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <img class="author-avatar"/>
+          <div class="text">Saysua Blog</div>
+        </a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+          <nav id="main-nav">
+  <a id="main-nav-toggle" class="nav-icon"></a>
+  
+    <a class="main-nav-link" href="/">Home</a>
+  
+    <a class="main-nav-link" href="http://app.saysua.com">Apps</a>
+  
+    <a class="main-nav-link" href="/about">About</a>
+  
+</nav>
+          <div class="content">
+            <article id="post-js-tim-hieu-ve-callback-trong-javascript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/08/28/js-tim-hieu-ve-callback-trong-javascript/" class="article-date">
+  <time datetime="2013-08-28T08:31:19.000Z" itemprop="datePublished">2013-08-28</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Tìm hiểu về Callback trong JavaScript
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Tôi bắt đầu chú ý đến callback của javascript trong thời gian làm đồ án tốt nghiệp ra trường. Khi đó đọc thông tin thấy js cũng viết server side được bằng cách sử dụng node.js, thấy cũng hay hay thế là dùng nó luôn. Và vậy là tôi bắt đầu bị callback làm cho đau đầu vì nó quá khác với cách viết code của những ngôn ngữ đã học như C hay Java. Từ khi biết về callback tôi mới nhận ra rằng thì ra mình đã sử dụng nó rất nhiều khi viết code với jQuery. Chắc hẳn ở đây, nhiều bạn đã sử dụng callback nhưng chưa để ý về nó. Trong khả năng của mình, tôi sẽ trình bày cho các bạn những kiến thức cơ bản về callback trong javascript.</p>
+<a id="more"></a>
+<h1 id="Callback-no-la-cai-gi"><a href="#Callback-no-la-cai-gi" class="headerlink" title="Callback nó là cái gì?"></a>Callback nó là cái gì?</h1><p>Theo định nghĩa trên wikipedia: Callback là một phần mã thực thi được truyền vào như một tham số của một đoạn mã khác, nó sẽ được gọi lại (thực thi) tại một thời điểm thích hợp.</p>
+<p>Chúng ta hãy cùng nhìn qua đoạn code jquery dưới đây:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$.get(<span class="string">'ajax/test.html'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">  $(<span class="string">'.result'</span>).html(data);</div><div class="line">  alert(<span class="string">'Load was performed.'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Đây là một lệnh jQuery, nó sẽ gọi ajax với phương thức GET, lệnh này nhận 2 tham số: Đường dẫn để gọi ajax lấy nội dung và một function sẽ được thực thi khi lời gọi ajax thành công.</p>
+<p>Tôi tạm giải thích cơ chế hoạt động của đoạn lệnh trên như sau:</p>
+<ul>
+<li><p>Trước tiên một lời gọi ajax được thực hiện để lấy nội dung của file ajax/test.html</p>
+</li>
+<li><p>Sau khi lời gọi ajax thành công nó sẽ thực thi function được truyền vào với tham số data  chính là nội dung của file ajax/test.html đã lấy về.</p>
+</li>
+</ul>
+<p>Do đó, tùy thuộc vào tốc độ lấy nội dung file  mà callback function sẽ được thực hiện sớm hay muộn.</p>
+<h1 id="Function-la-object"><a href="#Function-la-object" class="headerlink" title="Function là object"></a>Function là object</h1><p>Đến đây, tôi có một thắc mắc: Bằng cách nào trong  javascript, function lại có thể được truyền vào như một tham số?</p>
+<p>Bởi vì, trong javascript, function thực chất là một đối tượng (object), cụ thể hơn là một Function object . Nó được tạo ra bởi constructorFunction . Function object chứa một chuỗi là nội dung của function, như vậy thân của một function thực ra chỉ là một chuỗi kí tự.</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cong = <span class="function"><span class="keyword">Function</span><span class="params">(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'return a+b'</span>)</span>;</span></div><div class="line">cong(<span class="number">3</span>,<span class="number">4</span>) <span class="comment">// =&gt; 7</span></div></pre></td></tr></table></figure>
+<p>Chính vì function cở bản chỉ là một object nên ta có thể truyền nó như một tham số vào function khác.</p>
+<h1 id="Viet-mot-callback"><a href="#Viet-mot-callback" class="headerlink" title="Viết một callback"></a>Viết một callback</h1><p>Sau đây là một ví dụ function sử dụng callback, bạn có thể theo nó để viết riêng một function sử dụng callback cho mình.</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">goHome</span><span class="params">(vehicle, callback)</span> </span>&#123;</div><div class="line">    alert(<span class="string">"I'm going home by "</span> + vehicle);</div><div class="line"></div><div class="line">    <span class="keyword">callback</span>();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">playGame</span><span class="params">()</span> </span>&#123;</div><div class="line">    alert(<span class="string">"I'm playing game"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">goHome(<span class="string">"bicycle"</span>, playGame);</div></pre></td></tr></table></figure>
+<p>Ở đây, ta có function <code>goHome</code>  nhận 2 tham số với tham số thứ 2 là một callback function. Khi ta chạy function <code>goHome</code> , trước tiên nó sẽ hiển thị một thông báo, sau đó nó gọi đến callback function được truyền vào. Ta để ý ở đây, tham số truyền vào là callback  không có dấu ngoặc, nó được thực thi trong function <code>goHome</code>  bằng cách thêm dấu ngoặc vào sau.</p>
+<p>Câu lệnh cuối cùng chính là câu lệnh thực thi function <code>goHome</code> , với callback truyền vào là tên function playGame  được định nghĩa ở trên, function <code>playGame</code>  khi thực thi nó hiện ra thông báo “I’m playing game”.</p>
+<p>Bạn có thể chạy thử đoạn code trên tại đây.</p>
+<h1 id="Neu-khong-truyen-callback-thi-sao"><a href="#Neu-khong-truyen-callback-thi-sao" class="headerlink" title="Nếu không truyền callback thì sao?"></a>Nếu không truyền callback thì sao?</h1><p>Bây giờ ta chạy function goHome  ở trên mà không truyền vào tham số thứ 2.</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">goHome</span><span class="params">(vehicle, callback)</span> <span class="comment">&#123;</span></span></div><div class="line">    alert("I'm going home by " + vehicle);</div><div class="line"></div><div class="line">    callback();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="title">goHome</span><span class="params">("bicycle")</span>;</div></pre></td></tr></table></figure>
+<p>Nếu bạn dùng trình duyệt Chrom và mở Developer Tool (Ctrl +Shift + J), khi chạy đoạn lệnh trên sẽ thấy một thông báo lỗi:</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Uncaught TypeError: undefined is <span class="keyword">not</span> <span class="keyword">a</span> <span class="function"><span class="keyword">function</span></span></div></pre></td></tr></table></figure>
+<p>Chạy thử ví dụ ở đây. Nhớ bật Developer Tool để xem thông báo lỗi.</p>
+<p>Nếu bạn muốn chương trình chỉ thực thi callback khi nó được thực sự truyền vào bạn có thể kiểm tra nó có tồn tại hay không trước khi gọi:</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">goHome</span><span class="params">(vehicle, callback)</span> </span>&#123;</div><div class="line">    alert(<span class="string">"I'm going home by "</span> + vehicle);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">callback</span>)</div><div class="line">        <span class="keyword">callback</span>();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Để cho chắc chắn nó thực sự là một function được truyền vào, ta có thể kiểm tra kiểu của nó bằng lệnh <code>typeOf</code>.</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">goHome</span><span class="params">(vehicle, callback)</span> </span>&#123;</div><div class="line">    alert(<span class="string">"I'm going home by "</span> + vehicle);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">callback</span> &amp;&amp; typeOf(<span class="keyword">callback</span>) === <span class="string">"function"</span>)</div><div class="line">        <span class="keyword">callback</span>();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Truyen-tham-so-cho-callback"><a href="#Truyen-tham-so-cho-callback" class="headerlink" title="Truyền tham số cho callback"></a>Truyền tham số cho callback</h1><p>Trong ví dụ ở trên, ta đã gọi function callback <code>playGame</code> mà không truyền cho nó một tham số nào cả. Tuy nhiên ta muốn gọi <code>playGame</code> với một trò chơi cụ thể thì làm thế nào? Đơn giản là truyền tham số cho nó như những function bình thường.</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">goHome</span><span class="params">(vehicle, callback)</span> </span>&#123;</div><div class="line">    alert(<span class="string">"I'm going home by "</span> + vehicle);</div><div class="line"></div><div class="line">    <span class="keyword">callback</span>(<span class="string">"Naruto"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">playGame</span><span class="params">(gameName)</span> </span>&#123;</div><div class="line">    alert(<span class="string">"I'm playing game "</span> + gameName);</div><div class="line">&#125;</div><div class="line"></div><div class="line">goHome(<span class="string">"bicycle"</span>, playGame);</div></pre></td></tr></table></figure>
+<p>Bạn có thể chạy thử ví dụ trên ở đây.</p>
+<h1 id="Tong-ket"><a href="#Tong-ket" class="headerlink" title="Tổng kết"></a>Tổng kết</h1><p>Trên đây là những trình bày về callback trong javascript, hy vọng nó sẽ giúp cho các bạn hiểu thêm về một khái niệm mới khi lập trình với javascript. Những thông tin này vẫn còn ở mức cơ bản, hẳn nhiều bạn có kinh nghiệm và hiểu biết sâu về nó sẽ thấy thiếu sót. Vì vậy mình rất mong được sự đóng góp hoặc trao đổi thêm của các bạn về vấn đề này.</p>
+<h1 id="Bai-viet-co-tham-khao-tu"><a href="#Bai-viet-co-tham-khao-tu" class="headerlink" title="Bài viết có tham khảo từ"></a>Bài viết có tham khảo từ</h1><ul>
+<li><a href="http://recurial.com/programming/understanding-callback-functions-in-javascript/" target="_blank" rel="external">http://recurial.com/programming/understanding-callback-functions-in-javascript/</a></li>
+<li><a href="http://www.impressivewebs.com/callback-functions-javascript/" target="_blank" rel="external">http://www.impressivewebs.com/callback-functions-javascript/</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2013/08/28/js-tim-hieu-ve-callback-trong-javascript/" data-id="ciubaakp70009kovlp2lr40d6" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2013/08/28/js-tim-hieu-ve-callback-trong-javascript/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/09/03/viet-chuc-nang-login-bang-tai-khoan-facebook-khong-dung-facebook-sdk/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Viết chức năng login bằng tài khoản facebook không dùng Facebook SDK
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/08/12/js-xu-ly-mang-voi-underscore-js/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Xử lý mảng với Underscore.js</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<hr>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+          </div>
+        </section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Like my blog?</h3>
+    <div class="widget">
+        <div id="mc_embed_signup">
+            <form action="//saysua.us13.list-manage.com/subscribe/post?u=f73e6f67cd2f017d41a3e3d41&amp;id=f866d9a20e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate">
+                <div id="mc_embed_signup_scroll">
+            <div class="mc-field-group">
+                <label>Enter your email to subscribe my blog.</label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address" aria-required="true">
+            </div>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f73e6f67cd2f017d41a3e3d41_f866d9a20e" tabindex="-1" value=""></div>
+                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 12px;">Ajax</a> <a href="/tags/Angular2/" style="font-size: 18px;">Angular2</a> <a href="/tags/Angularjs/" style="font-size: 12px;">Angularjs</a> <a href="/tags/Bower/" style="font-size: 12px;">Bower</a> <a href="/tags/Facebook/" style="font-size: 12px;">Facebook</a> <a href="/tags/Gulp/" style="font-size: 12px;">Gulp</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Jquery/" style="font-size: 18px;">Jquery</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/PHP/" style="font-size: 14px;">PHP</a> <a href="/tags/Scrape/" style="font-size: 12px;">Scrape</a> <a href="/tags/TeamCity/" style="font-size: 12px;">TeamCity</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/07/teamcity-build-agent-disconnected/">TeamCity – Build agent disconnected</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/19/nodejs-module-cache-trying/">Nodejs Module Caching</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/01/nodejs-request-Error-socket-hang-up-code-ECONNRESET/">Nodejs - Request - Error socket hang up code - ECONNRESET</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/">Làm quen với Angular 2 - Zoo app - part 3 - Dependency Injection</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/">Làm quen với Angular 2 - Zoo app - part 2 - Form</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Thach Nguyen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+      Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="http://app.saysua.com" class="mobile-nav-link">Apps</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'saysua';
+  
+  var disqus_url = 'http://saysua.com/2013/08/28/js-tim-hieu-ve-callback-trong-javascript/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

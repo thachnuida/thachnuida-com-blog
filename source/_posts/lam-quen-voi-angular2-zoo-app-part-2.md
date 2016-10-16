@@ -1,6 +1,6 @@
 title: Làm quen với Angular 2 - Zoo app - part 2 - Form
 date: 2015-12-10 11:05:24
-categories:
+tags:
   - Angular2
 ---
 

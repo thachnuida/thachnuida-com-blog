@@ -1,6 +1,6 @@
 title: Làm quen với Angular 2 - Zoo app - part 3 - Dependency Injection
 date: 2015-12-14 11:05:24
-categories:
+tags:
   - Angular2
 ---
 
