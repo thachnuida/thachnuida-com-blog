@@ -4,4 +4,7 @@ db.json
 *.log
 node_modules/
 .deploy*/
+live/*
+!live/server-update.php
+
 
