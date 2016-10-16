@@ -1,9 +1,7 @@
 title: Tìm hiểu về Callback trong JavaScript
 date: 2013-08-28 15:31:19
-categories:
-  - Javascript
 tags:
-  - Note
+  - Javascript
 ---
 
 Tôi bắt đầu chú ý đến callback của javascript trong thời gian làm đồ án tốt nghiệp ra trường. Khi đó đọc thông tin thấy js cũng viết server side được bằng cách sử dụng node.js, thấy cũng hay hay thế là dùng nó luôn. Và vậy là tôi bắt đầu bị callback làm cho đau đầu vì nó quá khác với cách viết code của những ngôn ngữ đã học như C hay Java. Từ khi biết về callback tôi mới nhận ra rằng thì ra mình đã sử dụng nó rất nhiều khi viết code với jQuery. Chắc hẳn ở đây, nhiều bạn đã sử dụng callback nhưng chưa để ý về nó. Trong khả năng của mình, tôi sẽ trình bày cho các bạn những kiến thức cơ bản về callback trong javascript.

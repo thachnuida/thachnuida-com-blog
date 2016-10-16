@@ -1,10 +1,7 @@
 title: Quản lý các gói thư viện phía client site bằng Bower
 date: 2013-12-07 06:35:07
 tags:
-  - Web Development
-  - Note
   - Bower
-  - Tool
 ---
 
 Thời gian trước, có người nói với tôi rằng nên sử dụng Bower để cài đặt những gói thư viện js, css phía client site của một plugin tôi đang phát triển. Tôi cũng chỉ ậm ừ qua, và nghĩ rằng không cần thiết lắm bởi vì hiện tại những thư viện đó vẫn đang chạy tốt.

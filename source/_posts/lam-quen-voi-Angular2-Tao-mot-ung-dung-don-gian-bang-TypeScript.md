@@ -1,7 +1,7 @@
 title: Làm quen với Angular 2 - Tạo một ứng dụng bằng TypeScript
 date: 2015-12-02 14:48:27
 tags:
-  - Web Development
+  - Angular2
 ---
 
 Angular2 hiện tại vẫn đang trong giai đoạn `Developer Preview` tuy nhiên mình sẽ bắt đầu tìm hiểu trước cho đến khi nó được `release` thì dùng luôn. Hiện tại trên trang của Angular2 thấy chúng ta có thể code bằng `Javascript`, `Typescript` và `Dart`, nhưng xem qua các bài hướng dẫn thì mọi người có vẻ dùng `Typescript` phổ biến hơn. Nên mình cũng sẽ làm quen với Angular2 bằng Typescript luôn.

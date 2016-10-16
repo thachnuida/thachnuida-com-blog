@@ -1,9 +1,7 @@
 title: Lowdb - DB không cần server
 date: 2015-09-30 09:34:51
-category:
-  - Nodejs
 tags:
-  - Note
+  - Nodejs
 ---
 
 Từ yêu cầu cá nhân, mình cần  tạo một server API giả bằng nodejs để phục vụ cho việc làm frontend. Mình có ý muốn tìm một thư viện DB nhỏ gọn, dễ cài đặt sử dụng, hỗ trợ JSON, chỉ dựa trên file text đơn giản, chứ không cần phải cài đặt server như mongoDB và nếu thao tác giống như mongoDB thì tốt.

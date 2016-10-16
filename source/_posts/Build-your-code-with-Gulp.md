@@ -1,8 +1,7 @@
 title: Build your code with Gulp
 date: 2014-01-14 21:28:28
 tags:
-- Web Development
-- Note
+- Gulp
 ---
 
 [Gulp](http://gulpjs.com/) is the streaming build system. Gulp’s use of streams and code-over-configuration makes for a simpler and more intuitive build. I didn’t use Gulp or Grunt before. Today, I hear about it and decide to use it on my project. What I write here is not a tutorial, it just what I do with Gulp.

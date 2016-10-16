@@ -1,9 +1,7 @@
 title: Xóa 1 phần tử trong mảng bằng Javascript
 date: 2013-10-12 06:56:13
-categories:
-  - Javascript
 tags:
-  - Note
+  - Javascript
 ---
 Khi lập trình với javascript và một vài ngôn ngữ khác, có một thao tác tưởng chừng rất đơn giản nhưng lại luôn khiến tôi bối rối về cách thực hiện nó. Đó chính là Xóa một phần tử trong mảng.
 

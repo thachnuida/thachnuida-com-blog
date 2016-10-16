@@ -1,10 +1,7 @@
 title: Viết chức năng upload bằng ajax với jquery và javascript chay
 date: 2013-11-05 06:43:31
-categories:
-  - Jquery
 tags:
-  - Web Development
-  - Note
+  - Jquery
   - Ajax
 ---
 Trong bài viết này, tôi sẽ chỉ ra hai cách để tạo ajax upload. Cách thứ nhất sử dụng Jquery cùng với plugin [Form Plugin](http://jquery.malsup.com/form/#file-upload) của nó và cách thứ hai dành cho bạn nào muốn mày mò vọc code để tự mình viết riêng phần upload chỉ dùng javacript. Ở bài viết này, tôi sử dụng PHP để viết phần server.

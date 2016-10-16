@@ -1,9 +1,7 @@
 title: Javascript Hoisting là gì?
 date: 2013-09-09 15:02:49
-categories:
-  - Javascript
 tags:
-  - Note
+- Javascript
 ---
 
 Khi thao tác với các biến trong javascript, nếu không để ý bạn sẽ rất dễ gặp phải một sự nhầm lần khó hiểu như ví dụ dưới đây. Mình không rõ nó là lỗi hay là đặc thù của ngôn ngữ javascript, nhưng dù sao cũng rất khó chấp nhận nó một cách thoải mái.

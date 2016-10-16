@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TeamCity – Build agent disconnected | Saysua Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Bellow is how I resolve my problem with TeamCity – Build agent disconnected.
+
+
+ssh to my centos agent machine.
+Go to agent folder, in this case it is BuildAgent
+I tried to stop the agent by bin/agent.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TeamCity – Build agent disconnected">
+<meta property="og:url" content="http://saysua.com/2016/09/07/teamcity-build-agent-disconnected/index.html">
+<meta property="og:site_name" content="Saysua Blog">
+<meta property="og:description" content="Bellow is how I resolve my problem with TeamCity – Build agent disconnected.
+
+
+ssh to my centos agent machine.
+Go to agent folder, in this case it is BuildAgent
+I tried to stop the agent by bin/agent.">
+<meta property="og:image" content="http://saysua.com/images/teamcity-agent-disconnected.png">
+<meta property="og:updated_time" content="2016-10-16T01:46:48.973Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TeamCity – Build agent disconnected">
+<meta name="twitter:description" content="Bellow is how I resolve my problem with TeamCity – Build agent disconnected.
+
+
+ssh to my centos agent machine.
+Go to agent folder, in this case it is BuildAgent
+I tried to stop the agent by bin/agent.">
+<meta name="twitter:image" content="http://saysua.com/images/teamcity-agent-disconnected.png">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+   
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+  #mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; }
+  #mc_embed_signup form {padding: 0px;}
+  #mc_embed_signup .button {    background-color: #26C9FF;}
+  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+  
+</head>
+<body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=166177166899797";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <img class="author-avatar"/>
+          <div class="text">Saysua Blog</div>
+        </a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+          <nav id="main-nav">
+  <a id="main-nav-toggle" class="nav-icon"></a>
+  
+    <a class="main-nav-link" href="/">Home</a>
+  
+    <a class="main-nav-link" href="http://app.saysua.com">Apps</a>
+  
+    <a class="main-nav-link" href="/about">About</a>
+  
+</nav>
+          <div class="content">
+            <article id="post-teamcity-build-agent-disconnected" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/07/teamcity-build-agent-disconnected/" class="article-date">
+  <time datetime="2016-09-06T23:49:01.000Z" itemprop="datePublished">2016-09-07</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TeamCity – Build agent disconnected
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Bellow is how I resolve my problem with TeamCity – Build agent disconnected.</p>
+<p><img src="/images/teamcity-agent-disconnected.png" alt="TeamCity Agent Disconected"></p>
+<ul>
+<li>ssh to my centos agent machine.</li>
+<li>Go to agent folder, in this case it is <code>BuildAgent</code></li>
+<li>I tried to stop the agent by <code>bin/agent.sh stop</code> but got no luck. When I started the agent it said that <code>Build agent is already running with PID 1795</code>, so that I could not restart it.</li>
+<li>KILL the process by <code>sudo kill 1795</code></li>
+<li>Restart again <code>bin/agent.sh start</code><br>=&gt; It should work now.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2016/09/07/teamcity-build-agent-disconnected/" data-id="ciubyyed50000v8vl4cirgnuq" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2016/09/07/teamcity-build-agent-disconnected/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TeamCity/">TeamCity</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/19/nodejs-module-cache-trying/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Nodejs Module Caching</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<hr>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+          </div>
+        </section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Like my blog?</h3>
+    <div class="widget">
+        <div id="mc_embed_signup">
+            <form action="//saysua.us13.list-manage.com/subscribe/post?u=f73e6f67cd2f017d41a3e3d41&amp;id=f866d9a20e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate">
+                <div id="mc_embed_signup_scroll">
+            <div class="mc-field-group">
+                <label>Enter your email to subscribe my blog.</label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address" aria-required="true">
+            </div>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f73e6f67cd2f017d41a3e3d41_f866d9a20e" tabindex="-1" value=""></div>
+                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 12px;">Ajax</a> <a href="/tags/Angular2/" style="font-size: 12px;">Angular2</a> <a href="/tags/Angularjs/" style="font-size: 12px;">Angularjs</a> <a href="/tags/Bower/" style="font-size: 12px;">Bower</a> <a href="/tags/Facebook/" style="font-size: 12px;">Facebook</a> <a href="/tags/Gulp/" style="font-size: 12px;">Gulp</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Jquery/" style="font-size: 18px;">Jquery</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/PHP/" style="font-size: 14px;">PHP</a> <a href="/tags/Scrape/" style="font-size: 12px;">Scrape</a> <a href="/tags/TeamCity/" style="font-size: 12px;">TeamCity</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/07/teamcity-build-agent-disconnected/">TeamCity – Build agent disconnected</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/19/nodejs-module-cache-trying/">Nodejs Module Caching</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/01/nodejs-request-Error-socket-hang-up-code-ECONNRESET/">Nodejs - Request - Error socket hang up code - ECONNRESET</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/">Làm quen với Angular 2 - Zoo app - part 3 - Dependency Injection</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/">Làm quen với Angular 2 - Zoo app - part 2 - Form</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Thach Nguyen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+      Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="http://app.saysua.com" class="mobile-nav-link">Apps</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'saysua';
+  
+  var disqus_url = 'http://saysua.com/2016/09/07/teamcity-build-agent-disconnected/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

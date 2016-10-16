@@ -1,10 +1,7 @@
 title: Khởi tạo dự án AngularJS với generator-boom
 date: 2014-10-11  16:03
-categories:
-- Angularjs
 tags:
-- Tool
-- Web Development
+- Angularjs
 ---
 
 Khi bắt đầu một dự án AngularJS chúng ta có rất nhiều việc phải làm như tạo cấu trúc thư mục, viết code để tự động build các file js, css, chuẩn bị code để test... Dĩ nhiên ta có thể tự mình lần lượt làm các việc đó, hoặc như trước đây, tôi tạo sẵn một thư mục dự án mẫu rồi khi nào dùng sẽ copy qua dùng lại. Tuy nhiên vẫn tốt hơn nếu như có một công cụ giúp mình làm các việc kể trên, và trong bài này tôi giới thiệu đến các bạn công cụ [generator-boom][1], một công cụ sinh code AngularJS dành cho Yeoman.

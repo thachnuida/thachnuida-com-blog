@@ -1,9 +1,7 @@
 title: Kiểm tra một phần tử tồn tại bằng JQuery
 date: 2013-10-15 06:52:43
-categories:
-  - Jquery
 tags:
-  - Note
+  - Jquery
 ---
 Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa.
 

@@ -1,9 +1,7 @@
 title: Bắt sự kiện kích chuột bên ngoài một phần tử và kiểm tra phần tử ẩn/hiện bằng JQuery
 date: 2013-10-24 06:49:01
-cagetories:
-  - Jquery
 tags:
-  - Note
+  - Jquery
 ---
 
 Ngày hôm nay, trong khi đang làm, tôi bắt gặp 2 trường hợp cần giải quyết với jquery. Trường hợp thứ nhất là bắt sự kiện khi người dùng kích chuột bên ngoài một phần tử và trường hợp thứ hai là kiểm tra một phần tử có đang hiển thị hay không.

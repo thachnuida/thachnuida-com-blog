@@ -1,9 +1,7 @@
 title: Viết chức năng login bằng tài khoản facebook không dùng Facebook SDK
 date: 2013-09-03 15:12:10
-categories:
-  - PHP
 tags:
-  - Web Development
+  - PHP
   - Facebook
   - OAuth
 ---

@@ -1,8 +1,7 @@
 title: Import mysql từ file zip
 date: 2015-09-08 11:05:24
 tags:
-  - Note
-  - mysql
+  - Mysql
 ---
 
 Vừa rồi mình phải import dữ liệu mysql từ một file zip khoảng 700MB nhưng khi giải nén ra thì đến 4GB lận. Để import quả là không đơn giản. Và rồi cũng đã tìm được 1 cách import với chỉ 1 câu lệnh:

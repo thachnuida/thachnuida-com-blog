@@ -1,9 +1,7 @@
 title: Trích xuất dữ liệu web bằng PHP với PQLite
 date: 2013-09-14 14:58:32
-categories:
-  - PHP
 tags:
-  - Note
+  - PHP
   - Scrape
 ---
 

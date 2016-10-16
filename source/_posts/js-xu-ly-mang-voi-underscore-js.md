@@ -1,9 +1,7 @@
 title: Xử lý mảng với Underscore.js
 date: 2013-08-12 07:54:33
-categories:
-  - Javascript
 tags:
-  - Note
+  - Javascript
 ---
 Chắc hẳn mỗi chúng ta khi lập trình không ít thì nhiều phải làm việc với mảng, cho dù sử dụng bất kì ngôn ngữ nào. Và javascript cũng vậy, tuy nhiên mảng trong javascript không có nhiều phương thức hỗ trợ như tìm kiếm, sắp xếp… ta có thể tự viết những phương thức đó cho riêng mình. Tuy nhiên, bằng cách sử dụng thư viện **underscore.js** việc thao tác mảng sẽ trở nên đơn giản hơn bao giờ hết. Dưới đây là một số cách sử dụng underscore với mảng mà mình hay dùng.
 

@@ -1,0 +1,14 @@
+sidebar: left
+
+widgets:
+  - mailchimp
+  - tagcloud
+  - recent_posts
+  - archive
+
+has_mailchimp: true
+
+menu:
+  Home: /
+  Apps: http://app.saysua.com
+  About: /about

@@ -1,10 +1,7 @@
 title: Xử lý hình ảnh hiển thị sai hướng bằng cách xác định giá trị EXIF orientation
 date: 2015-08-06 10:13:37
-categories:
-- Javascript
 tags:
-- Note
-- Angularjs
+- Javascript
 ---
 
 Trong thời gian này mình có làm một ứng dụng chat, trong đó có tính năng upload file và hình ảnh. Và mình đã gặp một vấn đề với các hình ảnh được chụp bằng điện thoại. Đó là hình ảnh bị hiển thị sai hướng, do khi chụp người dùng đã để dọc điện thoại, dẫn đến lúc hiển thị hình ảnh trên trang web, thay vì hình ảnh hiển thị thẳng đứng thì lại nằm ngang. Giống như thế này:

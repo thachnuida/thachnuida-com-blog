@@ -1,9 +1,7 @@
 title: Đổi đối tượng JQuery sang DOM
 date: 2013-10-09 14:48:10
-categories:
-  - Jquery
 tags:
-  - Note
+  - Jquery
 ---
 
 Trong đối tượng JQuery nó đã có chứa thành phần DOM. Để lấy được thành phần DOM từ đối tượng JQuery ta có thể sử dụng phương thức get() .
