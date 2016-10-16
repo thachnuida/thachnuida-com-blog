@@ -265,4 +265,4 @@ class AppComponent {
 bootstrap(AppComponent);
 ```
 
-Tiếp theo: [zoo app phần 2](/2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/).
+Tiếp theo: [zoo app phần 2](/2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/)./.

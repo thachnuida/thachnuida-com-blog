@@ -6,5 +6,4 @@ node_modules/
 .deploy*/
 live/*
 !live/server-update.php
-
-
+deploy.config.js

@@ -1,7 +1,9 @@
 var spawn = require('child_process').spawn;
 var simpleGit = require('simple-git')();
 var fs = require('fs');
-var logStream = fs.createWriteStream('./update.txt', {flags: 'a'});
+var logStream = fs.createWriteStream('./update.txt', {flags: 'w'});
+var config = require('./deploy.config');
+var request = require('request');
 
 function generateHtml(cb) {
   var generate = spawn(process.env.comspec, ['/c', 'hexo', 'generate']);
@@ -29,10 +31,27 @@ function generateHtml(cb) {
   });
 }
 
+function serverUpdate() {
+  request({
+    uri: config.deployUrl,
+    method: "GET",
+  }, function(error, response, body) {
+    console.log('Server updated.');
+  });
+}
+
 
 ////////////////
 generateHtml(function(err, updateList) {
   if (!err) {
-    // console.log(updateList);
+    // Commit code
+    simpleGit.add('.', function() {
+      simpleGit.commit('update', function() {
+        simpleGit.push('origin', 'master', function() {
+          // Call server update
+          serverUpdate();
+        });
+      });
+    });
   }
 });
