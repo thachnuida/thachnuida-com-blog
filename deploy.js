@@ -36,6 +36,7 @@ function serverUpdate() {
     uri: config.deployUrl,
     method: "GET",
   }, function(error, response, body) {
+    console.log(body);
     console.log('Server updated.');
   });
 }
@@ -55,3 +56,5 @@ generateHtml(function(err, updateList) {
     });
   }
 });
+
+// serverUpdate();
