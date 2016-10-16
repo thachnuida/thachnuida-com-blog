@@ -1,6 +1,4 @@
 INFO  Start processing
-INFO  Files loaded in 1.93 s
-INFO  Generated: atom.xml
-INFO  Generated: 2015/12/04/lam-quen-voi-angular2-zoo-app-part-1/index.html
-INFO  Generated: tags/Mysql/index.html
-INFO  3 files generated in 1.84 s
+INFO  Files loaded in 585 ms
+INFO  Deleted: tags/mysql/index.html
+INFO  0 files generated in 1.7 s

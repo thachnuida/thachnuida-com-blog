@@ -3,7 +3,7 @@
  Update code on server
  */
 
-$rawGitUrl = 'https://raw.githubusercontent.com/thachnuida/saysua-com-blog/master/';
+$rawGitUrl = 'https://cdn.rawgit.com/thachnuida/saysua-com-blog/master/';
 
 /**
  * create file with content, and create folder structure if doesn't exist 
