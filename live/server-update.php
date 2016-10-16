@@ -3,7 +3,7 @@
  Update code on server
  */
 
-$rawGitUrl = 'https://cdn.rawgit.com/thachnuida/saysua-com-blog/master/';
+$rawGitUrl = 'https://cdn.rawgit.com/thachnuida/saysua-com-blog/'.$_GET['commit'];
 
 /**
  * create file with content, and create folder structure if doesn't exist 
@@ -29,14 +29,14 @@ function forceFilePutContents ($filepath, $message){
 function saveFile($file) {
     $file = trim($file);
     global $rawGitUrl;
-    $url = $rawGitUrl.'public/'.$file;
+    $url = $rawGitUrl.'/public/'.$file;
     echo ($url.'|');
     forceFilePutContents($file, file_get_contents($url));
 }
 
 function getUpdateList() {
     global $rawGitUrl;
-    $data = file_get_contents($rawGitUrl.'update.txt');
+    $data = file_get_contents($rawGitUrl.'/update.txt');
     $data = explode('INFO', $data);
     $updateList = array();
     foreach($data as $line) {

@@ -31,9 +31,12 @@ function generateHtml(cb) {
   });
 }
 
-function serverUpdate() {
+function serverUpdate(commit) {
+  if (!commit) commit = 'master';
+  var uri = config.deployUrl + '?commit=' + commit;
+  console.log('Request:', uri);
   request({
-    uri: config.deployUrl,
+    uri: uri,
     method: "GET",
   }, function(error, response, body) {
     console.log(body);
@@ -49,12 +52,15 @@ generateHtml(function(err, updateList) {
     simpleGit.add('.', function() {
       simpleGit.commit('update', function() {
         simpleGit.push('origin', 'master', function() {
-          // Call server update
-          serverUpdate();
+          simpleGit.log(function(err, data) {
+            // Call server update
+            serverUpdate(data.latest.hash);
+          });          
         });
       });
     });
   }
 });
 
-// serverUpdate();
+
+
