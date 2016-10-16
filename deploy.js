@@ -1,51 +1,26 @@
 var spawn = require('child_process').spawn;
-var timer;
-var waitingTime = 15000;
-var startTime = new Date().getTime();
+var simpleGit = require('simple-git')();
 
-function deploy() {
-  console.log('Deploying...');
-  var deployCmd = spawn(process.env.comspec, ['/c', 'hexo', 'deploy']); // Deploy in window
+function generateHtml(cb) {
+  var generate = spawn(process.env.comspec, ['/c', 'hexo', 'generate']);
 
-  deployCmd.stdout.on('data', function (data) {
+  generate.stdout.on('data', function (data) {
     var output = data.toString();
     console.log(output);
-    if (timer) {
-      clearTimeout(timer);
-    }
-
-    if (output.indexOf('--------') != -1) {
-      waitingTime = 60000;
-    } else {
-      waitingTime = 15000;
-    }
-
-    timer = setTimeout(function() {
-      deployCmd.stdin.pause();
-      deployCmd.kill();
-      console.log('DEPLOY Wait so long, so restart....');
-      deploy();
-    }, waitingTime);
-
-    if (output.indexOf('Deploy done') != -1) {
-      console.log('DEPLOY DONE');
-      console.log('Done in ', new Date().getTime() - startTime, 'ms');
-      process.exit();
-    };
-
   });
 
-  deployCmd.stderr.on('data', function(data) {
-    console.log(data.toString());
-    console.log('Redeploying...');    
-    deploy();
+  generate.on('exit', function(code) {
+    console.log('Generate html finish with code', code);
+    cb && cb();
   });
+}
 
-  deployCmd.on('exist', function(code) {
-    console.log('child process exited with code ' + code);
+function generateUpdateList() {
+  simpleGit.status(function(err, data) {
+    console.log(data);
   });
 }
 
 
 
-deploy();
+generateHtml();

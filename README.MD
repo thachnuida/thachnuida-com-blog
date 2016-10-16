@@ -1,7 +1,6 @@
-# Main Tags
+# Only use tags
 
-- Web Development
-- Note
+Don't use category on post. Only use tags.
 
 
 # Tag plugins
