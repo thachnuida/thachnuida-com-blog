@@ -15,13 +15,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit 
 {% endblockquote %}
 ```
 
-# Build files
+# Run local server
 
 ```
-hexo generate
+hexo server
 ```
 
-# Deploy to PHP server
+# Build files and Deploy to PHP server
 
 ```
 node deploy.js
