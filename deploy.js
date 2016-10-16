@@ -52,6 +52,7 @@ generateHtml(function(err, updateList) {
     simpleGit.add('.', function() {
       simpleGit.commit('update', function() {
         simpleGit.push('origin', 'master', function() {
+          console.log('Git: Pushed code.')
           simpleGit.log(function(err, data) {
             // Call server update
             serverUpdate(data.latest.hash);
