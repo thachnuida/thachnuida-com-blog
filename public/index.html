@@ -67,6 +67,76 @@
           <div class="content">
             
   
+    <article id="post-cai-dat-nodejs-tren-godaddy-shared-hosting" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/" class="article-date">
+  <time datetime="2016-10-18T13:45:10.000Z" itemprop="datePublished">2016-10-18</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/">Cài đặt Nodejs trên Godaddy shared hosting</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku.</p>
+<p>Ngày hôm nay, mình nhận được một tình huống tương tự như vậy, nhưng kết quả đã khác. Đã có thể cài nodejs lên shared hosting của Godaddy. Dưới đây là các bược thực hiện.</p>
+<h1 id="SSH-vao-server-cua-Godaddy"><a href="#SSH-vao-server-cua-Godaddy" class="headerlink" title="SSH vào server của Godaddy"></a>SSH vào server của Godaddy</h1><p>Ở đây mình cần phải có username để <code>ssh</code>. Lúc đầu mình nhầm username này với user đăng nhập vào trang quản lý của Goddady. Để có được username ssh này các bạn mở trình quản lý Cpanel của hosting lên.</p>
+<p><img src="/images/godaddy-open-cpanel.png" alt="Open Godady Cpanel"></p>
+<p>Sau đó vào phần <strong>FPT Accounts</strong>, các bạn nhìn vào danh sách <code>Special FPT Accounts</code> sẽ có username để ssh.</p>
+<p><img src="/images/godaddy-get-ssh-user.png" alt="Get ssh username"></p>
+<p>Để ssh nếu dùng windown thì ta có thể sử dụng chương trình Putty, còn ở Mac hoặc Linux thì mở terminal lên để ssh.</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml">ssh </span><span class="template-variable">&#123;username&#125;</span><span class="xml">@</span><span class="template-variable">&#123;public_ip&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<p>Ở đây <code>Password</code> nhập vào là password các bạn login vào Godaddy.</p>
+<h1 id="Kiem-tra-xem-nodejs-da-duoc-cai-chua"><a href="#Kiem-tra-xem-nodejs-da-duoc-cai-chua" class="headerlink" title="Kiểm tra xem nodejs đã được cài chưa"></a>Kiểm tra xem nodejs đã được cài chưa</h1><p>Sau khi <code>ssh</code> vào server các bạn kiểm tra xem nodejs được cài chưa bằng cách.</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">which <span class="keyword">node</span></div><div class="line"><span class="title">which</span> npm</div><div class="line">which nvm</div></pre></td></tr></table></figure>
+<p>Nếu không có thông tin gì, thì ta bắt đầu quá trình cài đặt.</p>
+<h1 id="Cai-dat-nodejs-bang-nvm"><a href="#Cai-dat-nodejs-bang-nvm" class="headerlink" title="Cài đặt nodejs bằng nvm"></a>Cài đặt nodejs bằng nvm</h1><p>Để cài đặt <code>nodejs</code> không cần dùng quyền <code>sudo</code> ta sẽ sử dụng <a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a>.</p>
+<p>Ta chạy lần lượt các lệnh sau:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o- https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/creationix/</span>nvm<span class="regexp">/v0.32.0/i</span>nstall.sh | bash</div></pre></td></tr></table></figure>
+<p>Sau khi đã chạy xong ta có thể kiểm tra lại <code>nvm</code> đã được cài đặt bằng:</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm <span class="comment">--version</span></div></pre></td></tr></table></figure>
+<p>Cài đặt <code>nodejs</code> bằng <code>nvm</code>:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install <span class="keyword">node</span><span class="title"></span></div></pre></td></tr></table></figure>
+<p>Để kiểm tra <code>nodejs</code> đã được cài thành công ta chạy lệnh:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">node</span> <span class="title">-v</span></div><div class="line">npm -v</div></pre></td></tr></table></figure>
+<p>Từ đây ta có thể cài thêm <a href="https://github.com/Unitech/pm2" target="_blank" rel="external">pm2</a> để chạy các ứng dụng <code>nodejs</code> trên server mà không làm ứng dụng tắt đi khi ta thoát phiên ssh.</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> pm2 -g</div></pre></td></tr></table></figure>
+<h1 id="Ket"><a href="#Ket" class="headerlink" title="Kết"></a>Kết</h1><p>Như vậy là mình đã có thể chạy nodejs trên shared hosting của Godaddy, tuy nhiên mình không chạy được ứng dụng ở cổng <code>http 80</code>. Khi mình chạy một ứng dụng ở cổng 5000 chẳng hạn. Mình cũng không thể truy cập được từ public IP. Tuy nhiên nếu mình truy cập từ localhost thì vẫn có thể được. Ví dụ:</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl <span class="string">http:</span><span class="comment">//localhost:5000</span></div></pre></td></tr></table></figure>
+<p>Ngoài ra mình thấy Godaddy cũng đang có dịch vụ NodeJS cloud. Cái này mình chưa thử, nên chưa biết thế nào. Dù sao thì chạy đưọc nodejs trên shared hosting cũng có thể giúp ích đưọc trong một vài trường hợp đặt biệt.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/" data-id="ciufkl1wo00008svl9bp5bxqf" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Godaddy/">Godaddy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NodeJs/">NodeJs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nvm/">Nvm</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
     <article id="post-teamcity-build-agent-disconnected" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/09/07/teamcity-build-agent-disconnected/" class="article-date">
@@ -507,49 +577,6 @@
 
 
   
-    <article id="post-tam-biet-wordpress-xin-chao-hexo" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/27/tam-biet-wordpress-xin-chao-hexo/" class="article-date">
-  <time datetime="2015-08-27T00:05:20.000Z" itemprop="datePublished">2015-08-27</time>
-</a>
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/27/tam-biet-wordpress-xin-chao-hexo/">Tạm biệt wordpress xin chào hexo</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Như vậy là sau vài lần tìm kiếm và thử nghiệm, cuối cùng cũng đã tìm ra một cách viết blog mới để thay thế cho em wordpress. Với sở thích đơn giản, thích nghịch ngợm nên với mình wordpress tỏ ra cồng kềnh nhiều tính năng không dùng đến. Mình muốn một cách viết blog đơn giản như là dùng markdown để viết, không cần dùng cơ sở dữ liệu, tận dụng được hosting đang có.</p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://saysua.com/2015/08/27/tam-biet-wordpress-xin-chao-hexo/" data-id="ciubaakqs001fkovlkkqp56sb" class="article-share-link">Share</a>
-      
-        <a href="http://saysua.com/2015/08/27/tam-biet-wordpress-xin-chao-hexo/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      <div class="tagcloud">
-        
-      </div>
-    </footer>
-  </div>
-  
-</article>
-
-<hr>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -600,6 +627,10 @@
       <ul>
         
           <li>
+            <a href="/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/">Cài đặt Nodejs trên Godaddy shared hosting</a>
+          </li>
+        
+          <li>
             <a href="/2016/09/07/teamcity-build-agent-disconnected/">TeamCity – Build agent disconnected</a>
           </li>
         
@@ -615,10 +646,6 @@
             <a href="/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/">Làm quen với Angular 2 - Zoo app - part 3 - Dependency Injection</a>
           </li>
         
-          <li>
-            <a href="/2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/">Làm quen với Angular 2 - Zoo app - part 2 - Form</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -628,7 +655,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 

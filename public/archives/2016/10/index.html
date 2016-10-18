@@ -3,21 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Kiểm tra một phần tử tồn tại bằng JQuery | Saysua Blog</title>
+  <title>Archives: 2016/10 | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa.
-Ngay khi nảy ra câu hỏi tôi nghĩ ngay">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Kiểm tra một phần tử tồn tại bằng JQuery">
-<meta property="og:url" content="http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Saysua Blog">
+<meta property="og:url" content="http://saysua.com/archives/2016/10/index.html">
 <meta property="og:site_name" content="Saysua Blog">
-<meta property="og:description" content="Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa.
-Ngay khi nảy ra câu hỏi tôi nghĩ ngay">
-<meta property="og:updated_time" content="2016-10-16T01:41:48.065Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kiểm tra một phần tử tồn tại bằng JQuery">
-<meta name="twitter:description" content="Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa.
-Ngay khi nảy ra câu hỏi tôi nghĩ ngay">
+<meta name="twitter:title" content="Saysua Blog">
   
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -72,86 +65,42 @@ Ngay khi nảy ra câu hỏi tôi nghĩ ngay">
   
 </nav>
           <div class="content">
-            <article id="post-kiem-tra-mot-phan-tu-ton-tai-bang-jquery" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/" class="article-date">
-  <time datetime="2013-10-14T23:52:43.000Z" itemprop="datePublished">2013-10-15</time>
-</a>
+            
+
+<div class="archives-wrap">
+  <div class="archive-title" >
+    <h2 class="archive-icon">2016/10</h2>
+    
+    <div class="archiveslist archive-float clearfix">
+   </div>
+    
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+
   
-    <h1 class="article-title" itemprop="name">
-      Kiểm tra một phần tử tồn tại bằng JQuery
+    
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/">Cài đặt Nodejs trên Godaddy shared hosting</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa.</p>
-<p>Ngay khi nảy ra câu hỏi tôi nghĩ ngay đến một cách kiểm tra đơn giản:</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="symbol">$</span>(<span class="string">'#exist'</span>)) &#123;</div><div class="line">  console.<span class="built-in">log</span>(<span class="string">'exist'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Nhưng thực tế thì cách trên hoàn toàn sai bởi vì khi sử dụng <code>$()</code>  nó luôn trả về một đối tượng cho dù không tồn tại phần tử ta muốn xác định thì nó cũng sẽ trả về một đối tượng rỗng.  Vì vậy điều kiện trong câu lệnh if  sẽ luôn luôn đúng.</p>
-<a id="more"></a>
-<p>Do đó, để kiểm tra một phần tử có tồn tại hay không bằng JQuery ta có thể thực hiện như sau:</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="symbol">$</span>(<span class="string">'#exist'</span>).length) &#123;</div><div class="line">  console.<span class="built-in">log</span>(<span class="string">'exist'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Hoặc là:</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="symbol">$</span>(<span class="string">'#exist'</span>)[<span class="number">0</span>]) &#123;</div><div class="line">  console.<span class="built-in">log</span>(<span class="string">'exist'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Nếu phần tử ta cần xác định không xuất hiện, JQuery sẽ trả về đối tượng rỗng do đó <code>length</code> sẽ cho giá trị 0 và [0]  sẽ cho giá trị <code>undefined</code> .</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/" data-id="ciubaakpo000ikovlgr9kiaag" class="article-share-link">Share</a>
-      
-        <a href="http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      <div class="tagcloud">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jquery/">Jquery</a></li></ul>
-
-      </div>
-    </footer>
+      <a href="/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/" class="archive-article-date">
+  <time datetime="2016-10-18T13:45:10.000Z" itemprop="datePublished">Oct 18 2016</time>
+</a>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Bắt sự kiện kích chuột bên ngoài một phần tử và kiểm tra phần tử ẩn/hiện bằng JQuery
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2013/10/12/xoa-1-phan-tu-trong-mang-bang-javascript/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Xóa 1 phần tử trong mảng bằng Javascript</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+    
+  
 
+  
+</div>
 <hr>
-
-
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
-
-
           </div>
         </section>
         
@@ -256,13 +205,11 @@ Ngay khi nảy ra câu hỏi tôi nghĩ ngay">
 <script>
   var disqus_shortname = 'saysua';
   
-  var disqus_url = 'http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/';
-  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
