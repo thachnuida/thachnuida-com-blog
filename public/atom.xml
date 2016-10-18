@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://saysua.com/"/>
-  <updated>2016-10-18T14:46:06.499Z</updated>
+  <updated>2016-10-18T14:46:40.041Z</updated>
   <id>http://saysua.com/</id>
   
   <author>
@@ -20,10 +20,11 @@
     <link href="http://saysua.com/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/"/>
     <id>http://saysua.com/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/</id>
     <published>2016-10-18T13:45:10.000Z</published>
-    <updated>2016-10-18T14:46:06.499Z</updated>
+    <updated>2016-10-18T14:46:40.041Z</updated>
     
     <content type="html"><![CDATA[<p>Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku.</p>
 <p>Ngày hôm nay, mình nhận được một tình huống tương tự như vậy, nhưng kết quả đã khác. Đã có thể cài nodejs lên shared hosting của Godaddy. Dưới đây là các bước thực hiện.</p>
+<a id="more"></a>
 <h1 id="SSH-vao-server-cua-Godaddy"><a href="#SSH-vao-server-cua-Godaddy" class="headerlink" title="SSH vào server của Godaddy"></a>SSH vào server của Godaddy</h1><p>Ở đây mình cần phải có username để <code>ssh</code>. Lúc đầu mình nhầm username này với user đăng nhập vào trang quản lý của Goddady. Để có được username ssh này các bạn mở trình quản lý Cpanel của hosting lên.</p>
 <p><img src="/images/godaddy-open-cpanel.png" alt="Open Godady Cpanel"></p>
 <p>Sau đó vào phần <strong>FPT Accounts</strong>, các bạn nhìn vào danh sách <code>Special FPT Accounts</code> sẽ có username để ssh.</p>
@@ -52,7 +53,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm đượ
+      &lt;p&gt;Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku.&lt;/p&gt;
+&lt;p&gt;Ngày hôm nay, mình nhận được một tình huống tương tự như vậy, nhưng kết quả đã khác. Đã có thể cài nodejs lên shared hosting của Godaddy. Dưới đây là các bước thực hiện.&lt;/p&gt;
     
     </summary>
     

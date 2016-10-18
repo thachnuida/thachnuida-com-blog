@@ -10,6 +10,8 @@ Năm ngoái, có người cần mình deploy code nodejs trên shared hosting c�
 
 Ngày hôm nay, mình nhận được một tình huống tương tự như vậy, nhưng kết quả đã khác. Đã có thể cài nodejs lên shared hosting của Godaddy. Dưới đây là các bước thực hiện.
 
+<!-- more -->
+
 # SSH vào server của Godaddy
 
 Ở đây mình cần phải có username để `ssh`. Lúc đầu mình nhầm username này với user đăng nhập vào trang quản lý của Goddady. Để có được username ssh này các bạn mở trình quản lý Cpanel của hosting lên.
