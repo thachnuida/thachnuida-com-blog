@@ -1,5 +1,7 @@
 sidebar: left
 
+excerpt_link: READ MORE
+
 widgets:
   - mailchimp
   - tagcloud

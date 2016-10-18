@@ -91,6 +91,10 @@
         <p>Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku.</p>
 <p>Ngày hôm nay, mình nhận được một tình huống tương tự như vậy, nhưng kết quả đã khác. Đã có thể cài nodejs lên shared hosting của Godaddy. Dưới đây là các bước thực hiện.</p>
         
+          <p class="article-more-link">
+            <a href="/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/#more">READ MORE</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -192,6 +196,10 @@
 <p>If you want to have a module execute code multiple times, then export a function, and call that function.</p>
 <p>(<a href="https://nodejs.org/api/modules.html#modules_caching">https://nodejs.org/api/modules.html#modules_caching</a>)</p>
         
+          <p class="article-more-link">
+            <a href="/2016/04/19/nodejs-module-cache-trying/#more">READ MORE</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -290,6 +298,10 @@
 <p>Ta tạo file <code>animal-service.ts</code> cùng cấp với <code>app.ts</code>:</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">export <span class="class"><span class="keyword">class</span> <span class="title">AnimalService</span> </span>&#123;</div><div class="line">  animals: [];</div><div class="line"></div><div class="line">  constructor() &#123;</div><div class="line">    <span class="keyword">this</span>.animals = <span class="type">ANIMALS</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  getAnimals() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.animals;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  addAnimal(<span class="class"><span class="keyword">type</span></span>: <span class="type">String</span>, name: <span class="type">String</span>) &#123;</div><div class="line">    <span class="keyword">this</span>.animals.push(&#123; <span class="symbol">'typ</span>e': <span class="class"><span class="keyword">type</span>, '<span class="title">name</span>'</span>: name&#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> <span class="type">ANIMALS</span> = [</div><div class="line">  &#123; <span class="class"><span class="keyword">type</span></span>: <span class="symbol">'Tige</span>r', name: <span class="symbol">'Bob</span>o'&#125;,</div><div class="line">  &#123; <span class="class"><span class="keyword">type</span></span>: <span class="symbol">'Do</span>g', name: <span class="symbol">'Mi</span>c'&#125;,</div><div class="line">  &#123; <span class="class"><span class="keyword">type</span></span>: <span class="symbol">'Elepha</span>n', name: <span class="symbol">'Bi</span>g'&#125;</div><div class="line">];</div></pre></td></tr></table></figure>
         
+          <p class="article-more-link">
+            <a href="/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/#more">READ MORE</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -336,6 +348,10 @@
         <p>Ở <a href="/2015/12/04/lam-quen-voi-angular2-zoo-app-part-1/">phần 1</a> chúng ta đã sử dụng một vài directives cơ bản của Angular như NgFor, NgIf, NgClass và ta cũng biết rằng muốn sử dụng directive nào, ta phải khai báo directive đó cho Component. Tuy nhiên việc phải khai báo từng directive như vậy thật bất tiện. Để khắc phục điều đó, Angular 2 đã gộp các core directives vào một tập hợp là <code>CORE_DIRECTIVES</code> ta chỉ cần khai báo nó một lần là có thể dùng được các core directives của Angular. Trước khi vào phần 2 ta thay đổi một chút như sau:</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;Component, bootstrap, CORE_DIRECTIVES, FORM_DIRECTIVES&#125; <span class="keyword">from</span> <span class="string">'angular2/angular2'</span>;</div><div class="line"></div><div class="line">...</div><div class="line">  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES],</div></pre></td></tr></table></figure>
 <p>Ngoài <code>CORE_DIRECTIVES</code> ra mình còn khai báo thêm <code>FORM_DIRECTIVES</code>, chắc hẳn là bạn đã đoán ra đó là tập hợp các directive dành cho Form của Angular.</p>
+        
+          <p class="article-more-link">
+            <a href="/2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/#more">READ MORE</a>
+          </p>
         
       
     </div>
@@ -384,6 +400,10 @@
 <p>Ở bài này, mình sẽ viết một ứng dụng quản lý sở thú bằng Angular 2 với typescript. Sau khi kết thúc ta sẽ có một ứng dụng như sau:</p>
 <p><a href="http://localhost:8000/images/angular2-animal-selected-animal.png" title="zoo app"><img src="/images/angular2-animal-selected-animal.png" alt="zoo app"></a></p>
         
+          <p class="article-more-link">
+            <a href="/2015/12/04/lam-quen-voi-angular2-zoo-app-part-1/#more">READ MORE</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -429,6 +449,10 @@
       
         <p>Angular2 hiện tại vẫn đang trong giai đoạn <code>Developer Preview</code> tuy nhiên mình sẽ bắt đầu tìm hiểu trước cho đến khi nó được <code>release</code> thì dùng luôn. Hiện tại trên trang của Angular2 thấy chúng ta có thể code bằng <code>Javascript</code>, <code>Typescript</code> và <code>Dart</code>, nhưng xem qua các bài hướng dẫn thì mọi người có vẻ dùng <code>Typescript</code> phổ biến hơn. Nên mình cũng sẽ làm quen với Angular2 bằng Typescript luôn.</p>
 <p>Trong phần làm quen này, chúng ta cùng nhau viết ứng dụng vô cùng đơn giản coi như để biết được Angular2 là cái gì, và viết nó như thế nào. Một ứng dụng Hello World.</p>
+        
+          <p class="article-more-link">
+            <a href="/2015/12/02/lam-quen-voi-Angular2-Tao-mot-ung-dung-don-gian-bang-TypeScript/#more">READ MORE</a>
+          </p>
         
       
     </div>
@@ -477,6 +501,10 @@
 <p>Sau một hồi dạo quanh thì mình đã tìm thấy <a href="https://github.com/typicode/lowdb">LowDB</a></p>
 <blockquote><p>Need a quick way to get a local database?</p>
 </blockquote>
+        
+          <p class="article-more-link">
+            <a href="/2015/09/30/lowdb-DB-khong-can-server/#more">READ MORE</a>
+          </p>
         
       
     </div>

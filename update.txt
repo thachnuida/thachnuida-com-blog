@@ -1,7 +1,7 @@
 INFO  Start processing
-INFO  Files loaded in 1.8 s
-INFO  Generated: atom.xml
-INFO  Generated: 2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/index.html
+INFO  Files loaded in 695 ms
+INFO  Deleted: tags/mysql/index.html
+INFO  Generated: page/3/index.html
+INFO  Generated: page/2/index.html
 INFO  Generated: index.html
-INFO  Generated: tags/Mysql/index.html
-INFO  4 files generated in 2.41 s
+INFO  3 files generated in 1.8 s
