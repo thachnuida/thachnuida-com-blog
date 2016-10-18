@@ -3,18 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Nodejs Module Caching | Saysua Blog</title>
+  <title>Cài đặt Nodejs trên Godaddy shared hosting | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Nodejs Module CachingModules are cached after the first time they are loaded. This means (among other things) that every call to require(‘foo’) will get exactly the same object returned, if it would r">
+  <meta name="description" content="Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku.
+Ngày hôm nay, mình nhận đư">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nodejs Module Caching">
-<meta property="og:url" content="http://saysua.com/2016/04/19/nodejs-module-cache-trying/index.html">
+<meta property="og:title" content="Cài đặt Nodejs trên Godaddy shared hosting">
+<meta property="og:url" content="http://saysua.com/2013/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/index.html">
 <meta property="og:site_name" content="Saysua Blog">
-<meta property="og:description" content="Nodejs Module CachingModules are cached after the first time they are loaded. This means (among other things) that every call to require(‘foo’) will get exactly the same object returned, if it would r">
-<meta property="og:updated_time" content="2016-10-16T01:42:38.566Z">
+<meta property="og:description" content="Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku.
+Ngày hôm nay, mình nhận đư">
+<meta property="og:image" content="http://saysua.com/images/godaddy-open-cpanel.png">
+<meta property="og:image" content="http://saysua.com/images/godaddy-get-ssh-user.png">
+<meta property="og:updated_time" content="2016-10-18T14:09:39.440Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nodejs Module Caching">
-<meta name="twitter:description" content="Nodejs Module CachingModules are cached after the first time they are loaded. This means (among other things) that every call to require(‘foo’) will get exactly the same object returned, if it would r">
+<meta name="twitter:title" content="Cài đặt Nodejs trên Godaddy shared hosting">
+<meta name="twitter:description" content="Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku.
+Ngày hôm nay, mình nhận đư">
+<meta name="twitter:image" content="http://saysua.com/images/godaddy-open-cpanel.png">
   
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -69,10 +75,10 @@
   
 </nav>
           <div class="content">
-            <article id="post-nodejs-module-cache-trying" class="article article-type-post" itemscope itemprop="blogPost">
+            <article id="post-cai-dat-nodejs-tren-godaddy-shared-hosting" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/04/19/nodejs-module-cache-trying/" class="article-date">
-  <time datetime="2016-04-19T04:05:24.000Z" itemprop="datePublished">2016-04-19</time>
+    <a href="/2013/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/" class="article-date">
+  <time datetime="2013-10-18T13:45:10.000Z" itemprop="datePublished">2013-10-18</time>
 </a>
   </div>
   <div class="article-inner">
@@ -82,7 +88,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Nodejs Module Caching
+      Cài đặt Nodejs trên Godaddy shared hosting
     </h1>
   
 
@@ -90,30 +96,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Nodejs-Module-Caching"><a href="#Nodejs-Module-Caching" class="headerlink" title="Nodejs Module Caching"></a>Nodejs Module Caching</h1><p>Modules are cached after the first time they are loaded. This means (among other things) that every call to require(‘foo’) will get exactly the same object returned, if it would resolve to the same file.</p>
-<p>Multiple calls to require(‘foo’) may not cause the module code to be executed multiple times. This is an important feature. With it, “partially done” objects can be returned, thus allowing transitive dependencies to be loaded even when they would cause cycles.</p>
-<p>If you want to have a module execute code multiple times, then export a function, and call that function.</p>
-<p>(<a href="https://nodejs.org/api/modules.html#modules_caching" target="_blank" rel="external">https://nodejs.org/api/modules.html#modules_caching</a>)</p>
-<a id="more"></a>
-<h1 id="Trying-code"><a href="#Trying-code" class="headerlink" title="Trying code"></a>Trying code</h1><p>Let’s see bellow test code and the result:</p>
-<p>A.js  </p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var <span class="built_in">list</span> = [];</div><div class="line"></div><div class="line"><span class="keyword">module</span>.exports = &#123;</div><div class="line">  <span class="built_in">list</span>: <span class="built_in">list</span>,</div><div class="line">  name: <span class="string">'t'</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>index.js  </p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var <span class="built_in">a1</span> = require(<span class="string">'./A'</span>)<span class="comment">;</span></div><div class="line">var <span class="built_in">a2</span> = require(<span class="string">'./A'</span>)<span class="comment">;</span></div><div class="line"></div><div class="line"><span class="built_in">a1</span>.list.push(<span class="number">1</span>)<span class="comment">;</span></div><div class="line">console.log(<span class="built_in">a1</span>.list)<span class="comment">;</span></div><div class="line">console.log(<span class="built_in">a2</span>.list)<span class="comment">;</span></div><div class="line"></div><div class="line">console.log(<span class="built_in">a2</span>.name)<span class="comment">;</span></div><div class="line">console.log(<span class="built_in">a1</span>.name)<span class="comment">;</span></div><div class="line"><span class="built_in">a1</span>.name = <span class="string">'update'</span><span class="comment">;</span></div><div class="line">console.log(<span class="built_in">a2</span>.name)<span class="comment">;</span></div><div class="line">console.log(<span class="built_in">a1</span>.name)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>Result  </p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="string">[ 1 ]</span></div><div class="line"><span class="string">[ 1 ]</span></div><div class="line">t</div><div class="line">t</div><div class="line">update</div><div class="line">update</div></pre></td></tr></table></figure>
-<p>So, we know <code>a1</code> and <code>a2</code> are the same object.</p>
+        <p>Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku.</p>
+<p>Ngày hôm nay, mình nhận được một tình huống tương tự như vậy, nhưng kết quả đã khác. Đã có thể cài nodejs lên shared hosting của Godaddy. Dưới đây là các bược thực hiện.</p>
+<h1 id="SSH-vao-server-cua-Godaddy"><a href="#SSH-vao-server-cua-Godaddy" class="headerlink" title="SSH vào server của Godaddy"></a>SSH vào server của Godaddy</h1><p>Ở đây mình cần phải có username để <code>ssh</code>. Lúc đầu mình nhầm username này với user đăng nhập vào trang quản lý của Goddady. Để có được username ssh này các bạn mở trình quản lý Cpanel của hosting lên.</p>
+<p><img src="/images/godaddy-open-cpanel.png" alt="Open Godady Cpanel"></p>
+<p>Sau đó vào phần <strong>FPT Accounts</strong>, các bạn nhìn vào danh sách <code>Special FPT Accounts</code> sẽ có username để ssh.</p>
+<p><img src="/images/godaddy-get-ssh-user.png" alt="Get ssh username"></p>
+<p>Để ssh nếu dùng windown thì ta có thể sử dụng chương trình Putty, còn ở Mac hoặc Linux thì mở terminal lên để ssh.</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml">ssh </span><span class="template-variable">&#123;username&#125;</span><span class="xml">@</span><span class="template-variable">&#123;public_ip&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<p>Ở đây <code>Password</code> nhập vào là password các bạn login vào Godaddy.</p>
+<h1 id="Kiem-tra-xem-nodejs-da-duoc-cai-chua"><a href="#Kiem-tra-xem-nodejs-da-duoc-cai-chua" class="headerlink" title="Kiểm tra xem nodejs đã được cài chưa"></a>Kiểm tra xem nodejs đã được cài chưa</h1><p>Sau khi <code>ssh</code> vào server các bạn kiểm tra xem nodejs được cài chưa bằng cách.</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">which <span class="keyword">node</span></div><div class="line"><span class="title">which</span> npm</div><div class="line">which nvm</div></pre></td></tr></table></figure>
+<p>Nếu không có thông tin gì, thì ta bắt đầu quá trình cài đặt.</p>
+<h1 id="Cai-dat-nodejs-bang-nvm"><a href="#Cai-dat-nodejs-bang-nvm" class="headerlink" title="Cài đặt nodejs bằng nvm"></a>Cài đặt nodejs bằng nvm</h1><p>Để cài đặt <code>nodejs</code> không cần dùng quyền <code>sudo</code> ta sẽ sử dụng <a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a>.</p>
+<p>Ta chạy lần lượt các lệnh sau:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o- https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/creationix/</span>nvm<span class="regexp">/v0.32.0/i</span>nstall.sh | bash</div></pre></td></tr></table></figure>
+<p>Sau khi đã chạy xong ta có thể kiểm tra lại <code>nvm</code> đã được cài đặt bằng:</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm <span class="comment">--version</span></div></pre></td></tr></table></figure>
+<p>Cài đặt <code>nodejs</code> bằng <code>nvm</code>:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install <span class="keyword">node</span><span class="title"></span></div></pre></td></tr></table></figure>
+<p>Để kiểm tra <code>nodejs</code> đã được cài thành công ta chạy lệnh:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">node</span> <span class="title">-v</span></div><div class="line">npm -v</div></pre></td></tr></table></figure>
+<p>Từ đây ta có thể cài thêm <a href="https://github.com/Unitech/pm2" target="_blank" rel="external">pm2</a> để chạy các ứng dụng <code>nodejs</code> trên server mà không làm ứng dụng tắt đi khi ta thoát phiên ssh.</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> pm2 -g</div></pre></td></tr></table></figure>
+<h1 id="Ket"><a href="#Ket" class="headerlink" title="Kết"></a>Kết</h1><p>Như vậy là mình đã có thể chạy nodejs trên shared hosting của Godaddy, tuy nhiên mình không chạy được ứng dụng ở cổng <code>http 80</code>. Khi mình chạy một ứng dụng ở cổng 5000 chẳng hạn. Mình cũng không thể truy cập được từ public IP. Tuy nhiên nếu mình truy cập từ localhost thì vẫn có thể được. Ví dụ:</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl <span class="string">http:</span><span class="comment">//localhost:5000</span></div></pre></td></tr></table></figure>
+<p>Ngoài ra mình thấy Godaddy cũng đang có dịch vụ NodeJS cloud. Cái này mình chưa thử, nên chưa biết thế nào. Dù sao thì chạy đưọc nodejs trên shared hosting cũng có thể giúp ích đưọc trong một vài trường hợp đặt biệt.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saysua.com/2016/04/19/nodejs-module-cache-trying/" data-id="ciubaakqc0014kovl38ssz2u5" class="article-share-link">Share</a>
+      <a data-url="http://saysua.com/2013/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/" data-id="ciufkl1wo00008svl9bp5bxqf" class="article-share-link">Share</a>
       
-        <a href="http://saysua.com/2016/04/19/nodejs-module-cache-trying/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://saysua.com/2013/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/#disqus_thread" class="article-comment-link">Comments</a>
       
       <div class="tagcloud">
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Godaddy/">Godaddy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NodeJs/">NodeJs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nvm/">Nvm</a></li></ul>
 
       </div>
     </footer>
@@ -122,19 +141,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/09/07/teamcity-build-agent-disconnected/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          TeamCity – Build agent disconnected
+          Bắt sự kiện kích chuột bên ngoài một phần tử và kiểm tra phần tử ẩn/hiện bằng JQuery
         
       </div>
     </a>
   
   
-    <a href="/2016/03/01/nodejs-request-Error-socket-hang-up-code-ECONNRESET/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Nodejs - Request - Error socket hang up code - ECONNRESET</div>
+      <div class="article-nav-title">Kiểm tra một phần tử tồn tại bằng JQuery</div>
     </a>
   
 </nav>
@@ -256,7 +275,7 @@
 <script>
   var disqus_shortname = 'saysua';
   
-  var disqus_url = 'http://saysua.com/2016/04/19/nodejs-module-cache-trying/';
+  var disqus_url = 'http://saysua.com/2013/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/';
   
   (function(){
     var dsq = document.createElement('script');

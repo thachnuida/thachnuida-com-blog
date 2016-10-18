@@ -859,6 +859,56 @@
   </entry>
   
   <entry>
+    <title>Cài đặt Nodejs trên Godaddy shared hosting</title>
+    <link href="http://saysua.com/2013/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/"/>
+    <id>http://saysua.com/2013/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/</id>
+    <published>2013-10-18T13:45:10.000Z</published>
+    <updated>2016-10-18T14:09:39.440Z</updated>
+    
+    <content type="html"><![CDATA[<p>Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku.</p>
+<p>Ngày hôm nay, mình nhận được một tình huống tương tự như vậy, nhưng kết quả đã khác. Đã có thể cài nodejs lên shared hosting của Godaddy. Dưới đây là các bược thực hiện.</p>
+<h1 id="SSH-vao-server-cua-Godaddy"><a href="#SSH-vao-server-cua-Godaddy" class="headerlink" title="SSH vào server của Godaddy"></a>SSH vào server của Godaddy</h1><p>Ở đây mình cần phải có username để <code>ssh</code>. Lúc đầu mình nhầm username này với user đăng nhập vào trang quản lý của Goddady. Để có được username ssh này các bạn mở trình quản lý Cpanel của hosting lên.</p>
+<p><img src="/images/godaddy-open-cpanel.png" alt="Open Godady Cpanel"></p>
+<p>Sau đó vào phần <strong>FPT Accounts</strong>, các bạn nhìn vào danh sách <code>Special FPT Accounts</code> sẽ có username để ssh.</p>
+<p><img src="/images/godaddy-get-ssh-user.png" alt="Get ssh username"></p>
+<p>Để ssh nếu dùng windown thì ta có thể sử dụng chương trình Putty, còn ở Mac hoặc Linux thì mở terminal lên để ssh.</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml">ssh </span><span class="template-variable">&#123;username&#125;</span><span class="xml">@</span><span class="template-variable">&#123;public_ip&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<p>Ở đây <code>Password</code> nhập vào là password các bạn login vào Godaddy.</p>
+<h1 id="Kiem-tra-xem-nodejs-da-duoc-cai-chua"><a href="#Kiem-tra-xem-nodejs-da-duoc-cai-chua" class="headerlink" title="Kiểm tra xem nodejs đã được cài chưa"></a>Kiểm tra xem nodejs đã được cài chưa</h1><p>Sau khi <code>ssh</code> vào server các bạn kiểm tra xem nodejs được cài chưa bằng cách.</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">which <span class="keyword">node</span></div><div class="line"><span class="title">which</span> npm</div><div class="line">which nvm</div></pre></td></tr></table></figure>
+<p>Nếu không có thông tin gì, thì ta bắt đầu quá trình cài đặt.</p>
+<h1 id="Cai-dat-nodejs-bang-nvm"><a href="#Cai-dat-nodejs-bang-nvm" class="headerlink" title="Cài đặt nodejs bằng nvm"></a>Cài đặt nodejs bằng nvm</h1><p>Để cài đặt <code>nodejs</code> không cần dùng quyền <code>sudo</code> ta sẽ sử dụng <a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a>.</p>
+<p>Ta chạy lần lượt các lệnh sau:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o- https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/creationix/</span>nvm<span class="regexp">/v0.32.0/i</span>nstall.sh | bash</div></pre></td></tr></table></figure>
+<p>Sau khi đã chạy xong ta có thể kiểm tra lại <code>nvm</code> đã được cài đặt bằng:</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm <span class="comment">--version</span></div></pre></td></tr></table></figure>
+<p>Cài đặt <code>nodejs</code> bằng <code>nvm</code>:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install <span class="keyword">node</span><span class="title"></span></div></pre></td></tr></table></figure>
+<p>Để kiểm tra <code>nodejs</code> đã được cài thành công ta chạy lệnh:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">node</span> <span class="title">-v</span></div><div class="line">npm -v</div></pre></td></tr></table></figure>
+<p>Từ đây ta có thể cài thêm <a href="https://github.com/Unitech/pm2" target="_blank" rel="external">pm2</a> để chạy các ứng dụng <code>nodejs</code> trên server mà không làm ứng dụng tắt đi khi ta thoát phiên ssh.</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> pm2 -g</div></pre></td></tr></table></figure>
+<h1 id="Ket"><a href="#Ket" class="headerlink" title="Kết"></a>Kết</h1><p>Như vậy là mình đã có thể chạy nodejs trên shared hosting của Godaddy, tuy nhiên mình không chạy được ứng dụng ở cổng <code>http 80</code>. Khi mình chạy một ứng dụng ở cổng 5000 chẳng hạn. Mình cũng không thể truy cập được từ public IP. Tuy nhiên nếu mình truy cập từ localhost thì vẫn có thể được. Ví dụ:</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl <span class="string">http:</span><span class="comment">//localhost:5000</span></div></pre></td></tr></table></figure>
+<p>Ngoài ra mình thấy Godaddy cũng đang có dịch vụ NodeJS cloud. Cái này mình chưa thử, nên chưa biết thế nào. Dù sao thì chạy đưọc nodejs trên shared hosting cũng có thể giúp ích đưọc trong một vài trường hợp đặt biệt.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm đượ
+    
+    </summary>
+    
+    
+      <category term="NodeJs" scheme="http://saysua.com/tags/NodeJs/"/>
+    
+      <category term="Nvm" scheme="http://saysua.com/tags/Nvm/"/>
+    
+      <category term="Godaddy" scheme="http://saysua.com/tags/Godaddy/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Kiểm tra một phần tử tồn tại bằng JQuery</title>
     <link href="http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/"/>
     <id>http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/</id>
@@ -947,43 +997,6 @@
     
     
       <category term="Jquery" scheme="http://saysua.com/tags/Jquery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Trích xuất dữ liệu web bằng PHP với PQLite</title>
-    <link href="http://saysua.com/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/"/>
-    <id>http://saysua.com/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/</id>
-    <published>2013-09-14T07:58:32.000Z</published>
-    <updated>2016-10-16T01:44:44.102Z</updated>
-    
-    <content type="html"><![CDATA[<p>Đã bao giờ bạn muốn trích xuất thông tin từ một trang web bằng PHP, chẳng hạn như giá cổ phiếu, giá vàng, nội dung bài báo… công việc đầu tiên là bạn sẽ đọc nội dung của trang web đó rồi tìm đến phần tử chứa nội dung cần lấy. Hẳn các bạn đã từng thử nhiều cách bằng hàm tìm chuỗi hoặc dùng biểu thức chính quy và bạn thấy nó thật phức tạp, hoặc nếu trên trang web đó có thay đổi lại cấu trúc thì chúng ta cũng phải rất vất vã để sửa lại hàm lấy thông tin của mình.</p>
-<p>Và rồi bạn tự hỏi rằng, ước gì mình có thể thao tác với nội dung trang web đó đơn giản như bạn đã làm với JQuery, bạn có thể lấy các thẻ bằng ID hoặc là class của nó.</p>
-<p>Và đây, tôi xin giới thiệu đến cho các bạn một thư viện PHP có thể giúp bạn làm việc với các phần tử HTML đơn giản như các bạn đang làm với Jquery. Các bạn có thể đi qua từng phần tử, lấy nội dung của nó, thậm chí có thể thay đổi nội dung bên trong của 1 phần tử, thay đổi class,…</p>
-<p>PQlite sẽ giúp chúng ta làm phần khó.</p>
-<a id="more"></a>
-<p>Thay vì trình bày chi tiết về nó, tôi sẽ cùng với các bạn làm một chức năng nho nhỏ như sau:</p>
-<p>Đây là trang web chúng ta sẽ cùng nhau lấy dữ liệu:</p>
-<p><a href="http://hcm.24h.com.vn/ttcb/giavang/giavang.php" target="_blank" rel="external">http://hcm.24h.com.vn/ttcb/giavang/giavang.php</a></p>
-<p>Nội dung tôi muốn lấy ở đây là bảng giá vàng. Các bạn dùng Chrome mở trang web lên, rồi kích chuột phải vào bảng giá vàng, chọn “Inspect Element” để coi nội dung.</p>
-<p><img src="/images/giavang.png" alt="Bang Gia Vang"></p>
-<p>Ta có thể thấy bảng giá vàng ở đây là một table  với class là tb-giaVang . Thường thì để lấy chính xác nội dung của một phần tử ta nên dựa vào ID của nó bởi vì ID được đặt là định danh duy nhất, nhưng ở đây bảng giá vàng lại không có ID, tuy nhiên khi kiểm tra class tb-giaVang  cũng là duy nhất nên chúng ta có thể dựa vào nó để lấy giá trị của bảng giá vàng được.</p>
-<p>Đầu tiên các bạn tải thư viện PQlite về, sau đó tạo 1 file test.php  với nội dung như sau. Chạy nó và xem kết quả.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line"><span class="keyword">include_once</span>( <span class="string">'PQLite.php'</span> );</div><div class="line"></div><div class="line">$content = file_get_contents(<span class="string">'http://hcm.24h.com.vn/ttcb/giavang/giavang.php'</span>);</div><div class="line"></div><div class="line">$pq = <span class="keyword">new</span> PQLite($content);</div><div class="line"></div><div class="line">$giavang = $pq-&gt;find(<span class="string">'.tb-giaVang'</span>)-&gt;getOuterHtml();</div><div class="line"></div><div class="line"><span class="keyword">echo</span> $giavang;</div><div class="line"></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Đã bao giờ bạn muốn trích xuất thông tin từ một trang web bằng PHP, chẳng hạn như giá cổ phiếu, giá vàng, nội dung bài báo… công việc đầu tiên là bạn sẽ đọc nội dung của trang web đó rồi tìm đến phần tử chứa nội dung cần lấy. Hẳn các bạn đã từng thử nhiều cách bằng hàm tìm chuỗi hoặc dùng biểu thức chính quy và bạn thấy nó thật phức tạp, hoặc nếu trên trang web đó có thay đổi lại cấu trúc thì chúng ta cũng phải rất vất vã để sửa lại hàm lấy thông tin của mình.&lt;/p&gt;
-&lt;p&gt;Và rồi bạn tự hỏi rằng, ước gì mình có thể thao tác với nội dung trang web đó đơn giản như bạn đã làm với JQuery, bạn có thể lấy các thẻ bằng ID hoặc là class của nó.&lt;/p&gt;
-&lt;p&gt;Và đây, tôi xin giới thiệu đến cho các bạn một thư viện PHP có thể giúp bạn làm việc với các phần tử HTML đơn giản như các bạn đang làm với Jquery. Các bạn có thể đi qua từng phần tử, lấy nội dung của nó, thậm chí có thể thay đổi nội dung bên trong của 1 phần tử, thay đổi class,…&lt;/p&gt;
-&lt;p&gt;PQlite sẽ giúp chúng ta làm phần khó.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Scrape" scheme="http://saysua.com/tags/Scrape/"/>
-    
-      <category term="PHP" scheme="http://saysua.com/tags/PHP/"/>
     
   </entry>
   
