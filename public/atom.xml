@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://saysua.com/"/>
-  <updated>2016-10-18T14:46:40.041Z</updated>
+  <updated>2016-11-19T03:12:50.890Z</updated>
   <id>http://saysua.com/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tôi học Machine Learning - 001 - Nhập môn</title>
+    <link href="http://saysua.com/2016/11/18/toi-hoc-machine-learning-001-nhap-mon/"/>
+    <id>http://saysua.com/2016/11/18/toi-hoc-machine-learning-001-nhap-mon/</id>
+    <published>2016-11-18T13:20:00.000Z</published>
+    <updated>2016-11-19T03:12:50.890Z</updated>
+    
+    <content type="html"><![CDATA[<p>Machine Learning vẫn còn là một thứ mới mẻ và khiến mình tò mò, cho nên hôm nay mình đã bắt đầu tham gia một khóa học về nó. Chuỗi các bài “Tôi học Machine Learning” là những ghi chú của mình, chứ không phải là bài hướng dẫn, vì vậy có thể có những sai sót chủ quan trong nội dung bài viết. Nếu các bạn thấy chỗ nào sai, cứ thoải mái góp ý, điều đó sẽ rất có ý nghĩa với mình.</p>
+<h1 id="Phan-mem-va-ngon-ngu"><a href="#Phan-mem-va-ngon-ngu" class="headerlink" title="Phần mềm và ngôn ngữ"></a>Phần mềm và ngôn ngữ</h1><p>Đây là các phần mềm và ngôn ngữ mình cần phải cài đặt:</p>
+<ul>
+<li>Python <a href="https://www.python.org/" target="_blank" rel="external">https://www.python.org/</a></li>
+<li>R <a href="https://cran.r-project.org/bin/windows/base/" target="_blank" rel="external">https://cran.r-project.org/bin/windows/base/</a></li>
+<li>R Studio <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank" rel="external">https://www.rstudio.com/products/rstudio/download/</a></li>
+<li>Anaconda <a href="https://www.continuum.io/downloads" target="_blank" rel="external">https://www.continuum.io/downloads</a></li>
+</ul>
+<a id="more"></a>
+<p>Sau khi cài Anacoda, ta sẽ có IDE <em>spyder</em> để viết và debug python code.</p>
+<p><img src="/images/spyder.png" alt="Spyder IDE"></p>
+<p>Còn RStudio dĩ nhiên là để viết R code rồi.</p>
+<p><img src="/images/RStudio.png" alt="RStudio"></p>
+<h1 id="Tien-xu-ly-du-lieu"><a href="#Tien-xu-ly-du-lieu" class="headerlink" title="Tiền xử lý dữ liệu"></a>Tiền xử lý dữ liệu</h1><p>Đây là dữ liệu mẫu cần được xử lý <code>Data.csv</code></p>
+<p><img src="/images/data-01-csv.png" alt="Data.csv"></p>
+<p>Trước khi xử lý dữ liệu ta cần phải <code>sơ chế</code> nó trước.</p>
+<h2 id="Xu-ly-phan-du-lieu-bi-thieu"><a href="#Xu-ly-phan-du-lieu-bi-thieu" class="headerlink" title="Xử lý phần dữ liệu bị thiếu"></a>Xử lý phần dữ liệu bị thiếu</h2><p>Ở đây, trong dữ liệu mẫu ô <code>B8</code> và <code>C6</code> bị thiếu giá trị, trong quá trình sơ chế ta có thể loại bỏ 2 hàng này đi, nhưng như vậy có thể nguy hiểm vì nó có thể chứa các giá trị quan trọng. Có một cách khác là ta sẽ lấy giá trị trung bình trong cột để áp dụng vào các ô bị thiếu.</p>
+<h3 id="Code-python-su-dung-thu-vien-pandas"><a href="#Code-python-su-dung-thu-vien-pandas" class="headerlink" title="Code python sử dụng thư viện pandas:"></a>Code <code>python</code> sử dụng thư viện <code>pandas</code>:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Import libraries</span></div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line"><span class="comment"># Import data</span></div><div class="line">dataset = pd.read_csv(<span class="string">'Data.csv'</span>)</div><div class="line">X = dataset.iloc[:, :<span class="number">-1</span>].values</div><div class="line"></div><div class="line"><span class="comment"># Missing data</span></div><div class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> Imputer</div><div class="line">imputer = Imputer(missing_values=<span class="string">'NaN'</span>, strategy=<span class="string">'mean'</span>, axis=<span class="number">0</span>)</div><div class="line">imputer = imputer.fit(X[:, <span class="number">1</span>:<span class="number">3</span>])</div><div class="line">X[:, <span class="number">1</span>:<span class="number">3</span>] = imputer.transform(X[:, <span class="number">1</span>:<span class="number">3</span>])</div></pre></td></tr></table></figure>
+<p>Ở dòng 8, ta lấy <code>X</code> là mảng giá trị của tất cả các hàng và tất cả các cột trừ cột cuối (<code>-1</code>). Ta có giá trị <code>X</code> như sau:</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">array([[<span class="string">'France'</span>, <span class="number">44.0</span>, <span class="number">72000.0</span>],</div><div class="line">       [<span class="string">'Spain'</span>, <span class="number">27.0</span>, <span class="number">48000.0</span>],</div><div class="line">       [<span class="string">'Germany'</span>, <span class="number">30.0</span>, <span class="number">54000.0</span>],</div><div class="line">       [<span class="string">'Spain'</span>, <span class="number">38.0</span>, <span class="number">61000.0</span>],</div><div class="line">       [<span class="string">'Germany'</span>, <span class="number">40.0</span>, nan],</div><div class="line">       [<span class="string">'France'</span>, <span class="number">35.0</span>, <span class="number">58000.0</span>],</div><div class="line">       [<span class="string">'Spain'</span>, nan, <span class="number">52000.0</span>],</div><div class="line">       [<span class="string">'France'</span>, <span class="number">48.0</span>, <span class="number">79000.0</span>],</div><div class="line">       [<span class="string">'Germany'</span>, <span class="number">50.0</span>, <span class="number">83000.0</span>],</div><div class="line">       [<span class="string">'France'</span>, <span class="number">37.0</span>, <span class="number">67000.0</span>]], dtype=object)</div></pre></td></tr></table></figure>
+<p>Ở dòng 12, ta xác định các giá trị bị thiếu bằng <code>missing_values=&#39;NaN&#39;</code>, và thay thế chúng bằng giá trị trung bình <code>strategy=&#39;mean&#39;</code> của cột <code>axis=0</code>.</p>
+<p>Ta sẽ áp dụng nó cho hai cột 1 và 2 của X (cột đầu tiên là 0): <code>X[:, 1:3]</code> (vì giá trị cột được xác định trong khoảng nên ta phải dùng <code>1:3</code> chứ không phải <code>1:2</code>)</p>
+<p>Cuối cùng ta có <code>X</code>:</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">array([[<span class="string">'France'</span>, <span class="number">44.0</span>, <span class="number">72000.0</span>],</div><div class="line">       [<span class="string">'Spain'</span>, <span class="number">27.0</span>, <span class="number">48000.0</span>],</div><div class="line">       [<span class="string">'Germany'</span>, <span class="number">30.0</span>, <span class="number">54000.0</span>],</div><div class="line">       [<span class="string">'Spain'</span>, <span class="number">38.0</span>, <span class="number">61000.0</span>],</div><div class="line">       [<span class="string">'Germany'</span>, <span class="number">40.0</span>, <span class="number">63777.77777777778</span>],</div><div class="line">       [<span class="string">'France'</span>, <span class="number">35.0</span>, <span class="number">58000.0</span>],</div><div class="line">       [<span class="string">'Spain'</span>, <span class="number">38.77777777777778</span>, <span class="number">52000.0</span>],</div><div class="line">       [<span class="string">'France'</span>, <span class="number">48.0</span>, <span class="number">79000.0</span>],</div><div class="line">       [<span class="string">'Germany'</span>, <span class="number">50.0</span>, <span class="number">83000.0</span>],</div><div class="line">       [<span class="string">'France'</span>, <span class="number">37.0</span>, <span class="number">67000.0</span>]], dtype=object)</div></pre></td></tr></table></figure>
+<p>Các giá trị <code>nan</code> đã được thay thế bằng giá trị trung bình.</p>
+<h3 id="Code-R"><a href="#Code-R" class="headerlink" title="Code R"></a>Code R</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Import data</span></div><div class="line">dataset = read.csv(<span class="string">'Data.csv'</span>)</div><div class="line"></div><div class="line"><span class="comment"># Missing data handler</span></div><div class="line">dataset$Age = ifelse(is.na(dataset$Age),</div><div class="line">                     ave(dataset$Age, FUN = <span class="keyword">function</span>(x) mean(x, na.rm = <span class="literal">TRUE</span>)),</div><div class="line">                     dataset$Age</div><div class="line">                     )</div><div class="line"></div><div class="line">dataset$Salary = ifelse(is.na(dataset$Salary),</div><div class="line">                        ave(dataset$Salary, FUN = <span class="keyword">function</span>(x) mean(x, na.rm = <span class="literal">TRUE</span>)),</div><div class="line">                        dataset$Salary</div><div class="line">                        )</div></pre></td></tr></table></figure>
+<p>Ở dòng 5, ta tính toán lại giá trị các ô trong cột <code>Age</code>, nếu ô không có giá trị <code>is.na(dataset$Age)</code>, ta sẽ lấy giá trị trung bình của cột <code>Age</code> bằng hàm <code>mean</code> và bỏ qua các giá trị bị thiếu <code>na.rm = TRUE</code> (dòng 6), nếu ô có giá trị thì ta giữ nguyên nó <code>dataset$Age</code> (dòng 7).</p>
+<h1 id="Tong-ket"><a href="#Tong-ket" class="headerlink" title="Tổng kết"></a>Tổng kết</h1><p>Như vậy là mình đã biết cách căn bản để xử lý dữ liệu thiếu bằng cách lấp vào các giá trị trung bình bằng <code>python</code> và <code>R</code>. Khi viết code vẫn có nhiều chỗ chưa rõ, chúng ta có thể xem phần <code>help</code> của ứng dụng để hiểu thêm về các hàm.</p>
+<p>Trong <code>Spyder</code> các bạn nhấn <code>Ctrl + I</code> tại một hàm để coi help của nó, trong <code>RStudio</code> thì nhấn <code>F1</code>.</p>
+<p><strong>Mẹo</strong> Trong cả 2 IDE trên, để chạy từng đoạn code, ta bôi đen đoạn code và nhấn <code>Ctrl + Enter</code>.</p>
+<p>Các ghi chú này được mình ghi lại khi đang tham gia khóa học tại <em>udemy</em> nếu bạn thấy thú vị có thể đăng ký để học trên đó, sẽ có nhiều giải thích chi tiết hơn (<a href="https://www.udemy.com/machinelearning" target="_blank" rel="external">https://www.udemy.com/machinelearning</a>) .</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Machine Learning vẫn còn là một thứ mới mẻ và khiến mình tò mò, cho nên hôm nay mình đã bắt đầu tham gia một khóa học về nó. Chuỗi các bài “Tôi học Machine Learning” là những ghi chú của mình, chứ không phải là bài hướng dẫn, vì vậy có thể có những sai sót chủ quan trong nội dung bài viết. Nếu các bạn thấy chỗ nào sai, cứ thoải mái góp ý, điều đó sẽ rất có ý nghĩa với mình.&lt;/p&gt;
+&lt;h1 id=&quot;Phan-mem-va-ngon-ngu&quot;&gt;&lt;a href=&quot;#Phan-mem-va-ngon-ngu&quot; class=&quot;headerlink&quot; title=&quot;Phần mềm và ngôn ngữ&quot;&gt;&lt;/a&gt;Phần mềm và ngôn ngữ&lt;/h1&gt;&lt;p&gt;Đây là các phần mềm và ngôn ngữ mình cần phải cài đặt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Python &lt;a href=&quot;https://www.python.org/&quot;&gt;https://www.python.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;R &lt;a href=&quot;https://cran.r-project.org/bin/windows/base/&quot;&gt;https://cran.r-project.org/bin/windows/base/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;R Studio &lt;a href=&quot;https://www.rstudio.com/products/rstudio/download/&quot;&gt;https://www.rstudio.com/products/rstudio/download/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Anaconda &lt;a href=&quot;https://www.continuum.io/downloads&quot;&gt;https://www.continuum.io/downloads&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://saysua.com/tags/Python/"/>
+    
+      <category term="Machine Learning" scheme="http://saysua.com/tags/Machine-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>Cài đặt Nodejs trên Godaddy shared hosting</title>
@@ -873,9 +933,9 @@
     </summary>
     
     
-      <category term="Ajax" scheme="http://saysua.com/tags/Ajax/"/>
-    
       <category term="Jquery" scheme="http://saysua.com/tags/Jquery/"/>
+    
+      <category term="Ajax" scheme="http://saysua.com/tags/Ajax/"/>
     
   </entry>
   
@@ -969,36 +1029,6 @@
     
     
       <category term="Javascript" scheme="http://saysua.com/tags/Javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Đổi đối tượng JQuery sang DOM</title>
-    <link href="http://saysua.com/2013/10/09/doi-doi-tuong-jquery-sang-dom/"/>
-    <id>http://saysua.com/2013/10/09/doi-doi-tuong-jquery-sang-dom/</id>
-    <published>2013-10-09T07:48:10.000Z</published>
-    <updated>2016-10-16T01:41:10.266Z</updated>
-    
-    <content type="html"><![CDATA[<p>Trong đối tượng JQuery nó đã có chứa thành phần DOM. Để lấy được thành phần DOM từ đối tượng JQuery ta có thể sử dụng phương thức get() .</p>
-<a id="more"></a>
-<p>Ví dụ ta có một danh sách như sau :</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>say<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>sua<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Nếu như đối tượng JQuery chỉ có một thành phần DOM ta có thể dùng 2 cách lấy:</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$<span class="comment">(‘ul’)</span>.get<span class="comment">(0)</span>  hoặc $<span class="comment">(‘ul’)</span>[<span class="number">0</span>]</div></pre></td></tr></table></figure>
-<p>Nếu đối tượng JQuery có nhiều thành phần DOM, để lấy hết tất cả ta sử dụng:</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$<span class="comment">(‘li’)</span>.get<span class="comment">()</span></div></pre></td></tr></table></figure>
-<p>Ví dụ:</p>
-<iframe src="http://jsfiddle.net/thachnuida/HRfVT/embedded" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Trong đối tượng JQuery nó đã có chứa thành phần DOM. Để lấy được thành phần DOM từ đối tượng JQuery ta có thể sử dụng phương thức get() .&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Jquery" scheme="http://saysua.com/tags/Jquery/"/>
     
   </entry>
   
