@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://saysua.com/"/>
-  <updated>2016-11-19T03:12:50.890Z</updated>
+  <updated>2016-11-23T01:42:17.977Z</updated>
   <id>http://saysua.com/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tôi học Machine Learning - 002 - Khóa học trên Coursera</title>
+    <link href="http://saysua.com/2016/11/23/toi-hoc-machine-learning-002/"/>
+    <id>http://saysua.com/2016/11/23/toi-hoc-machine-learning-002/</id>
+    <published>2016-11-23T01:36:00.000Z</published>
+    <updated>2016-11-23T01:42:17.977Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hôm trước, mình đăng ký khóa học trên Udemy, sau khi coi các bài học đầu tiên thấy rằng nó chưa hợp với mình. Vì mình chưa biết gì về ML cả mà mới vào đã hướng dẫn ngay code rồi, càng coi càng rối.</p>
+<p>Tìm trên Coursera (mình đã học một khóa về Python trên này), có một khóa về ML do Andrew ng hướng dẫn, anh này mình thấy rất nổi tiếng về lĩnh vực ML, cấu trúc khóa học cũng rõ ràng, bắt đầu từ cơ bản.</p>
+<p>Nên mình quyết định dừng việc theo dõi khóa học trên Udemy và tập trung vào khóa học trên Coursera trước (<a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="external">https://www.coursera.org/learn/machine-learning</a>). Mình có coi qua các đánh giá thì khóa này vẫn còn thiếu vài phần <code>Wish the course also covered decision trees, random forests and boosting algorithms.</code> mà mấy phần này bên Udemy có. Nên sau khi hoàn thành khóa trên Coursera mình sẽ quay lại coi bên Udemy.</p>
+<p>Bạn nào mới bắt đầu tìm hiểu về ML thì có thể cùng mình học trên Coursera nhé. Có 2 tùy chọn Free hoặc trả phí (Trả phí thì sau khi hoàn thành sẽ có chứng nhận.)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hôm trước, mình đăng ký khóa học trên Udemy, sau khi coi các bài học đầu tiên thấy rằng nó chưa hợp với mình. Vì mình chưa biết gì về ML 
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://saysua.com/tags/Python/"/>
+    
+      <category term="Machine Learning" scheme="http://saysua.com/tags/Machine-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>Tôi học Machine Learning - 001 - Nhập môn</title>
@@ -1000,35 +1026,6 @@
     
     
       <category term="Jquery" scheme="http://saysua.com/tags/Jquery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Xóa 1 phần tử trong mảng bằng Javascript</title>
-    <link href="http://saysua.com/2013/10/12/xoa-1-phan-tu-trong-mang-bang-javascript/"/>
-    <id>http://saysua.com/2013/10/12/xoa-1-phan-tu-trong-mang-bang-javascript/</id>
-    <published>2013-10-11T23:56:13.000Z</published>
-    <updated>2016-10-16T01:43:34.400Z</updated>
-    
-    <content type="html"><![CDATA[<p>Khi lập trình với javascript và một vài ngôn ngữ khác, có một thao tác tưởng chừng rất đơn giản nhưng lại luôn khiến tôi bối rối về cách thực hiện nó. Đó chính là Xóa một phần tử trong mảng.</p>
-<h1 id="Javascript-Splice"><a href="#Javascript-Splice" class="headerlink" title="Javascript: Splice"></a>Javascript: Splice</h1><p>Trong javascript, để xóa một phần tử trong mảng ta có thể dùng hàm <code>splice()</code></p>
-<a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="string">'say'</span>, <span class="string">'sua'</span>, <span class="string">'com'</span>];</div><div class="line">a.splice(<span class="number">0</span>,<span class="number">1</span>); <span class="comment">// Xóa 1 phần tử tại vị trí 0</span></div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// =&gt; a = ['sua', 'com']</span></div></pre></td></tr></table></figure>
-<p>Chúng ta có thể kết hợp <code>splice()</code>  cùng với <code>indexOf()</code>  để xóa phần tử dựa vào giá trị của nó:</p>
-<figure class="highlight cal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="string">'say'</span>, <span class="string">'sua'</span>, <span class="string">'com'</span>];</div><div class="line"><span class="keyword">var</span> deleteElement = <span class="string">'sua'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> i = a.indexOf(deleteElement);</div><div class="line"><span class="keyword">if</span> (i != -<span class="number">1</span>) &#123;</div><div class="line">    a.splice(i,<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(a); // =&gt; [<span class="string">'say'</span>, <span class="string">'com'</span>]</div></pre></td></tr></table></figure>
-<p>Nếu các bạn muốn thực hiện thêm nhiều thao tác với mảng các bạn có thể tham khảo thư viện <code>underscore</code> như ở bài viết <a href="http://saysua.com/2013/08/12/js-xu-ly-mang-voi-underscore-js/">Xử lý mảng với underscore</a></p>
-<p>Tóm lại: để xóa một phần tử trong mảng ta có thể dùng <code>array.splice(vị trí cần xóa, 1)</code></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Khi lập trình với javascript và một vài ngôn ngữ khác, có một thao tác tưởng chừng rất đơn giản nhưng lại luôn khiến tôi bối rối về cách thực hiện nó. Đó chính là Xóa một phần tử trong mảng.&lt;/p&gt;
-&lt;h1 id=&quot;Javascript-Splice&quot;&gt;&lt;a href=&quot;#Javascript-Splice&quot; class=&quot;headerlink&quot; title=&quot;Javascript: Splice&quot;&gt;&lt;/a&gt;Javascript: Splice&lt;/h1&gt;&lt;p&gt;Trong javascript, để xóa một phần tử trong mảng ta có thể dùng hàm &lt;code&gt;splice()&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Javascript" scheme="http://saysua.com/tags/Javascript/"/>
     
   </entry>
   
