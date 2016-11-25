@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://saysua.com/"/>
-  <updated>2016-11-23T01:42:17.977Z</updated>
+  <updated>2016-11-25T07:43:47.662Z</updated>
   <id>http://saysua.com/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tôi học Machine Learning - 003 - Supervised Learning - Học có giám sát</title>
+    <link href="http://saysua.com/2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/"/>
+    <id>http://saysua.com/2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/</id>
+    <published>2016-11-25T07:29:00.000Z</published>
+    <updated>2016-11-25T07:43:47.662Z</updated>
+    
+    <content type="html"><![CDATA[<p><em>Bài ghi chú</em></p>
+<p>Với <code>học có giám sát (Supervised Learning)</code>, chúng ta được đưa một dữ liệu với kết quả đầu ra tương ứng đã biết trước, ta cần xây dựng mối quan hệ dữa đầu vào và đầu ra, để dự đoán kết quả đầu ra của các giá trị đầu vào khác.</p>
+<p>Ví dụ, dự đoán giá nhà dựa vào vị trí, kích thước của căn nhà.</p>
+<p>Học có giám sát được chia ra làm hai loại, <code>regression (hồi quy)</code> và <code>classification (phân lớp)</code>.</p>
+<ul>
+<li>Loại hồi quy: ta cố gắng dự đoán kết quả dưới dạng liên tục.</li>
+<li>Loại phân lớp: ta cố gặng dự đoán kết quả dưới dạng rời rạc.</li>
+</ul>
+<p>Ví dụ:</p>
+<ul>
+<li>Loại hồi quy: <ul>
+<li>Cho kết quả kiểm tra đầu vào một lớp học, dự đoán số học sinh lên lớp.</li>
+<li>Dựa vào kích thước, màu sắc của quả dưa leo, dự đoán giá bán sản phẩm.</li>
+</ul>
+</li>
+<li>Loại phân lớp:<ul>
+<li>Dựa vào kích thước, màu sắc của quả dưa leo, dự đoán có bán được hay không?</li>
+<li>Cho thông tin khách hàng, dự đoán khách hàng mua sản phẩm hay không?</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;em&gt;Bài ghi chú&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Với &lt;code&gt;học có giám sát (Supervised Learning)&lt;/code&gt;, chúng ta được đưa một dữ liệu với kết quả đầu ra tươn
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://saysua.com/tags/Python/"/>
+    
+      <category term="Machine Learning" scheme="http://saysua.com/tags/Machine-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>Tôi học Machine Learning - 002 - Khóa học trên Coursera</title>
@@ -988,39 +1032,6 @@
     
       &lt;p&gt;Ngày hôm nay, trong khi đang làm, tôi bắt gặp 2 trường hợp cần giải quyết với jquery. Trường hợp thứ nhất là bắt sự kiện khi người dùng kích chuột bên ngoài một phần tử và trường hợp thứ hai là kiểm tra một phần tử có đang hiển thị hay không.&lt;/p&gt;
 &lt;p&gt;Cách giải quyết hai trường hợp này cũng khá đơn giản, nhưng tôi nghĩ nõ cũng sẽ làm ta mất một số thời gian nếu như chưa biết. Vì vậy tôi sẽ chia sẽ hai thủ thuật này ở đây.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Jquery" scheme="http://saysua.com/tags/Jquery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kiểm tra một phần tử tồn tại bằng JQuery</title>
-    <link href="http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/"/>
-    <id>http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/</id>
-    <published>2013-10-14T23:52:43.000Z</published>
-    <updated>2016-10-16T01:41:48.065Z</updated>
-    
-    <content type="html"><![CDATA[<p>Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa.</p>
-<p>Ngay khi nảy ra câu hỏi tôi nghĩ ngay đến một cách kiểm tra đơn giản:</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="symbol">$</span>(<span class="string">'#exist'</span>)) &#123;</div><div class="line">  console.<span class="built-in">log</span>(<span class="string">'exist'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Nhưng thực tế thì cách trên hoàn toàn sai bởi vì khi sử dụng <code>$()</code>  nó luôn trả về một đối tượng cho dù không tồn tại phần tử ta muốn xác định thì nó cũng sẽ trả về một đối tượng rỗng.  Vì vậy điều kiện trong câu lệnh if  sẽ luôn luôn đúng.</p>
-<a id="more"></a>
-<p>Do đó, để kiểm tra một phần tử có tồn tại hay không bằng JQuery ta có thể thực hiện như sau:</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="symbol">$</span>(<span class="string">'#exist'</span>).length) &#123;</div><div class="line">  console.<span class="built-in">log</span>(<span class="string">'exist'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Hoặc là:</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="symbol">$</span>(<span class="string">'#exist'</span>)[<span class="number">0</span>]) &#123;</div><div class="line">  console.<span class="built-in">log</span>(<span class="string">'exist'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Nếu phần tử ta cần xác định không xuất hiện, JQuery sẽ trả về đối tượng rỗng do đó <code>length</code> sẽ cho giá trị 0 và [0]  sẽ cho giá trị <code>undefined</code> .</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa.&lt;/p&gt;
-&lt;p&gt;Ngay khi nảy ra câu hỏi tôi nghĩ ngay đến một cách kiểm tra đơn giản:&lt;/p&gt;
-&lt;figure class=&quot;highlight gams&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;symbol&quot;&gt;$&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;#exist&#39;&lt;/span&gt;)) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  console.&lt;span class=&quot;built-in&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;exist&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Nhưng thực tế thì cách trên hoàn toàn sai bởi vì khi sử dụng &lt;code&gt;$()&lt;/code&gt;  nó luôn trả về một đối tượng cho dù không tồn tại phần tử ta muốn xác định thì nó cũng sẽ trả về một đối tượng rỗng.  Vì vậy điều kiện trong câu lệnh if  sẽ luôn luôn đúng.&lt;/p&gt;
     
     </summary>
     

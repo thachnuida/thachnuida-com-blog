@@ -3,14 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2013/9 | Saysua Blog</title>
+  <title>Tôi học Machine Learning - 003 - Supervised Learning - Học có giám sát | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Saysua Blog">
-<meta property="og:url" content="http://saysua.com/archives/2013/09/index.html">
+  <meta name="description" content="Bài ghi chú
+Với học có giám sát (Supervised Learning), chúng ta được đưa một dữ liệu với kết quả đầu ra tương ứng đã biết trước, ta cần xây dựng mối quan hệ dữa đầu vào và đầu ra, để dự đoán kết quả đ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tôi học Machine Learning - 003 - Supervised Learning - Học có giám sát">
+<meta property="og:url" content="http://saysua.com/2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/index.html">
 <meta property="og:site_name" content="Saysua Blog">
+<meta property="og:description" content="Bài ghi chú
+Với học có giám sát (Supervised Learning), chúng ta được đưa một dữ liệu với kết quả đầu ra tương ứng đã biết trước, ta cần xây dựng mối quan hệ dữa đầu vào và đầu ra, để dự đoán kết quả đ">
+<meta property="og:updated_time" content="2016-11-25T07:43:47.662Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Saysua Blog">
+<meta name="twitter:title" content="Tôi học Machine Learning - 003 - Supervised Learning - Học có giám sát">
+<meta name="twitter:description" content="Bài ghi chú
+Với học có giám sát (Supervised Learning), chúng ta được đưa một dữ liệu với kết quả đầu ra tương ứng đã biết trước, ta cần xây dựng mối quan hệ dữa đầu vào và đầu ra, để dự đoán kết quả đ">
   
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -78,76 +85,88 @@ ga('send', 'pageview');
   
 </nav>
           <div class="content">
-            
-
-<div class="archives-wrap">
-  <div class="archive-title" >
-    <h2 class="archive-icon">2013/9</h2>
-    
-    <div class="archiveslist archive-float clearfix">
-   </div>
-    
+            <article id="post-toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/" class="article-date">
+  <time datetime="2016-11-25T07:29:00.000Z" itemprop="datePublished">2016-11-25</time>
+</a>
   </div>
-
-  
+  <div class="article-inner">
     
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/">Trích xuất dữ liệu web bằng PHP với PQLite</a>
+    <h1 class="article-title" itemprop="name">
+      Tôi học Machine Learning - 003 - Supervised Learning - Học có giám sát
     </h1>
   
 
-      <a href="/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/" class="archive-article-date">
-  <time datetime="2013-09-14T07:58:32.000Z" itemprop="datePublished">Sep 14 2013</time>
-</a>
-    </header>
-  </div>
-</article>
+      </header>
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/09/09/javascript-hoisting-la-cai-gi/">Javascript Hoisting là gì?</a>
-    </h1>
-  
+        <p><em>Bài ghi chú</em></p>
+<p>Với <code>học có giám sát (Supervised Learning)</code>, chúng ta được đưa một dữ liệu với kết quả đầu ra tương ứng đã biết trước, ta cần xây dựng mối quan hệ dữa đầu vào và đầu ra, để dự đoán kết quả đầu ra của các giá trị đầu vào khác.</p>
+<p>Ví dụ, dự đoán giá nhà dựa vào vị trí, kích thước của căn nhà.</p>
+<p>Học có giám sát được chia ra làm hai loại, <code>regression (hồi quy)</code> và <code>classification (phân lớp)</code>.</p>
+<ul>
+<li>Loại hồi quy: ta cố gắng dự đoán kết quả dưới dạng liên tục.</li>
+<li>Loại phân lớp: ta cố gặng dự đoán kết quả dưới dạng rời rạc.</li>
+</ul>
+<p>Ví dụ:</p>
+<ul>
+<li>Loại hồi quy: <ul>
+<li>Cho kết quả kiểm tra đầu vào một lớp học, dự đoán số học sinh lên lớp.</li>
+<li>Dựa vào kích thước, màu sắc của quả dưa leo, dự đoán giá bán sản phẩm.</li>
+</ul>
+</li>
+<li>Loại phân lớp:<ul>
+<li>Dựa vào kích thước, màu sắc của quả dưa leo, dự đoán có bán được hay không?</li>
+<li>Cho thông tin khách hàng, dự đoán khách hàng mua sản phẩm hay không?</li>
+</ul>
+</li>
+</ul>
 
-      <a href="/2013/09/09/javascript-hoisting-la-cai-gi/" class="archive-article-date">
-  <time datetime="2013-09-09T08:02:49.000Z" itemprop="datePublished">Sep 9 2013</time>
-</a>
-    </header>
-  </div>
-</article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/09/03/viet-chuc-nang-login-bang-tai-khoan-facebook-khong-dung-facebook-sdk/">Viết chức năng login bằng tài khoản facebook không dùng Facebook SDK</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/" data-id="civxhfs450000gkvlru7lvbtb" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
-      <a href="/2013/09/03/viet-chuc-nang-login-bang-tai-khoan-facebook-khong-dung-facebook-sdk/" class="archive-article-date">
-  <time datetime="2013-09-03T08:12:10.000Z" itemprop="datePublished">Sep 3 2013</time>
-</a>
-    </header>
+      </div>
+    </footer>
   </div>
-</article>
-    
   
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/23/toi-hoc-machine-learning-002/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Tôi học Machine Learning - 002 - Khóa học trên Coursera</div>
+    </a>
+  
+</nav>
 
   
-</div>
+</article>
+
 <hr>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
           </div>
         </section>
         
@@ -252,11 +271,13 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'saysua';
   
+  var disqus_url = 'http://saysua.com/2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
