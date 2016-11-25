@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://saysua.com/"/>
-  <updated>2016-11-25T07:43:47.662Z</updated>
+  <updated>2016-11-25T07:47:05.084Z</updated>
   <id>http://saysua.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://saysua.com/2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/"/>
     <id>http://saysua.com/2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/</id>
     <published>2016-11-25T07:29:00.000Z</published>
-    <updated>2016-11-25T07:43:47.662Z</updated>
+    <updated>2016-11-25T07:47:05.084Z</updated>
     
     <content type="html"><![CDATA[<p><em>Bài ghi chú</em></p>
 <p>Với <code>học có giám sát (Supervised Learning)</code>, chúng ta được đưa một dữ liệu với kết quả đầu ra tương ứng đã biết trước, ta cần xây dựng mối quan hệ dữa đầu vào và đầu ra, để dự đoán kết quả đầu ra của các giá trị đầu vào khác.</p>
@@ -28,7 +28,7 @@
 <p>Học có giám sát được chia ra làm hai loại, <code>regression (hồi quy)</code> và <code>classification (phân lớp)</code>.</p>
 <ul>
 <li>Loại hồi quy: ta cố gắng dự đoán kết quả dưới dạng liên tục.</li>
-<li>Loại phân lớp: ta cố gặng dự đoán kết quả dưới dạng rời rạc.</li>
+<li>Loại phân lớp: ta cố gắng dự đoán kết quả dưới dạng rời rạc.</li>
 </ul>
 <p>Ví dụ:</p>
 <ul>

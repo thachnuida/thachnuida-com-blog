@@ -14,7 +14,7 @@ Ví dụ, dự đoán giá nhà dựa vào vị trí, kích thước của căn 
 Học có giám sát được chia ra làm hai loại, `regression (hồi quy)` và `classification (phân lớp)`.
 
 - Loại hồi quy: ta cố gắng dự đoán kết quả dưới dạng liên tục.
-- Loại phân lớp: ta cố gặng dự đoán kết quả dưới dạng rời rạc.
+- Loại phân lớp: ta cố gắng dự đoán kết quả dưới dạng rời rạc.
 
 Ví dụ:
 
