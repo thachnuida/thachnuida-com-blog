@@ -1,7 +1,6 @@
 title: Tôi học Machine Learning - 002 - Khóa học trên Coursera
 date: 2016-11-23 8:36:00
 tags:
-  - Python
   - Machine Learning
 ---
 

@@ -1,7 +1,6 @@
 title: Tôi học Machine Learning - 003 - Supervised Learning - Học có giám sát
 date: 2016-11-25 14:29:00
 tags:
-  - Python
   - Machine Learning
 ---
 

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://saysua.com/"/>
-  <updated>2016-11-25T07:47:05.084Z</updated>
+  <updated>2016-11-25T07:47:58.452Z</updated>
   <id>http://saysua.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://saysua.com/2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/"/>
     <id>http://saysua.com/2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/</id>
     <published>2016-11-25T07:29:00.000Z</published>
-    <updated>2016-11-25T07:47:05.084Z</updated>
+    <updated>2016-11-25T07:47:58.452Z</updated>
     
     <content type="html"><![CDATA[<p><em>Bài ghi chú</em></p>
 <p>Với <code>học có giám sát (Supervised Learning)</code>, chúng ta được đưa một dữ liệu với kết quả đầu ra tương ứng đã biết trước, ta cần xây dựng mối quan hệ dữa đầu vào và đầu ra, để dự đoán kết quả đầu ra của các giá trị đầu vào khác.</p>
@@ -53,8 +53,6 @@
     </summary>
     
     
-      <category term="Python" scheme="http://saysua.com/tags/Python/"/>
-    
       <category term="Machine Learning" scheme="http://saysua.com/tags/Machine-Learning/"/>
     
   </entry>
@@ -64,7 +62,7 @@
     <link href="http://saysua.com/2016/11/23/toi-hoc-machine-learning-002/"/>
     <id>http://saysua.com/2016/11/23/toi-hoc-machine-learning-002/</id>
     <published>2016-11-23T01:36:00.000Z</published>
-    <updated>2016-11-23T01:42:17.977Z</updated>
+    <updated>2016-11-25T07:48:02.965Z</updated>
     
     <content type="html"><![CDATA[<p>Hôm trước, mình đăng ký khóa học trên Udemy, sau khi coi các bài học đầu tiên thấy rằng nó chưa hợp với mình. Vì mình chưa biết gì về ML cả mà mới vào đã hướng dẫn ngay code rồi, càng coi càng rối.</p>
 <p>Tìm trên Coursera (mình đã học một khóa về Python trên này), có một khóa về ML do Andrew ng hướng dẫn, anh này mình thấy rất nổi tiếng về lĩnh vực ML, cấu trúc khóa học cũng rõ ràng, bắt đầu từ cơ bản.</p>
@@ -78,8 +76,6 @@
     
     </summary>
     
-    
-      <category term="Python" scheme="http://saysua.com/tags/Python/"/>
     
       <category term="Machine Learning" scheme="http://saysua.com/tags/Machine-Learning/"/>
     
