@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://saysua.com/"/>
-  <updated>2016-11-25T07:47:58.452Z</updated>
+  <updated>2016-11-26T07:30:33.358Z</updated>
   <id>http://saysua.com/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tôi học Machine Learning - 004 - Unsupervised Learning - Học không có giám sát</title>
+    <link href="http://saysua.com/2016/11/26/toi-hoc-machine-learning-004-unsupervised-learning-hoc-khong-co-giam-sat/"/>
+    <id>http://saysua.com/2016/11/26/toi-hoc-machine-learning-004-unsupervised-learning-hoc-khong-co-giam-sat/</id>
+    <published>2016-11-26T07:23:00.000Z</published>
+    <updated>2016-11-26T07:30:33.358Z</updated>
+    
+    <content type="html"><![CDATA[<p><em>Bài ghi chú</em></p>
+<p>Với học không có giám sát, chúng ta biết được một ít không không có ý tưởng về kết quả sẽ như thế nào. Chúng ta được đưa cho dữ liệu và yêu cầu trả về cấu trúc của dữ liệu đó dựa vào mối quan hệ giữa các biến trong dữ liệu.</p>
+<p>Ví dụ:</p>
+<ul>
+<li>Dựa vào dữ liệu về khách hàng của một công ty, chúng ta phân nhóm khách hàng để có thể thực hiện các chiến dịch bán hàng đặc biệt.</li>
+<li>Phân loại các nhóm thành viên trên mạng xã hội.</li>
+<li>Trong một bữa tiệc, ta có tập ghi âm thanh, ta có thể phân tích và tách các tạp âm để lọc ra âm thanh riêng của từng người.</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;em&gt;Bài ghi chú&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Với học không có giám sát, chúng ta biết được một ít không không có ý tưởng về kết quả sẽ như thế nào. Chúng 
+    
+    </summary>
+    
+    
+      <category term="Machine Learning" scheme="http://saysua.com/tags/Machine-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>Tôi học Machine Learning - 003 - Supervised Learning - Học có giám sát</title>
@@ -1002,37 +1031,6 @@
       <category term="Jquery" scheme="http://saysua.com/tags/Jquery/"/>
     
       <category term="Ajax" scheme="http://saysua.com/tags/Ajax/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bắt sự kiện kích chuột bên ngoài một phần tử và kiểm tra phần tử ẩn/hiện bằng JQuery</title>
-    <link href="http://saysua.com/2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/"/>
-    <id>http://saysua.com/2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/</id>
-    <published>2013-10-23T23:49:01.000Z</published>
-    <updated>2016-10-16T01:36:11.728Z</updated>
-    
-    <content type="html"><![CDATA[<p>Ngày hôm nay, trong khi đang làm, tôi bắt gặp 2 trường hợp cần giải quyết với jquery. Trường hợp thứ nhất là bắt sự kiện khi người dùng kích chuột bên ngoài một phần tử và trường hợp thứ hai là kiểm tra một phần tử có đang hiển thị hay không.</p>
-<p>Cách giải quyết hai trường hợp này cũng khá đơn giản, nhưng tôi nghĩ nõ cũng sẽ làm ta mất một số thời gian nếu như chưa biết. Vì vậy tôi sẽ chia sẽ hai thủ thuật này ở đây.</p>
-<a id="more"></a>
-<h1 id="Bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu"><a href="#Bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu" class="headerlink" title="Bắt sự kiện kích chuột bên ngoài một phần tử"></a>Bắt sự kiện kích chuột bên ngoài một phần tử</h1><p>Giả sử tôi có một phần tử có id là click-me  và tôi cần bắt sự kiện kích chuột lên nó hoặc kích chuột bên ngoài nó để có những xử lý khác nhau. Đoạn code ngắn dưới đây sẽ giải quyết vấn đề đó:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="string">"Click outside :D "</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">$(<span class="string">'#click-me'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    alert(<span class="string">"Click me"</span>);</div><div class="line">    event.stopPropagation();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<blockquote>
-<p><a href="http://jsfiddle.net/thachnuida/gFGUt/" target="_blank" rel="external">Xem ví dụ.</a></p>
-</blockquote>
-<p>Ngoài ra ta còn có thể sử dụng <code>return false;</code>  thay cho <code>event.stopPropagation()</code>.  Các bạn có thể đoán xem, nếu ta bỏ dòng <code>event.stopPropagation()</code> thì chuyện gì sẽ xảy ra?</p>
-<h1 id="Kiem-tra-mot-phan-tu-dang-hien-thi-hay-dang-an"><a href="#Kiem-tra-mot-phan-tu-dang-hien-thi-hay-dang-an" class="headerlink" title="Kiểm tra một phần tử đang hiển thị hay đang ẩn"></a>Kiểm tra một phần tử đang hiển thị hay đang ẩn</h1><p>Muốn kiểm tra một phần tử đang ẩn hay đang hiện, chúng ta có thể dùng đoạn code sau:</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#click-me'</span>).<span class="keyword">is</span>(<span class="string">':visible'</span>) <span class="regexp">//</span> =&gt; <span class="literal">true</span> <span class="keyword">or</span> <span class="literal">false</span></div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Ngày hôm nay, trong khi đang làm, tôi bắt gặp 2 trường hợp cần giải quyết với jquery. Trường hợp thứ nhất là bắt sự kiện khi người dùng kích chuột bên ngoài một phần tử và trường hợp thứ hai là kiểm tra một phần tử có đang hiển thị hay không.&lt;/p&gt;
-&lt;p&gt;Cách giải quyết hai trường hợp này cũng khá đơn giản, nhưng tôi nghĩ nõ cũng sẽ làm ta mất một số thời gian nếu như chưa biết. Vì vậy tôi sẽ chia sẽ hai thủ thuật này ở đây.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Jquery" scheme="http://saysua.com/tags/Jquery/"/>
     
   </entry>
   
