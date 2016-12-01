@@ -3,14 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Saysua Blog</title>
+  <title>Chạy Visual Studio Solution từ command line | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Saysua Blog">
-<meta property="og:url" content="http://saysua.com/archives/page/2/index.html">
+  <meta name="description" content="Đôi khi ta muốn chạy một solution của Visual Studio từ command line thay vì phải mở Visual Studio IDE lên để giảm bớt tài nguyên cho hệ thống, ta có thể làm như sau:
+
+Di chuyển đến thư mục chứa file .">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chạy Visual Studio Solution từ command line">
+<meta property="og:url" content="http://saysua.com/2016/12/01/chay-visual-studio-solution-tu-command-line/index.html">
 <meta property="og:site_name" content="Saysua Blog">
+<meta property="og:description" content="Đôi khi ta muốn chạy một solution của Visual Studio từ command line thay vì phải mở Visual Studio IDE lên để giảm bớt tài nguyên cho hệ thống, ta có thể làm như sau:
+
+Di chuyển đến thư mục chứa file .">
+<meta property="og:updated_time" content="2016-12-01T03:15:08.293Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Saysua Blog">
+<meta name="twitter:title" content="Chạy Visual Studio Solution từ command line">
+<meta name="twitter:description" content="Đôi khi ta muốn chạy một solution của Visual Studio từ command line thay vì phải mở Visual Studio IDE lên để giảm bớt tài nguyên cho hệ thống, ta có thể làm như sau:
+
+Di chuyển đến thư mục chứa file .">
   
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -78,199 +88,74 @@ ga('send', 'pageview');
   
 </nav>
           <div class="content">
-            
-
-<div class="archives-wrap">
-  <div class="archive-title" >
-    <h2 class="archive-icon">archive_a</h2>
-    
-    <div class="archiveslist archive-float clearfix">
-   </div>
-    
+            <article id="post-chay-visual-studio-solution-tu-command-line" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/01/chay-visual-studio-solution-tu-command-line/" class="article-date">
+  <time datetime="2016-12-01T03:10:24.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
   </div>
-
-  
+  <div class="article-inner">
     
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/">Làm quen với Angular 2 - Zoo app - part 2 - Form</a>
+    <h1 class="article-title" itemprop="name">
+      Chạy Visual Studio Solution từ command line
     </h1>
   
 
-      <a href="/2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/" class="archive-article-date">
-  <time datetime="2015-12-10T04:05:24.000Z" itemprop="datePublished">Dec 10 2015</time>
-</a>
-    </header>
-  </div>
-</article>
+      </header>
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/04/lam-quen-voi-angular2-zoo-app-part-1/">Làm quen với Angular 2 - Zoo app - part 1</a>
-    </h1>
-  
+        <p>Đôi khi ta muốn chạy một solution của Visual Studio từ command line thay vì phải mở Visual Studio IDE lên để giảm bớt tài nguyên cho hệ thống, ta có thể làm như sau:</p>
+<ul>
+<li>Di chuyển đến thư mục chứa file <code>.sln</code></li>
+<li>Build code <code>&quot;C:\Program Files (x86)\MSBuild\14.0\Bin\msbuild.exe&quot; SelfHost.sln /p:Configuration=Release (Hoặc là Debug)</code></li>
+<li>Chạy file đã build <code>SelfHost\bin\Release\SelfHost.exe</code></li>
+</ul>
+<p>Để thuận tiện cho những lần chạy sau, ta có thể tạo một file <code>bat</code>, khi nào cần chỉ cần click một phát là xong.</p>
 
-      <a href="/2015/12/04/lam-quen-voi-angular2-zoo-app-part-1/" class="archive-article-date">
-  <time datetime="2015-12-04T04:05:24.000Z" itemprop="datePublished">Dec 4 2015</time>
-</a>
-    </header>
-  </div>
-</article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/02/lam-quen-voi-Angular2-Tao-mot-ung-dung-don-gian-bang-TypeScript/">Làm quen với Angular 2 - Tạo một ứng dụng bằng TypeScript</a>
-    </h1>
-  
-
-      <a href="/2015/12/02/lam-quen-voi-Angular2-Tao-mot-ung-dung-don-gian-bang-TypeScript/" class="archive-article-date">
-  <time datetime="2015-12-02T07:48:27.000Z" itemprop="datePublished">Dec 2 2015</time>
-</a>
-    </header>
-  </div>
-</article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2016/12/01/chay-visual-studio-solution-tu-command-line/" data-id="ciw5shedv0000kwvljbyoaikc" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/30/lowdb-DB-khong-can-server/">Lowdb - DB không cần server</a>
-    </h1>
-  
-
-      <a href="/2015/09/30/lowdb-DB-khong-can-server/" class="archive-article-date">
-  <time datetime="2015-09-30T02:34:51.000Z" itemprop="datePublished">Sep 30 2015</time>
-</a>
-    </header>
-  </div>
-</article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+        <a href="http://saysua.com/2016/12/01/chay-visual-studio-solution-tu-command-line/#disqus_thread" class="article-comment-link">Comments</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/08/import-mysql-tu-file-zip/">Import mysql từ file zip</a>
-    </h1>
-  
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio/">Visual Studio</a></li></ul>
 
-      <a href="/2015/09/08/import-mysql-tu-file-zip/" class="archive-article-date">
-  <time datetime="2015-09-08T04:05:24.000Z" itemprop="datePublished">Sep 8 2015</time>
-</a>
-    </header>
+      </div>
+    </footer>
   </div>
-</article>
+  
     
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/27/tam-biet-wordpress-xin-chao-hexo/">Tạm biệt wordpress xin chào hexo</a>
-    </h1>
   
-
-      <a href="/2015/08/27/tam-biet-wordpress-xin-chao-hexo/" class="archive-article-date">
-  <time datetime="2015-08-27T00:05:20.000Z" itemprop="datePublished">Aug 27 2015</time>
-</a>
-    </header>
-  </div>
-</article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
+    <a href="/2016/11/26/toi-hoc-machine-learning-004-unsupervised-learning-hoc-khong-co-giam-sat/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Tôi học Machine Learning - 004 - Unsupervised Learning - Học không có giám sát</div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/">Xử lý hình ảnh hiển thị sai hướng bằng cách xác định giá trị EXIF orientation</a>
-    </h1>
-  
-
-      <a href="/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/" class="archive-article-date">
-  <time datetime="2015-08-06T03:13:37.000Z" itemprop="datePublished">Aug 6 2015</time>
-</a>
-    </header>
-  </div>
-</article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/">Khởi tạo dự án AngularJS với generator-boom</a>
-    </h1>
-  
-
-      <a href="/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/" class="archive-article-date">
-  <time datetime="2014-10-11T09:03:00.000Z" itemprop="datePublished">Oct 11 2014</time>
-</a>
-    </header>
-  </div>
-</article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/01/14/Build-your-code-with-Gulp/">Build your code with Gulp</a>
-    </h1>
-  
-
-      <a href="/2014/01/14/Build-your-code-with-Gulp/" class="archive-article-date">
-  <time datetime="2014-01-14T14:28:28.000Z" itemprop="datePublished">Jan 14 2014</time>
-</a>
-    </header>
-  </div>
-</article>
-    
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/12/07/quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower/">Quản lý các gói thư viện phía client site bằng Bower</a>
-    </h1>
-  
-
-      <a href="/2013/12/07/quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower/" class="archive-article-date">
-  <time datetime="2013-12-06T23:35:07.000Z" itemprop="datePublished">Dec 7 2013</time>
-</a>
-    </header>
-  </div>
-</article>
-    
-  
+</nav>
 
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
-    </nav>
-  
-</div>
+</article>
+
 <hr>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
           </div>
         </section>
         
@@ -375,11 +260,13 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'saysua';
   
+  var disqus_url = 'http://saysua.com/2016/12/01/chay-visual-studio-solution-tu-command-line/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
