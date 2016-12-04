@@ -80,6 +80,57 @@ ga('send', 'pageview');
           <div class="content">
             
   
+    <article id="post-lam-quen-voi-angular2-zoo-app-part-3-dependency-injection" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/" class="article-date">
+  <time datetime="2015-12-14T04:05:24.000Z" itemprop="datePublished">2015-12-14</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/">Làm quen với Angular 2 - Zoo app - part 3 - Dependency Injection</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Trong phần này, chúng ta sẽ cùng nhau tạo một service <code>AnimalService</code> để quản lý danh sách các con vật và nhúng nó vào <code>AppComponent</code>.</p>
+<p>Ta tạo file <code>animal-service.ts</code> cùng cấp với <code>app.ts</code>:</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">export <span class="class"><span class="keyword">class</span> <span class="title">AnimalService</span> </span>&#123;</div><div class="line">  animals: [];</div><div class="line"></div><div class="line">  constructor() &#123;</div><div class="line">    <span class="keyword">this</span>.animals = <span class="type">ANIMALS</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  getAnimals() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.animals;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  addAnimal(<span class="class"><span class="keyword">type</span></span>: <span class="type">String</span>, name: <span class="type">String</span>) &#123;</div><div class="line">    <span class="keyword">this</span>.animals.push(&#123; <span class="symbol">'typ</span>e': <span class="class"><span class="keyword">type</span>, '<span class="title">name</span>'</span>: name&#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> <span class="type">ANIMALS</span> = [</div><div class="line">  &#123; <span class="class"><span class="keyword">type</span></span>: <span class="symbol">'Tige</span>r', name: <span class="symbol">'Bob</span>o'&#125;,</div><div class="line">  &#123; <span class="class"><span class="keyword">type</span></span>: <span class="symbol">'Do</span>g', name: <span class="symbol">'Mi</span>c'&#125;,</div><div class="line">  &#123; <span class="class"><span class="keyword">type</span></span>: <span class="symbol">'Elepha</span>n', name: <span class="symbol">'Bi</span>g'&#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/#more">READ MORE</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/" data-id="civomsm0k000m4ovlb5g50pao" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular2/">Angular2</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
     <article id="post-lam-quen-voi-angular2-zoo-app-part-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/" class="article-date">
@@ -538,63 +589,9 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/12/07/quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower/" class="article-date">
-  <time datetime="2013-12-06T23:35:07.000Z" itemprop="datePublished">2013-12-07</time>
-</a>
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/12/07/quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower/">Quản lý các gói thư viện phía client site bằng Bower</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Thời gian trước, có người nói với tôi rằng nên sử dụng Bower để cài đặt những gói thư viện js, css phía client site của một plugin tôi đang phát triển. Tôi cũng chỉ ậm ừ qua, và nghĩ rằng không cần thiết lắm bởi vì hiện tại những thư viện đó vẫn đang chạy tốt.</p>
-<p>Vậy tại sao hôm nay tôi lại giới thiệu về bower cho các bạn, đơn giản vì anh bạn đó của tôi đã sử dụng bower cho dự án của mình. Khi anh ta gởi source code cho tôi nó không hề có các thư viện nào như jquery, angulajs, boostrap… và anh ta bảo tôi cài vào đi.</p>
-<p>Lúc đó tôi mới mày mò lên các trang web để tải về các thư viện từ jquery, angularjs, boostrap …. rồi copy nó vào thư mục code.</p>
-<p>– Không! Không cần phải làm như vậy.</p>
-<p>Anh ta nói. “Chỉ cần sử dụng bower install “. Và quả nhiên, bower đã tự động cài hết các gói thư viện cho tôi. Thật tuyệt vời!</p>
-<p><img src="/images/bower-logo-300x300.png" alt="bower logo"></p>
-        
-          <p class="article-more-link">
-            <a href="/2013/12/07/quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower/#more">READ MORE</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://saysua.com/2013/12/07/quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower/" data-id="civomsm0z000w4ovlqh48se3w" class="article-share-link">Share</a>
-      
-        <a href="http://saysua.com/2013/12/07/quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      <div class="tagcloud">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bower/">Bower</a></li></ul>
-
-      </div>
-    </footer>
-  </div>
-  
-</article>
-
-<hr>
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -630,7 +627,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Labels</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Ajax/" style="font-size: 12px;">Ajax</a> <a href="/tags/Angular2/" style="font-size: 18px;">Angular2</a> <a href="/tags/Angularjs/" style="font-size: 12px;">Angularjs</a> <a href="/tags/Bower/" style="font-size: 12px;">Bower</a> <a href="/tags/Facebook/" style="font-size: 12px;">Facebook</a> <a href="/tags/Godaddy/" style="font-size: 12px;">Godaddy</a> <a href="/tags/Gulp/" style="font-size: 12px;">Gulp</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Jquery/" style="font-size: 18px;">Jquery</a> <a href="/tags/Machine-Learning/" style="font-size: 18px;">Machine Learning</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/NodeJs/" style="font-size: 12px;">NodeJs</a> <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/Nvm/" style="font-size: 12px;">Nvm</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/PHP/" style="font-size: 14px;">PHP</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/Scrape/" style="font-size: 12px;">Scrape</a> <a href="/tags/TeamCity/" style="font-size: 12px;">TeamCity</a> <a href="/tags/Visual-Studio/" style="font-size: 12px;">Visual Studio</a>
+      <a href="/tags/Ajax/" style="font-size: 12px;">Ajax</a> <a href="/tags/Angular2/" style="font-size: 18px;">Angular2</a> <a href="/tags/Angularjs/" style="font-size: 12px;">Angularjs</a> <a href="/tags/Bower/" style="font-size: 12px;">Bower</a> <a href="/tags/Elastic-search/" style="font-size: 12px;">Elastic search</a> <a href="/tags/Facebook/" style="font-size: 12px;">Facebook</a> <a href="/tags/Godaddy/" style="font-size: 12px;">Godaddy</a> <a href="/tags/Gulp/" style="font-size: 12px;">Gulp</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Jquery/" style="font-size: 18px;">Jquery</a> <a href="/tags/Logstash/" style="font-size: 12px;">Logstash</a> <a href="/tags/Machine-Learning/" style="font-size: 18px;">Machine Learning</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 12px;">Nginx</a> <a href="/tags/NodeJs/" style="font-size: 12px;">NodeJs</a> <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/Nvm/" style="font-size: 12px;">Nvm</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/PHP/" style="font-size: 14px;">PHP</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/Scrape/" style="font-size: 12px;">Scrape</a> <a href="/tags/TeamCity/" style="font-size: 12px;">TeamCity</a> <a href="/tags/Visual-Studio/" style="font-size: 12px;">Visual Studio</a>
     </div>
   </div>
 
@@ -670,7 +667,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 

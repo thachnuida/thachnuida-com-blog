@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Lưu log của nginx vào elastic search bằng logstash | Saysua Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Thông thường, mỗi truy cập vào nginx đều được lưu vào file log, ví dụ /var/log/nginx/access.log. Tại đây, ta có thể coi các thông tin về truy cập như thời gian, đường dẫn, trình duyệt của người dùng.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lưu log của nginx vào elastic search bằng logstash">
+<meta property="og:url" content="http://saysua.com/2016/02/04/push-nginx-log-to-elasticsearch-by-using-logstash/index.html">
+<meta property="og:site_name" content="Saysua Blog">
+<meta property="og:description" content="Thông thường, mỗi truy cập vào nginx đều được lưu vào file log, ví dụ /var/log/nginx/access.log. Tại đây, ta có thể coi các thông tin về truy cập như thời gian, đường dẫn, trình duyệt của người dùng.">
+<meta property="og:updated_time" content="2016-12-04T08:25:25.002Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lưu log của nginx vào elastic search bằng logstash">
+<meta name="twitter:description" content="Thông thường, mỗi truy cập vào nginx đều được lưu vào file log, ví dụ /var/log/nginx/access.log. Tại đây, ta có thể coi các thông tin về truy cập như thời gian, đường dẫn, trình duyệt của người dùng.">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-42370265-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+   
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+  #mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; }
+  #mc_embed_signup form {padding: 0px;}
+  #mc_embed_signup .button {    background-color: #26C9FF;}
+  /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+  
+</head>
+<body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=166177166899797";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <img class="author-avatar"/>
+          <div class="text">Saysua Blog</div>
+        </a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+          <nav id="main-nav">
+  <a id="main-nav-toggle" class="nav-icon"></a>
+  
+    <a class="main-nav-link" href="/">Home</a>
+  
+    <a class="main-nav-link" href="http://app.saysua.com">Apps</a>
+  
+    <a class="main-nav-link" href="/about">About</a>
+  
+</nav>
+          <div class="content">
+            <article id="post-push-nginx-log-to-elasticsearch-by-using-logstash" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/04/push-nginx-log-to-elasticsearch-by-using-logstash/" class="article-date">
+  <time datetime="2016-02-04T08:00:00.000Z" itemprop="datePublished">2016-02-04</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Lưu log của nginx vào elastic search bằng logstash
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Thông thường, mỗi truy cập vào nginx đều được lưu vào file log, ví dụ <code>/var/log/nginx/access.log</code>. Tại đây, ta có thể coi các thông tin về truy cập như thời gian, đường dẫn, trình duyệt của người dùng.</p>
+<p>Nhưng nếu ta cần có thống kê chi tiết hơn về các truy cập này, như số lượt truy cập trong ngày, phân loại người dùng … thì file log này là chưa đủ. Cho nên, ta có thể đẩy những log này lên elastic search rồi từ đó dùng các công cụ thích hợp để phân tích.</p>
+<p>Dưới đây là các bước mình đẩy log của nginx lên elastic search sử dụng logstash.</p>
+<h1 id="Cai-dat-elastic-search-va-logstash"><a href="#Cai-dat-elastic-search-va-logstash" class="headerlink" title="Cài đặt elastic search và logstash"></a>Cài đặt elastic search và logstash</h1><p>Môi trường mình sử dụng ở đây là ubuntu, coi như nginx đã được cài đặt rồi.</p>
+<ul>
+<li>Cài đặt elastic search theo hướng dẫn sau: <a href="https://www.elastic.co/guide/en/elasticsearch/reference/5.0/deb.html" target="_blank" rel="external">https://www.elastic.co/guide/en/elasticsearch/reference/5.0/deb.html</a></li>
+<li>Cài đặt logstash theo hướng dẫn sau: <a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html#package-repositories" target="_blank" rel="external">https://www.elastic.co/guide/en/logstash/current/installing-logstash.html#package-repositories</a></li>
+</ul>
+<p><em>Chú ý: Phiên bản elastic search hiện tại yêu cầu java 1.8</em></p>
+<h1 id="Start-elastic-search-va-logstash"><a href="#Start-elastic-search-va-logstash" class="headerlink" title="Start elastic search và logstash"></a>Start elastic search và logstash</h1><p>Từ terminal để khởi động hai dịch vụ trên ta chạy:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo service elasticsearch <span class="literal">start</span></div><div class="line">sudo service logstash <span class="literal">start</span></div></pre></td></tr></table></figure>
+<h1 id="Ban-log-cua-nginx"><a href="#Ban-log-cua-nginx" class="headerlink" title="Bản log của nginx"></a>Bản log của nginx</h1><p>Dưói đây là một mẫu log của nginx</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">192.168.1.100</span> - - <span class="string">[01/Dec/2016:10:38:17 +0700]</span> <span class="string">"<span class="keyword">GET</span> / HTTP/1.1"</span> <span class="number">304</span> <span class="number">0</span> <span class="string">"-"</span> <span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"</span></div></pre></td></tr></table></figure>
+<h1 id="Tao-1-pattern-cho-logstash-de-phan-tich-mau-log-cua-nginx"><a href="#Tao-1-pattern-cho-logstash-de-phan-tich-mau-log-cua-nginx" class="headerlink" title="Tạo 1 pattern cho logstash để phân tích mẫu log của nginx"></a>Tạo 1 pattern cho logstash để phân tích mẫu log của nginx</h1><p>Trong thư mục <code>/usr/share/logstash/</code> tạo thư mục <code>patterns</code>, sau đó tạo file <code>nginx</code> (Chú ý là file, chứ không phải thư mục) trong thư mục <code>patterns</code></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano <span class="regexp">/usr/</span>share<span class="regexp">/logstash/</span>patterns<span class="regexp">/nginx</span></div></pre></td></tr></table></figure>
+<p>Nội dung file <code>nginx</code> như sau:</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml">NGINX_ACCESS %</span><span class="template-variable">&#123;IPORHOST:remote_ip&#125;</span><span class="xml"> - %</span><span class="template-variable">&#123;DATA:user_name&#125;</span><span class="xml"> \[%</span><span class="template-variable">&#123;HTTPDATE:time&#125;</span><span class="xml">\] "%</span><span class="template-variable">&#123;WORD:request_action&#125;</span><span class="xml"> %</span><span class="template-variable">&#123;DATA:request&#125;</span><span class="xml"> HTTP/%</span><span class="template-variable">&#123;NUMBER:http_version&#125;</span><span class="xml">" %</span><span class="template-variable">&#123;NUMBER:response&#125;</span><span class="xml"> %</span><span class="template-variable">&#123;NUMBER:bytes&#125;</span><span class="xml"> "%</span><span class="template-variable">&#123;DATA:referrer&#125;</span><span class="xml">" "%</span><span class="template-variable">&#123;DATA:agent&#125;</span><span class="xml">"</span></div></pre></td></tr></table></figure>
+<h1 id="Cau-hinh-logstash-de-day-log-tu-nginx-len-elastic-search"><a href="#Cau-hinh-logstash-de-day-log-tu-nginx-len-elastic-search" class="headerlink" title="Cấu hình logstash để đẩy log từ nginx lên elastic search"></a>Cấu hình logstash để đẩy log từ nginx lên elastic search</h1><p>Tạo file <code>nginx.conf</code> trong thư mục <code>/etc/logstash/conf.d/</code></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nano <span class="regexp">/etc/</span>logstash<span class="regexp">/conf.d/</span>nginx.conf</div></pre></td></tr></table></figure>
+<p>Nội dung file <code>nginx.conf</code> như sau:</p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">input</span> &#123;</div><div class="line">  file &#123;</div><div class="line">    <span class="attr">type</span> =&gt; <span class="string">"nginx"</span></div><div class="line">    <span class="attr">start_position</span> =&gt; <span class="string">"beginning"</span></div><div class="line">    <span class="attr">path</span> =&gt; [ <span class="string">"/var/log/nginx/*.log"</span> ]</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">filter</span> &#123;</div><div class="line">  <span class="keyword">if</span> [<span class="built_in">type</span>] == <span class="string">"nginx"</span> &#123;</div><div class="line">    grok &#123;</div><div class="line">        <span class="attr">patterns_dir</span> =&gt; <span class="string">"/usr/share/logstash/patterns"</span></div><div class="line">        <span class="attr">match</span> =&gt; &#123; <span class="string">"message"</span> =&gt; <span class="string">"%&#123;NGINX_ACCESS&#125;"</span> &#125;</div><div class="line">        <span class="keyword">remove_tag</span> =&gt; [<span class="string">"_grokparsefailure"</span>]</div><div class="line">        add_tag =&gt; [<span class="string">"nginx_access"</span>]</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">date</span> &#123;</div><div class="line">      <span class="attr">match</span> =&gt; [ <span class="string">"time"</span>, <span class="string">"dd/MMM/YYYY:HH:mm:ss Z"</span> ]</div><div class="line">      <span class="attr">locale</span> =&gt; en</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">geoip</span> &#123;</div><div class="line">      <span class="attr">source</span> =&gt; <span class="string">"remote_ip"</span></div><div class="line">      <span class="attr">target</span> =&gt; <span class="string">"geoip"</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">useragent</span> &#123;</div><div class="line">      <span class="attr">source</span> =&gt; <span class="string">"agent"</span></div><div class="line">      <span class="attr">target</span> =&gt; <span class="string">"user_agent"</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">output</span> &#123;</div><div class="line">  elasticsearch &#123;</div><div class="line">    <span class="attr">index</span> =&gt; <span class="string">"nginx_log_test"</span></div><div class="line">    <span class="attr">hosts</span> =&gt; [<span class="string">"localhost:9200"</span>] </div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Config-lai-quyen-cua-file-log-de-logstash-co-the-doc-duoc"><a href="#Config-lai-quyen-cua-file-log-de-logstash-co-the-doc-duoc" class="headerlink" title="Config lại quyền của file log để logstash có thể đọc được"></a>Config lại quyền của file log để logstash có thể đọc được</h1><figure class="highlight excel"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod <span class="number">644</span> /<span class="built_in">var</span>/<span class="built_in">log</span>/nginx/*.<span class="built_in">log</span></div></pre></td></tr></table></figure>
+<h1 id="Ket-qua"><a href="#Ket-qua" class="headerlink" title="Kết quả"></a>Kết quả</h1><p>Bây giờ bạn thử truy cập vào trang web được phục vụ bởi server nginx của bạn, cứ mỗi lần bạn truy cập vào thì log của nginx sẽ được logstash đẩy lên elastic search.</p>
+<p>Đây là kết quả khi mình search từ elastic search tại đường dẫn <code>http://192.168.1.244:9200/nginx_log_test/_search?&amp;scroll=1m&amp;size=1000&amp;pretty=true</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"_scroll_id"</span> : <span class="string">"DnF1ZXJ5VGhlbkZldGNoBQAAAAAAAAAdFkhleEZWRFdPUmJXcnBqc3h0eUtGbWcAAAAAAAAAHBZIZXhGVkRXT1JiV3JwanN4dHlLRm1nAAAAAAAAABoWSGV4RlZEV09SYldycGpzeHR5S0ZtZwAAAAAAAAAeFkhleEZWRFdPUmJXcnBqc3h0eUtGbWcAAAAAAAAAGxZIZXhGVkRXT1JiV3JwanN4dHlLRm1n"</span>,</div><div class="line">  <span class="attr">"took"</span> : <span class="number">3</span>,</div><div class="line">  <span class="attr">"timed_out"</span> : <span class="literal">false</span>,</div><div class="line">  <span class="attr">"_shards"</span> : &#123;</div><div class="line">    <span class="attr">"total"</span> : <span class="number">5</span>,</div><div class="line">    <span class="attr">"successful"</span> : <span class="number">5</span>,</div><div class="line">    <span class="attr">"failed"</span> : <span class="number">0</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"hits"</span> : &#123;</div><div class="line">    <span class="attr">"total"</span> : <span class="number">1</span>,</div><div class="line">    <span class="attr">"max_score"</span> : <span class="number">1.0</span>,</div><div class="line">    <span class="attr">"hits"</span> : [</div><div class="line">      &#123;</div><div class="line">        <span class="attr">"_index"</span> : <span class="string">"nginx_log_test"</span>,</div><div class="line">        <span class="attr">"_type"</span> : <span class="string">"nginx"</span>,</div><div class="line">        <span class="attr">"_id"</span> : <span class="string">"AVi4dhUNQ4OVFTpBmGks"</span>,</div><div class="line">        <span class="attr">"_score"</span> : <span class="number">1.0</span>,</div><div class="line">        <span class="attr">"_source"</span> : &#123;</div><div class="line">          <span class="attr">"request"</span> : <span class="string">"/"</span>,</div><div class="line">          <span class="attr">"request_action"</span> : <span class="string">"GET"</span>,</div><div class="line">          <span class="attr">"agent"</span> : <span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"</span>,</div><div class="line">          <span class="attr">"geoip"</span> : &#123; &#125;,</div><div class="line">          <span class="attr">"user_name"</span> : <span class="string">"-"</span>,</div><div class="line">          <span class="attr">"http_version"</span> : <span class="string">"1.1"</span>,</div><div class="line">          <span class="attr">"message"</span> : <span class="string">"192.168.1.100 - - [01/Dec/2016:10:38:14 +0700] \"GET / HTTP/1.1\" 304 0 \"-\" \"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\""</span>,</div><div class="line">          <span class="attr">"type"</span> : <span class="string">"nginx"</span>,</div><div class="line">          <span class="attr">"tags"</span> : [</div><div class="line">            <span class="string">"nginx_access"</span>,</div><div class="line">            <span class="string">"_geoip_lookup_failure"</span></div><div class="line">          ],</div><div class="line">          <span class="attr">"path"</span> : <span class="string">"/var/log/nginx/access.log"</span>,</div><div class="line">          <span class="attr">"referrer"</span> : <span class="string">"-"</span>,</div><div class="line">          <span class="attr">"@timestamp"</span> : <span class="string">"2016-12-01T03:38:14.000Z"</span>,</div><div class="line">          <span class="attr">"remote_ip"</span> : <span class="string">"192.168.1.100"</span>,</div><div class="line">          <span class="attr">"response"</span> : <span class="string">"304"</span>,</div><div class="line">          <span class="attr">"bytes"</span> : <span class="string">"0"</span>,</div><div class="line">          <span class="attr">"@version"</span> : <span class="string">"1"</span>,</div><div class="line">          <span class="attr">"host"</span> : <span class="string">"ubuntu"</span>,</div><div class="line">          <span class="attr">"time"</span> : <span class="string">"01/Dec/2016:10:38:14 +0700"</span>,</div><div class="line">          <span class="attr">"user_agent"</span> : &#123;</div><div class="line">            <span class="attr">"patch"</span> : <span class="string">"2840"</span>,</div><div class="line">            <span class="attr">"os"</span> : <span class="string">"Windows 10"</span>,</div><div class="line">            <span class="attr">"major"</span> : <span class="string">"54"</span>,</div><div class="line">            <span class="attr">"minor"</span> : <span class="string">"0"</span>,</div><div class="line">            <span class="attr">"name"</span> : <span class="string">"Chrome"</span>,</div><div class="line">            <span class="attr">"os_name"</span> : <span class="string">"Windows 10"</span>,</div><div class="line">            <span class="attr">"device"</span> : <span class="string">"Other"</span></div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Bạn thấy đấy, log của nginx đã được phân tách và lưu đầy đủ trên elastic search. Thật tuyệt vời phải không?</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2016/02/04/push-nginx-log-to-elasticsearch-by-using-logstash/" data-id="ciwae164p0000bgvlek4lpi0x" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2016/02/04/push-nginx-log-to-elasticsearch-by-using-logstash/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Elastic-search/">Elastic search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Logstash/">Logstash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/01/nodejs-request-Error-socket-hang-up-code-ECONNRESET/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Nodejs - Request - Error socket hang up code - ECONNRESET
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Làm quen với Angular 2 - Zoo app - part 3 - Dependency Injection</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<hr>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+          </div>
+        </section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title">Like my blog?</h3>
+    <div class="widget">
+        <div id="mc_embed_signup">
+            <form action="//saysua.us13.list-manage.com/subscribe/post?u=f73e6f67cd2f017d41a3e3d41&amp;id=f866d9a20e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate">
+                <div id="mc_embed_signup_scroll">
+            <div class="mc-field-group">
+                <label>Enter your email to subscribe my blog.</label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your email address" aria-required="true">
+            </div>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f73e6f67cd2f017d41a3e3d41_f866d9a20e" tabindex="-1" value=""></div>
+                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 12px;">Ajax</a> <a href="/tags/Angular2/" style="font-size: 18px;">Angular2</a> <a href="/tags/Angularjs/" style="font-size: 12px;">Angularjs</a> <a href="/tags/Bower/" style="font-size: 12px;">Bower</a> <a href="/tags/Elastic-search/" style="font-size: 12px;">Elastic search</a> <a href="/tags/Facebook/" style="font-size: 12px;">Facebook</a> <a href="/tags/Godaddy/" style="font-size: 12px;">Godaddy</a> <a href="/tags/Gulp/" style="font-size: 12px;">Gulp</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Jquery/" style="font-size: 18px;">Jquery</a> <a href="/tags/Logstash/" style="font-size: 12px;">Logstash</a> <a href="/tags/Machine-Learning/" style="font-size: 18px;">Machine Learning</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 12px;">Nginx</a> <a href="/tags/NodeJs/" style="font-size: 12px;">NodeJs</a> <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/Nvm/" style="font-size: 12px;">Nvm</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/PHP/" style="font-size: 14px;">PHP</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/Scrape/" style="font-size: 12px;">Scrape</a> <a href="/tags/TeamCity/" style="font-size: 12px;">TeamCity</a> <a href="/tags/Visual-Studio/" style="font-size: 12px;">Visual Studio</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/01/chay-visual-studio-solution-tu-command-line/">Chạy Visual Studio Solution từ command line</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/26/toi-hoc-machine-learning-004-unsupervised-learning-hoc-khong-co-giam-sat/">Tôi học Machine Learning - 004 - Unsupervised Learning - Học không có giám sát</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/">Tôi học Machine Learning - 003 - Supervised Learning - Học có giám sát</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/23/toi-hoc-machine-learning-002/">Tôi học Machine Learning - 002 - Khóa học trên Coursera</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/18/toi-hoc-machine-learning-001-nhap-mon/">Tôi học Machine Learning - 001 - Nhập môn</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Thach Nguyen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
+      Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="http://app.saysua.com" class="mobile-nav-link">Apps</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'saysua';
+  
+  var disqus_url = 'http://saysua.com/2016/02/04/push-nginx-log-to-elasticsearch-by-using-logstash/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
