@@ -348,10 +348,11 @@
     <link href="http://saysua.com/2016/02/04/push-nginx-log-to-elasticsearch-by-using-logstash/"/>
     <id>http://saysua.com/2016/02/04/push-nginx-log-to-elasticsearch-by-using-logstash/</id>
     <published>2016-02-04T08:00:00.000Z</published>
-    <updated>2016-12-04T08:25:25.002Z</updated>
+    <updated>2016-12-04T08:33:29.973Z</updated>
     
     <content type="html"><![CDATA[<p>Thông thường, mỗi truy cập vào nginx đều được lưu vào file log, ví dụ <code>/var/log/nginx/access.log</code>. Tại đây, ta có thể coi các thông tin về truy cập như thời gian, đường dẫn, trình duyệt của người dùng.</p>
 <p>Nhưng nếu ta cần có thống kê chi tiết hơn về các truy cập này, như số lượt truy cập trong ngày, phân loại người dùng … thì file log này là chưa đủ. Cho nên, ta có thể đẩy những log này lên elastic search rồi từ đó dùng các công cụ thích hợp để phân tích.</p>
+<a id="more"></a>
 <p>Dưới đây là các bước mình đẩy log của nginx lên elastic search sử dụng logstash.</p>
 <h1 id="Cai-dat-elastic-search-va-logstash"><a href="#Cai-dat-elastic-search-va-logstash" class="headerlink" title="Cài đặt elastic search và logstash"></a>Cài đặt elastic search và logstash</h1><p>Môi trường mình sử dụng ở đây là ubuntu, coi như nginx đã được cài đặt rồi.</p>
 <ul>
@@ -380,7 +381,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;Thông thường, mỗi truy cập vào nginx đều được lưu vào file log, ví dụ &lt;code&gt;/var/log/nginx/access.log&lt;/code&gt;. Tại đây, ta có thể coi các 
+      &lt;p&gt;Thông thường, mỗi truy cập vào nginx đều được lưu vào file log, ví dụ &lt;code&gt;/var/log/nginx/access.log&lt;/code&gt;. Tại đây, ta có thể coi các thông tin về truy cập như thời gian, đường dẫn, trình duyệt của người dùng.&lt;/p&gt;
+&lt;p&gt;Nhưng nếu ta cần có thống kê chi tiết hơn về các truy cập này, như số lượt truy cập trong ngày, phân loại người dùng … thì file log này là chưa đủ. Cho nên, ta có thể đẩy những log này lên elastic search rồi từ đó dùng các công cụ thích hợp để phân tích.&lt;/p&gt;
     
     </summary>
     

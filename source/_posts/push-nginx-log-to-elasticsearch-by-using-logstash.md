@@ -10,6 +10,8 @@ Thông thường, mỗi truy cập vào nginx đều được lưu vào file log
 
 Nhưng nếu ta cần có thống kê chi tiết hơn về các truy cập này, như số lượt truy cập trong ngày, phân loại người dùng ... thì file log này là chưa đủ. Cho nên, ta có thể đẩy những log này lên elastic search rồi từ đó dùng các công cụ thích hợp để phân tích.
 
+<!-- more -->
+
 Dưới đây là các bước mình đẩy log của nginx lên elastic search sử dụng logstash.
 
 # Cài đặt elastic search và logstash

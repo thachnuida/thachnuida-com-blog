@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://saysua.com/2016/02/04/push-nginx-log-to-elasticsearch-by-using-logstash/index.html">
 <meta property="og:site_name" content="Saysua Blog">
 <meta property="og:description" content="Thông thường, mỗi truy cập vào nginx đều được lưu vào file log, ví dụ /var/log/nginx/access.log. Tại đây, ta có thể coi các thông tin về truy cập như thời gian, đường dẫn, trình duyệt của người dùng.">
-<meta property="og:updated_time" content="2016-12-04T08:25:25.002Z">
+<meta property="og:updated_time" content="2016-12-04T08:33:29.973Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lưu log của nginx vào elastic search bằng logstash">
 <meta name="twitter:description" content="Thông thường, mỗi truy cập vào nginx đều được lưu vào file log, ví dụ /var/log/nginx/access.log. Tại đây, ta có thể coi các thông tin về truy cập như thời gian, đường dẫn, trình duyệt của người dùng.">
@@ -105,6 +105,7 @@ ga('send', 'pageview');
       
         <p>Thông thường, mỗi truy cập vào nginx đều được lưu vào file log, ví dụ <code>/var/log/nginx/access.log</code>. Tại đây, ta có thể coi các thông tin về truy cập như thời gian, đường dẫn, trình duyệt của người dùng.</p>
 <p>Nhưng nếu ta cần có thống kê chi tiết hơn về các truy cập này, như số lượt truy cập trong ngày, phân loại người dùng … thì file log này là chưa đủ. Cho nên, ta có thể đẩy những log này lên elastic search rồi từ đó dùng các công cụ thích hợp để phân tích.</p>
+<a id="more"></a>
 <p>Dưới đây là các bước mình đẩy log của nginx lên elastic search sử dụng logstash.</p>
 <h1 id="Cai-dat-elastic-search-va-logstash"><a href="#Cai-dat-elastic-search-va-logstash" class="headerlink" title="Cài đặt elastic search và logstash"></a>Cài đặt elastic search và logstash</h1><p>Môi trường mình sử dụng ở đây là ubuntu, coi như nginx đã được cài đặt rồi.</p>
 <ul>
