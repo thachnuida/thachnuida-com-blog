@@ -1,5 +1,5 @@
 title: Lưu log của nginx vào elastic search bằng logstash
-date: 2016-02-04 15:00:00
+date: 2016-12-04 15:00:00
 tags:
   - Logstash
   - Nginx
