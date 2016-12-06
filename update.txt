@@ -1,1 +1,4 @@
 INFO  Start processing
+INFO  Files loaded in 1.63 s
+INFO  Generated: 2013/09/03/viet-chuc-nang-login-bang-tai-khoan-facebook-khong-dung-facebook-sdk/index.html
+INFO  1 files generated in 1.71 s

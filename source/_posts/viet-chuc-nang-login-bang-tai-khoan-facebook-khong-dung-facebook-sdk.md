@@ -274,4 +274,4 @@ Updated 19/12/2013: Parse error: syntax error, unexpected ‘[‘ in /…/callba
 Updated 06/12/2016: Cập nhật lại code theo FB API version 2.8.
 {% endblockquote %}
 
-Bên cạnh đó các bạn có thể chạy thử demo tại đây: http://saysua.com/demo/fblogin
+Bên cạnh đó các bạn có thể chạy thử demo tại đây: http://saysua.com/demo/fblogin ./.
