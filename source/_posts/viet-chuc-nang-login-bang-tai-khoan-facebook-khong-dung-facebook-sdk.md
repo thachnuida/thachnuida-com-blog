@@ -73,27 +73,32 @@ Code của trang index.php
 
 ```
 <!DOCTYPE HTML>
-
+ 
 <html>
-
+ 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Facebook login</title>
     </head>
-
+ 
     <body>
-
-        <a href="https://www.facebook.com/dialog/oauth?client_id=YOUR_APP_ID&redirect_uri=http://localhost/fblogin/callback.php"><img src="https://ilovecuteshoes.com/skin/frontend/gravdept/acumen/img/facebook-login-button.png"/></a>
-
+ 
+        <a href="https://www.facebook.com/dialog/oauth?client_id=509011619175617&redirect_uri=http://localhost/fblogin/callback.php&scope=public_profile"><img src="facebook-sign-in.png"/></a>
+ 
     </body>
-
+ 
 </html>
 ```
 
+{% blockquote %}
+Updated 06/12/2016: Thêm tham số `scope` để lấy thông tin người dùng.
+{% endblockquote %}
+
 Ở dòng 12, trong thẻ `<a>` ta có 2 tham số quan trọng:
 
-client_id : đây là APP ID của app ta vừa tạo
-redirect_uri : sau khi người dùng xác thực với facebook xong, facebook sẽ tự động điều hướng người dùng trở lại địa chỉ này. (tại đây ta sẽ xử lý các tham số được gởi về bởi facebook để lấy thông tin người dùng)
+- `client_id` : đây là APP ID của app ta vừa tạo
+- `redirect_uri` : sau khi người dùng xác thực với facebook xong, facebook sẽ tự động điều hướng người dùng trở lại địa chỉ này. (tại đây ta sẽ xử lý các tham số được gởi về bởi facebook để lấy thông tin người dùng)
+- `scope`: yêu cầu truy cập vào thông tin người dùng, vì chỉ cần lấy thông tin cá nhân cơ bản nên scope là `public_profile`
 
 ## Bước 3: Tạo trang xử lý khi người dùng đã xác thực bằng facebook
 
@@ -118,17 +123,21 @@ http://localhost/fblogin/callback.php?code=AQDUeZ-…yBXVsc18#_=_
 Từ giá trị của code  ta sẽ lấy ra được access token  để truy cập vào thông tin người dùng bằng cách gọi một HTTP GET request đến địa chỉ có dạng như sau:
 
 ```
-GET https://graph.facebook.com/oauth/access_token?
-    client_id={app-id}
-    &redirect_uri={redirect-uri}
-    &client_secret={app-secret}
-    &code={code-parameter}
+GET https://graph.facebook.com/v2.8/oauth/access_token?
+   client_id={app-id}
+   &redirect_uri={redirect-uri}
+   &client_secret={app-secret}
+   &code={code-parameter}
 ```
 
 Nếu như thành công, ta sẽ nhận được kết quả trả về:
 
 ```
-access_token={access-token}&expires={seconds-til-expiration}
+{
+  "access_token": {access-token}, 
+  "token_type": {type},
+  "expires_in": {seconds-til-expiration}
+}
 ```
 
 Dưới đây là đoạn code thực hiện các công việc trên:
@@ -141,19 +150,21 @@ Dưới đây là đoạn code thực hiện các công việc trên:
 
     // Get code value
     $code = $_GET['code'];
-
+    
     // Get access token info
-    $facebook_access_token_uri = "https://graph.facebook.com/oauth/access_token?client_id=$app_id&redirect_uri=$redirect_uri&client_secret=$app_secret&code=$code";
-    $ch = curl_init();
+    $facebook_access_token_uri = "https://graph.facebook.com/v2.8/oauth/access_token?client_id=$app_id&redirect_uri=$redirect_uri&client_secret=$app_secret&code=$code";    
+    
+    $ch = curl_init(); 
     curl_setopt($ch, CURLOPT_URL, $facebook_access_token_uri);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-
-    $response = curl_exec($ch);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);    
+        
+    $response = curl_exec($ch); 
     curl_close($ch);
 
     // Get access token
-    $access_token = str_replace('access_token=', '', explode("&", $response)[0]);
+    $aResponse = json_decode($response);
+    $access_token = $aResponse->access_token;
 
 ?>
 ```
@@ -170,28 +181,29 @@ Thông tin facebook user lấy bằng Graph API
 Đoạn code lấy thông tin người dùng bằng Facebook Graph API
 
 ```
-    //....
+    // ...
 
     // Get user infomation
-    $ch = curl_init();
+    $ch = curl_init(); 
     curl_setopt($ch, CURLOPT_URL, "https://graph.facebook.com/me?access_token=$access_token");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-
-    $response = curl_exec($ch);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);    
+        
+    $response = curl_exec($ch); 
     curl_close($ch);
-
+    
     $user = json_decode($response);
 ```
 
 Cuối cùng, khi đã có thông tin user ta có thể tiến hành đăng nhập cho user bằng cách đơn giản lưu biến trong session, khi đó ở những trang khác ta có thể kiểm tra session để biết người dùng đã đăng nhập hay chưa.
 
 ```
+    // ...
     // Log user in
     $_SESSION['user_login'] = true;
-    $_SESSION['user_name'] = $user->username;
-
-    echo "Wellcome ". $user->username ."!";
+    $_SESSION['user_name'] = $user->name;
+    
+    echo "Wellcome ". $user->name ."!";   
 ```
 
 Toàn bộ code đầy đủ file callback.php
@@ -199,44 +211,46 @@ Toàn bộ code đầy đủ file callback.php
 ```
 <?php
     session_start();
-
+    
     $app_id = "";
     $app_secret = "";
-    $redirect_uri = urlencode("http://localhost/fblogin/callback.php");
-
+    $redirect_uri = urlencode("http://localhost/fblogin/callback.php");    
+    
     // Get code value
     $code = $_GET['code'];
-
+    
     // Get access token info
-    $facebook_access_token_uri = "https://graph.facebook.com/oauth/access_token?client_id=$app_id&redirect_uri=$redirect_uri&client_secret=$app_secret&code=$code";
-
-    $ch = curl_init();
+    $facebook_access_token_uri = "https://graph.facebook.com/v2.8/oauth/access_token?client_id=$app_id&redirect_uri=$redirect_uri&client_secret=$app_secret&code=$code";    
+    
+    $ch = curl_init(); 
     curl_setopt($ch, CURLOPT_URL, $facebook_access_token_uri);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-
-    $response = curl_exec($ch);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);    
+        
+    $response = curl_exec($ch); 
     curl_close($ch);
 
     // Get access token
-    $access_token = str_replace('access_token=', '', explode("&", $response)[0]);
-
+    $aResponse = json_decode($response);
+    $access_token = $aResponse->access_token;
+    
     // Get user infomation
-    $ch = curl_init();
+    $ch = curl_init(); 
     curl_setopt($ch, CURLOPT_URL, "https://graph.facebook.com/me?access_token=$access_token");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-
-    $response = curl_exec($ch);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);    
+        
+    $response = curl_exec($ch); 
     curl_close($ch);
-
+    
     $user = json_decode($response);
 
     // Log user in
     $_SESSION['user_login'] = true;
-    $_SESSION['user_name'] = $user->username;
+    $_SESSION['user_name'] = $user->name;
+    
+    echo "Wellcome ". $user->name ."!";    
 
-    echo "Wellcome ". $user->username ."!";
 ?>
 ```
 
@@ -255,9 +269,9 @@ Chúc các bạn một ngày vui vẻ sau khi đã đọc xong bài viết hơi 
 Tất cả source code của bài viết các bạn có thể lấy về từ đây: https://github.com/thachnuida/fblogin
 
 {% blockquote %}
-Update 19/12/2013: Parse error: syntax error, unexpected ‘[‘ in /…/callback.php on line 23
-{% endblockquote %}
+Updated 19/12/2013: Parse error: syntax error, unexpected ‘[‘ in /…/callback.php on line 23.
 
-Mình đã cập nhật lại code, lỗi này xảy ra do việc xử lý mảng giữa các phiên bản PHP bị khác nhau.
+Updated 06/12/2016: Cập nhật lại code theo FB API version 2.8.
+{% endblockquote %}
 
 Bên cạnh đó các bạn có thể chạy thử demo tại đây: http://saysua.com/demo/fblogin
