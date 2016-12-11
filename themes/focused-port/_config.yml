@@ -5,6 +5,7 @@ excerpt_link: READ MORE
 widgets:
   - mailchimp
   - tagcloud
+  - ads
   - recent_posts
   - archive
 
