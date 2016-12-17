@@ -3,18 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Khởi tạo dự án AngularJS với generator-boom | Saysua Blog</title>
+  <title>Archives: 2016 | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Khi bắt đầu một dự án AngularJS chúng ta có rất nhiều việc phải làm như tạo cấu trúc thư mục, viết code để tự động build các file js, css, chuẩn bị code để test… Dĩ nhiên ta có thể tự mình lần lượt là">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Khởi tạo dự án AngularJS với generator-boom">
-<meta property="og:url" content="http://saysua.com/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Saysua Blog">
+<meta property="og:url" content="http://saysua.com/archives/2016/page/2/index.html">
 <meta property="og:site_name" content="Saysua Blog">
-<meta property="og:description" content="Khi bắt đầu một dự án AngularJS chúng ta có rất nhiều việc phải làm như tạo cấu trúc thư mục, viết code để tự động build các file js, css, chuẩn bị code để test… Dĩ nhiên ta có thể tự mình lần lượt là">
-<meta property="og:updated_time" content="2016-10-16T01:41:43.189Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Khởi tạo dự án AngularJS với generator-boom">
-<meta name="twitter:description" content="Khi bắt đầu một dự án AngularJS chúng ta có rất nhiều việc phải làm như tạo cấu trúc thư mục, viết code để tự động build các file js, css, chuẩn bị code để test… Dĩ nhiên ta có thể tự mình lần lượt là">
+<meta name="twitter:title" content="Saysua Blog">
   
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -82,151 +78,46 @@ ga('send', 'pageview');
   
 </nav>
           <div class="content">
-            <article id="post-khoi-tao-du-an-angularjs-voi-generator-boom" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/" class="article-date">
-  <time datetime="2014-10-11T09:03:00.000Z" itemprop="datePublished">2014-10-11</time>
-</a>
+            
+
+<div class="archives-wrap">
+  <div class="archive-title" >
+    <h2 class="archive-icon">2016</h2>
+    
+    <div class="archiveslist archive-float clearfix">
+   </div>
+    
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+
   
-    <h1 class="article-title" itemprop="name">
-      Khởi tạo dự án AngularJS với generator-boom
+    
+    
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/03/01/nodejs-request-Error-socket-hang-up-code-ECONNRESET/">Nodejs - Request - Error socket hang up code - ECONNRESET</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Khi bắt đầu một dự án AngularJS chúng ta có rất nhiều việc phải làm như tạo cấu trúc thư mục, viết code để tự động build các file js, css, chuẩn bị code để test… Dĩ nhiên ta có thể tự mình lần lượt làm các việc đó, hoặc như trước đây, tôi tạo sẵn một thư mục dự án mẫu rồi khi nào dùng sẽ copy qua dùng lại. Tuy nhiên vẫn tốt hơn nếu như có một công cụ giúp mình làm các việc kể trên, và trong bài này tôi giới thiệu đến các bạn công cụ <a href="https://www.npmjs.org/package/generator-boom" target="_blank" rel="external">generator-boom</a>, một công cụ sinh code AngularJS dành cho Yeoman.</p>
-<h1 id="Cai-dat-generator-boom"><a href="#Cai-dat-generator-boom" class="headerlink" title="Cài đặt generator-boom"></a>Cài đặt generator-boom</h1><a id="more"></a>
-<p>Để có thể dùng generator-boom ta cần phải cài:</p>
-<ul>
-<li><p><a href="http://nodejs.org/" target="_blank" rel="external">NodeJS</a></p>
-</li>
-<li><p>Yeoman</p>
-<p><code>$ npm install -g yo</code></p>
-</li>
-<li><p>Generator-boom</p>
-<p><code>$ npm install -g generator-boom</code></p>
-</li>
-<li><p>Bower</p>
-<p><code>$ npm install -g bower</code></p>
-</li>
-<li><p>Gulp : Generator-boom sử dụng Gulp để build code nên ta cài đặt Gulp luôn</p>
-<p><code>$ npm install -g gulp</code></p>
-</li>
-</ul>
-<h1 id="Khoi-tao-du-an-bang-generator-boom"><a href="#Khoi-tao-du-an-bang-generator-boom" class="headerlink" title="Khởi tạo dự án bằng generator-boom"></a>Khởi tạo dự án bằng generator-boom</h1><p>Đúng như tên gọi của nó “Boom”, chỉ cần một câu lệnh và boom tất cả đã xong.</p>
-<ul>
-<li><p>Di chuyển đến thư mục code của bạn</p>
-<p><code>$ cd /path/to/your/code</code></p>
-</li>
-<li><p>Gõ lệnh</p>
-<p><code>$ yo boom [app-name]</code></p>
-<p><strong>app-name</strong> ở đây là tên module chính cho dự án angularjs của bạn.</p>
-</li>
-</ul>
-<p>Sau đó công cụ sẽ hỏi bạn một vài câu hỏi như bạn có muốn nhúng thư viện jquery vào không, muốn sử dụng những thành phần nào của angularjs… Cuối cùng, công cụ sẽ tạo thư mục code cho bạn, tự động tải các thư viện liên quan về. Xong, giờ là thời gian cho bạn viết code, chỉ mất chưa đầy 1 phút.</p>
-<h1 id="Generator-boom-co-gi"><a href="#Generator-boom-co-gi" class="headerlink" title="Generator-boom có gì?"></a>Generator-boom có gì?</h1><p>Dưới đầy là một vài đặc điểm của generator-boom:</p>
-<ul>
-<li>Sử dụng Gulp để build code.</li>
-<li>LiveReload: khi sửa code, tự động tải lại trang web.</li>
-<li>Code của Development và Production được tách riêng.</li>
-<li>Sử dụng JsHint để kiểm tra JS code.</li>
-<li>Có sẵn Protractor cho E2E testing.</li>
-<li>Một đống các câu lệnh giúp tạo nhanh file style, controller, service …</li>
-</ul>
-<h1 id="Cau-truc-cua-du-an-do-boom-tao-ra"><a href="#Cau-truc-cua-du-an-do-boom-tao-ra" class="headerlink" title="Cấu trúc của dự án do boom tạo ra"></a>Cấu trúc của dự án do boom tạo ra</h1><p>Dự án của boom tạo ra có cấu trúc phân chia rõ ràng các thành phần:</p>
-<pre>- app/
-    |- css/
-        |- application.scss
-        |- fonts.css
-    |- fonts/
-    |- img/
-    |- js/
-        |- controllers/
-        |- directives/
-        |- factories/
-        |- filters/
-        |- libs/
-        |- providers/
-        |- services/
-        |- app.js
-    |- templates/
-    |- index.html
-    |- bower.json
-    |- package.json
-    |- gulpfile.js
-</pre>
-
-<h1 id="Chay-code"><a href="#Chay-code" class="headerlink" title="Chạy code"></a>Chạy code</h1><p>Để chạy dự án ta gõ lệnh:</p>
-<p><code>$ gulp</code></p>
-<p>Khi đó Gulp sẽ tự động tạo 1 thư mục build, đưa các files cần chạy vào đó và mở 1 tab mới trên trình duyệt vào trang chủ của dự án.</p>
-<h1 id="Build-code-cho-phien-ban-Production"><a href="#Build-code-cho-phien-ban-Production" class="headerlink" title="Build code cho phiên bản Production"></a>Build code cho phiên bản Production</h1><p>Khi đã hoàn thành xong dự án ta muốn build một phiên bản code đã được minify, ta chạy:</p>
-<p><code>$ gulp prod</code></p>
-<h1 id="Thong-tin-them"><a href="#Thong-tin-them" class="headerlink" title="Thông tin thêm"></a>Thông tin thêm</h1><ul>
-<li>Style trong boom có thể dùng scss hoặc css bình thường.</li>
-<li>Boom có sẵn các câu lệnh để nhanh chóng tạo file, xem phần Commands trong trang của Boom.</li>
-<li>Khi đã chạy Gulp, mỗi lần bạn chỉnh sửa file trình duyệt sẽ tự động tải lại trang web cho bạn.</li>
-<li>Mọi thông tin thêm về Boom có thể coi tại đây <a href="https://www.npmjs.org/package/generator-boom" target="_blank" rel="external">Generator-boom</a></li>
-</ul>
-<h1 id="Ket"><a href="#Ket" class="headerlink" title="Kết"></a>Kết</h1><p>Tất nhiên, công cụ sinh code ngoài generator-boom ra còn rất nhiều, các bạn có thể tự mình tìm hiểu và thử nghiệm. Dù gì đi nữa thì mục đích của các công cụ cũng giúp ta giảm thiểu thời gian tạo dự án, tự động hóa các tác vụ phải làm thường xuyên như build code, kiểm tra code…</p>
-<p>Hy vọng các bạn sẽ thích công cụ này, hoặc nếu các bạn đang làm việc với một công cụ khác xin hãy chia sẻ với tôi và mọi người cùng biết tại đây.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://saysua.com/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/" data-id="ciwkxg35b000hk0vl8eq1nun1" class="article-share-link">Share</a>
-      
-        <a href="http://saysua.com/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      <div class="tagcloud">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angularjs/">Angularjs</a></li></ul>
-
-      </div>
-    </footer>
+      <a href="/2016/03/01/nodejs-request-Error-socket-hang-up-code-ECONNRESET/" class="archive-article-date">
+  <time datetime="2016-03-01T04:05:24.000Z" itemprop="datePublished">Mar 1 2016</time>
+</a>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Xử lý hình ảnh hiển thị sai hướng bằng cách xác định giá trị EXIF orientation
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2014/01/14/Build-your-code-with-Gulp/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Build your code with Gulp</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+    
+  
 
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2016/">&laquo; Prev</a><a class="page-number" href="/archives/2016/">1</a><span class="page-number current">2</span>
+    </nav>
+  
+</div>
 <hr>
-
-
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
-
-
           </div>
         </section>
         
@@ -341,13 +232,11 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'saysua';
   
-  var disqus_url = 'http://saysua.com/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/';
-  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
