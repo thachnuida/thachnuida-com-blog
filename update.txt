@@ -1,98 +1,167 @@
+{ Error: Cannot find module './build/Release/DTraceProviderBindings'
+    at Function.Module._resolveFilename (module.js:455:15)
+    at Function.Module._load (module.js:403:25)
+    at Module.require (module.js:483:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/Users/thachnguyen/Documents/dev/004-my-projects/saysua-blog/saysua-com-blog/node_modules/hexo/node_modules/hexo-log/node_modules/bunyan/node_modules/dtrace-provider/dtrace-provider.js:17:23)
+    at Module._compile (module.js:556:32)
+    at Object.Module._extensions..js (module.js:565:10)
+    at Module.load (module.js:473:32)
+    at tryModuleLoad (module.js:432:12)
+    at Function.Module._load (module.js:424:3)
+    at Module.require (module.js:483:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/Users/thachnguyen/Documents/dev/004-my-projects/saysua-blog/saysua-com-blog/node_modules/hexo/node_modules/hexo-log/node_modules/bunyan/lib/bunyan.js:79:18)
+    at Module._compile (module.js:556:32)
+    at Object.Module._extensions..js (module.js:565:10)
+    at Module.load (module.js:473:32)
+    at tryModuleLoad (module.js:432:12)
+    at Function.Module._load (module.js:424:3)
+    at Module.require (module.js:483:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/Users/thachnguyen/Documents/dev/004-my-projects/saysua-blog/saysua-com-blog/node_modules/hexo/node_modules/hexo-log/lib/log.js:3:14)
+    at Module._compile (module.js:556:32) code: 'MODULE_NOT_FOUND' }
+{ Error: Cannot find module './build/default/DTraceProviderBindings'
+    at Function.Module._resolveFilename (module.js:455:15)
+    at Function.Module._load (module.js:403:25)
+    at Module.require (module.js:483:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/Users/thachnguyen/Documents/dev/004-my-projects/saysua-blog/saysua-com-blog/node_modules/hexo/node_modules/hexo-log/node_modules/bunyan/node_modules/dtrace-provider/dtrace-provider.js:17:23)
+    at Module._compile (module.js:556:32)
+    at Object.Module._extensions..js (module.js:565:10)
+    at Module.load (module.js:473:32)
+    at tryModuleLoad (module.js:432:12)
+    at Function.Module._load (module.js:424:3)
+    at Module.require (module.js:483:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/Users/thachnguyen/Documents/dev/004-my-projects/saysua-blog/saysua-com-blog/node_modules/hexo/node_modules/hexo-log/node_modules/bunyan/lib/bunyan.js:79:18)
+    at Module._compile (module.js:556:32)
+    at Object.Module._extensions..js (module.js:565:10)
+    at Module.load (module.js:473:32)
+    at tryModuleLoad (module.js:432:12)
+    at Function.Module._load (module.js:424:3)
+    at Module.require (module.js:483:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/Users/thachnguyen/Documents/dev/004-my-projects/saysua-blog/saysua-com-blog/node_modules/hexo/node_modules/hexo-log/lib/log.js:3:14)
+    at Module._compile (module.js:556:32) code: 'MODULE_NOT_FOUND' }
+{ Error: Cannot find module './build/Debug/DTraceProviderBindings'
+    at Function.Module._resolveFilename (module.js:455:15)
+    at Function.Module._load (module.js:403:25)
+    at Module.require (module.js:483:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/Users/thachnguyen/Documents/dev/004-my-projects/saysua-blog/saysua-com-blog/node_modules/hexo/node_modules/hexo-log/node_modules/bunyan/node_modules/dtrace-provider/dtrace-provider.js:17:23)
+    at Module._compile (module.js:556:32)
+    at Object.Module._extensions..js (module.js:565:10)
+    at Module.load (module.js:473:32)
+    at tryModuleLoad (module.js:432:12)
+    at Function.Module._load (module.js:424:3)
+    at Module.require (module.js:483:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/Users/thachnguyen/Documents/dev/004-my-projects/saysua-blog/saysua-com-blog/node_modules/hexo/node_modules/hexo-log/node_modules/bunyan/lib/bunyan.js:79:18)
+    at Module._compile (module.js:556:32)
+    at Object.Module._extensions..js (module.js:565:10)
+    at Module.load (module.js:473:32)
+    at tryModuleLoad (module.js:432:12)
+    at Function.Module._load (module.js:424:3)
+    at Module.require (module.js:483:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/Users/thachnguyen/Documents/dev/004-my-projects/saysua-blog/saysua-com-blog/node_modules/hexo/node_modules/hexo-log/lib/log.js:3:14)
+    at Module._compile (module.js:556:32) code: 'MODULE_NOT_FOUND' }
 INFO  Start processing
-INFO  Files loaded in 2.45 s
+INFO  Files loaded in 742 ms
 INFO  Generated: atom.xml
 INFO  Generated: about/index.html
-INFO  Generated: 2016/12/17/nhung-chuc-nang-moi-cua-es6/index.html
 INFO  Generated: 2016/12/01/chay-visual-studio-solution-tu-command-line/index.html
 INFO  Generated: 2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/index.html
 INFO  Generated: 2016/09/07/teamcity-build-agent-disconnected/index.html
+INFO  Generated: 2016/11/26/toi-hoc-machine-learning-004-unsupervised-learning-hoc-khong-co-giam-sat/index.html
 INFO  Generated: 2016/11/23/toi-hoc-machine-learning-002/index.html
-INFO  Generated: 2015/09/08/import-mysql-tu-file-zip/index.html
-INFO  Generated: 2015/08/27/tam-biet-wordpress-xin-chao-hexo/index.html
 INFO  Generated: archives/page/4/index.html
-INFO  Generated: 2013/10/09/doi-doi-tuong-jquery-sang-dom/index.html
-INFO  Generated: archives/2013/09/index.html
-INFO  Generated: archives/2013/page/2/index.html
 INFO  Generated: archives/2013/08/index.html
+INFO  Generated: 2013/10/09/doi-doi-tuong-jquery-sang-dom/index.html
+INFO  Generated: 2015/08/27/tam-biet-wordpress-xin-chao-hexo/index.html
 INFO  Generated: archives/2013/10/index.html
-INFO  Generated: archives/2013/11/index.html
-INFO  Generated: archives/2014/index.html
-INFO  Generated: archives/2014/01/index.html
 INFO  Generated: archives/2013/12/index.html
+INFO  Generated: archives/2014/index.html
+INFO  Generated: 2015/09/08/import-mysql-tu-file-zip/index.html
+INFO  Generated: archives/2013/11/index.html
 INFO  Generated: archives/2014/10/index.html
-INFO  Generated: archives/2015/08/index.html
-INFO  Generated: archives/2015/index.html
-INFO  Generated: archives/2015/09/index.html
 INFO  Generated: archives/2015/12/index.html
+INFO  Generated: archives/2016/page/2/index.html
 INFO  Generated: archives/2016/03/index.html
+INFO  Generated: archives/2015/index.html
+INFO  Generated: archives/2015/08/index.html
 INFO  Generated: archives/2016/09/index.html
-INFO  Generated: archives/2016/04/index.html
-INFO  Generated: archives/2016/11/index.html
+INFO  Generated: archives/2016/10/index.html
+INFO  Generated: archives/2013/page/2/index.html
 INFO  Generated: archives/2016/12/index.html
+INFO  Generated: archives/2016/11/index.html
+INFO  Generated: archives/2013/09/index.html
+INFO  Generated: archives/2015/09/index.html
+INFO  Generated: archives/2014/01/index.html
 INFO  Generated: tags/Jquery/index.html
 INFO  Generated: tags/Visual-Studio/index.html
+INFO  Generated: archives/2016/04/index.html
 INFO  Generated: tags/Gulp/index.html
-INFO  Generated: tags/NodeJs/index.html
-INFO  Generated: tags/Nvm/index.html
-INFO  Generated: tags/Godaddy/index.html
-INFO  Generated: tags/Nodejs/index.html
-INFO  Generated: tags/Javascript/index.html
-INFO  Generated: tags/Mysql/index.html
 INFO  Generated: tags/Angularjs/index.html
-INFO  Generated: tags/Angular2/index.html
+INFO  Generated: archives/2017/index.html
+INFO  Generated: tags/Nodejs/index.html
+INFO  Generated: tags/NodeJs/index.html
+INFO  Generated: tags/Godaddy/index.html
 INFO  Generated: tags/Logstash/index.html
 INFO  Generated: tags/Nginx/index.html
 INFO  Generated: tags/Elastic-search/index.html
-INFO  Generated: tags/TeamCity/index.html
+INFO  Generated: tags/Mysql/index.html
 INFO  Generated: tags/Bower/index.html
 INFO  Generated: tags/Machine-Learning/index.html
+INFO  Generated: tags/Angular2/index.html
+INFO  Generated: tags/Nvm/index.html
+INFO  Generated: archives/2017/02/index.html
+INFO  Generated: tags/TeamCity/index.html
 INFO  Generated: tags/Python/index.html
-INFO  Generated: tags/PHP/index.html
-INFO  Generated: tags/Scrape/index.html
-INFO  Generated: tags/Facebook/index.html
-INFO  Generated: tags/OAuth/index.html
 INFO  Generated: tags/Ajax/index.html
-INFO  Generated: archives/2016/page/2/index.html
-INFO  Generated: archives/2016/10/index.html
-INFO  Generated: 2016/11/18/toi-hoc-machine-learning-001-nhap-mon/index.html
-INFO  Generated: 2016/11/26/toi-hoc-machine-learning-004-unsupervised-learning-hoc-khong-co-giam-sat/index.html
+INFO  Generated: tags/PHP/index.html
+INFO  Generated: 2017/02/08/ky-luat-la-tu-do/index.html
+INFO  Generated: tags/Scrape/index.html
+INFO  Generated: 2016/12/17/nhung-chuc-nang-moi-cua-es6/index.html
+INFO  Generated: 2016/12/04/push-nginx-log-to-elasticsearch-by-using-logstash/index.html
 INFO  Generated: 2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/index.html
 INFO  Generated: 2016/04/19/nodejs-module-cache-trying/index.html
+INFO  Generated: tags/OAuth/index.html
 INFO  Generated: 2016/03/01/nodejs-request-Error-socket-hang-up-code-ECONNRESET/index.html
 INFO  Generated: 2015/12/14/lam-quen-voi-angular2-zoo-app-part-3-dependency-injection/index.html
 INFO  Generated: 2015/12/04/lam-quen-voi-angular2-zoo-app-part-1/index.html
-INFO  Generated: 2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/index.html
+INFO  Generated: 2015/12/02/lam-quen-voi-Angular2-Tao-mot-ung-dung-don-gian-bang-TypeScript/index.html
 INFO  Generated: 2015/09/30/lowdb-DB-khong-can-server/index.html
 INFO  Generated: 2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/index.html
 INFO  Generated: 2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/index.html
-INFO  Generated: 2015/12/02/lam-quen-voi-Angular2-Tao-mot-ung-dung-don-gian-bang-TypeScript/index.html
+INFO  Generated: tags/Facebook/index.html
 INFO  Generated: 2014/01/14/Build-your-code-with-Gulp/index.html
+INFO  Generated: tags/Javascript/index.html
 INFO  Generated: 2013/12/07/quan-ly-cac-goi-thu-vien-phia-client-site-bang-bower/index.html
 INFO  Generated: 2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/index.html
-INFO  Generated: 2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/index.html
-INFO  Generated: 2013/11/05/viet-chuc-nang-upload-bang-ajax-voi-jquery-va-javascrip-chay/index.html
+INFO  Generated: 2016/11/18/toi-hoc-machine-learning-001-nhap-mon/index.html
+INFO  Generated: 2015/12/10/lam-quen-voi-angular2-zoo-app-part-2/index.html
 INFO  Generated: 2013/10/12/xoa-1-phan-tu-trong-mang-bang-javascript/index.html
 INFO  Generated: 2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/index.html
-INFO  Generated: 2013/09/09/javascript-hoisting-la-cai-gi/index.html
-INFO  Generated: 2013/09/03/viet-chuc-nang-login-bang-tai-khoan-facebook-khong-dung-facebook-sdk/index.html
 INFO  Generated: 2013/08/28/js-tim-hieu-ve-callback-trong-javascript/index.html
+INFO  Generated: 2013/11/05/viet-chuc-nang-upload-bang-ajax-voi-jquery-va-javascrip-chay/index.html
 INFO  Generated: 2013/08/12/js-xu-ly-mang-voi-underscore-js/index.html
+INFO  Generated: 2013/09/03/viet-chuc-nang-login-bang-tai-khoan-facebook-khong-dung-facebook-sdk/index.html
+INFO  Generated: 2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/index.html
+INFO  Generated: archives/page/3/index.html
+INFO  Generated: index.html
+INFO  Generated: archives/2013/index.html
 INFO  Generated: archives/index.html
 INFO  Generated: archives/page/2/index.html
-INFO  Generated: archives/page/3/index.html
-INFO  Generated: archives/2016/index.html
-INFO  Generated: archives/2013/index.html
-INFO  Generated: index.html
-INFO  Generated: 2016/12/04/push-nginx-log-to-elasticsearch-by-using-logstash/index.html
-INFO  Generated: page/3/index.html
-INFO  Generated: images/coursera-courses.png
-INFO  Generated: page/2/index.html
-INFO  Generated: page/4/index.html
-INFO  Generated: images/coursera-ml.png
-INFO  Generated: archives/2017/index.html
 INFO  Generated: tags/Life/index.html
-INFO  Generated: archives/2017/02/index.html
+INFO  Generated: 2013/09/09/javascript-hoisting-la-cai-gi/index.html
+INFO  Generated: page/2/index.html
+INFO  Generated: page/3/index.html
+INFO  Generated: page/4/index.html
+INFO  Generated: archives/2016/index.html
 INFO  Generated: images/lich1.jpg
 INFO  Generated: images/lich2.jpg
-INFO  Generated: 2017/02/08/ky-luat-la-tu-do/index.html
-INFO  95 files generated in 3.73 s
+INFO  Generated: images/coursera-courses.png
+INFO  Generated: images/coursera-ml.png
+INFO  95 files generated in 1.28 s

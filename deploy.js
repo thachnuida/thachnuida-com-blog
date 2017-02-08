@@ -6,7 +6,8 @@ var config = require('./deploy.config');
 var request = require('request');
 
 function generateHtml(cb) {
-  var generate = spawn(process.env.comspec, ['/c', 'hexo', 'generate']);
+  //var generate = spawn(process.env.comspec, ['/c', 'hexo', 'generate']);
+  generate = spawn('hexo', ['generate'])
   var updateList = '';
 
   // Log to file

@@ -1,5 +1,5 @@
 title: Kỷ luật là tự do
-date: 2017-02-08 14:35:24
+date: 2017-02-08 14:35:00
 tags:
   - Life
 ---
