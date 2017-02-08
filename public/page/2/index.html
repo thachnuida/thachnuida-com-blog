@@ -80,6 +80,58 @@ ga('send', 'pageview');
           <div class="content">
             
   
+    <article id="post-nodejs-module-cache-trying" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/19/nodejs-module-cache-trying/" class="article-date">
+  <time datetime="2016-04-19T04:05:24.000Z" itemprop="datePublished">2016-04-19</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/19/nodejs-module-cache-trying/">Nodejs Module Caching</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Nodejs-Module-Caching"><a href="#Nodejs-Module-Caching" class="headerlink" title="Nodejs Module Caching"></a>Nodejs Module Caching</h1><p>Modules are cached after the first time they are loaded. This means (among other things) that every call to require(‘foo’) will get exactly the same object returned, if it would resolve to the same file.</p>
+<p>Multiple calls to require(‘foo’) may not cause the module code to be executed multiple times. This is an important feature. With it, “partially done” objects can be returned, thus allowing transitive dependencies to be loaded even when they would cause cycles.</p>
+<p>If you want to have a module execute code multiple times, then export a function, and call that function.</p>
+<p>(<a href="https://nodejs.org/api/modules.html#modules_caching">https://nodejs.org/api/modules.html#modules_caching</a>)</p>
+        
+          <p class="article-more-link">
+            <a href="/2016/04/19/nodejs-module-cache-trying/#more">READ MORE</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2016/04/19/nodejs-module-cache-trying/" data-id="ciwkxg36n0011k0vlrsm4cf7a" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2016/04/19/nodejs-module-cache-trying/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nodejs/">Nodejs</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
     <article id="post-nodejs-request-Error-socket-hang-up-code-ECONNRESET" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/03/01/nodejs-request-Error-socket-hang-up-code-ECONNRESET/" class="article-date">
@@ -537,56 +589,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-khoi-tao-du-an-angularjs-voi-generator-boom" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/" class="article-date">
-  <time datetime="2014-10-11T09:03:00.000Z" itemprop="datePublished">2014-10-11</time>
-</a>
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/">Khởi tạo dự án AngularJS với generator-boom</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Khi bắt đầu một dự án AngularJS chúng ta có rất nhiều việc phải làm như tạo cấu trúc thư mục, viết code để tự động build các file js, css, chuẩn bị code để test… Dĩ nhiên ta có thể tự mình lần lượt làm các việc đó, hoặc như trước đây, tôi tạo sẵn một thư mục dự án mẫu rồi khi nào dùng sẽ copy qua dùng lại. Tuy nhiên vẫn tốt hơn nếu như có một công cụ giúp mình làm các việc kể trên, và trong bài này tôi giới thiệu đến các bạn công cụ <a href="https://www.npmjs.org/package/generator-boom">generator-boom</a>, một công cụ sinh code AngularJS dành cho Yeoman.</p>
-<h1 id="Cai-dat-generator-boom"><a href="#Cai-dat-generator-boom" class="headerlink" title="Cài đặt generator-boom"></a>Cài đặt generator-boom</h1>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/#more">READ MORE</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://saysua.com/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/" data-id="ciwkxg35b000hk0vl8eq1nun1" class="article-share-link">Share</a>
-      
-        <a href="http://saysua.com/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      <div class="tagcloud">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angularjs/">Angularjs</a></li></ul>
-
-      </div>
-    </footer>
-  </div>
-  
-</article>
-
-<hr>
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -625,7 +627,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Labels</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Ajax/" style="font-size: 12px;">Ajax</a> <a href="/tags/Angular2/" style="font-size: 18px;">Angular2</a> <a href="/tags/Angularjs/" style="font-size: 12px;">Angularjs</a> <a href="/tags/Bower/" style="font-size: 12px;">Bower</a> <a href="/tags/Elastic-search/" style="font-size: 12px;">Elastic search</a> <a href="/tags/Facebook/" style="font-size: 12px;">Facebook</a> <a href="/tags/Godaddy/" style="font-size: 12px;">Godaddy</a> <a href="/tags/Gulp/" style="font-size: 12px;">Gulp</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Jquery/" style="font-size: 18px;">Jquery</a> <a href="/tags/Logstash/" style="font-size: 12px;">Logstash</a> <a href="/tags/Machine-Learning/" style="font-size: 18px;">Machine Learning</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 12px;">Nginx</a> <a href="/tags/NodeJs/" style="font-size: 12px;">NodeJs</a> <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/Nvm/" style="font-size: 12px;">Nvm</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/PHP/" style="font-size: 14px;">PHP</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/Scrape/" style="font-size: 12px;">Scrape</a> <a href="/tags/TeamCity/" style="font-size: 12px;">TeamCity</a> <a href="/tags/Visual-Studio/" style="font-size: 12px;">Visual Studio</a>
+      <a href="/tags/Ajax/" style="font-size: 12px;">Ajax</a> <a href="/tags/Angular2/" style="font-size: 18px;">Angular2</a> <a href="/tags/Angularjs/" style="font-size: 12px;">Angularjs</a> <a href="/tags/Bower/" style="font-size: 12px;">Bower</a> <a href="/tags/Elastic-search/" style="font-size: 12px;">Elastic search</a> <a href="/tags/Facebook/" style="font-size: 12px;">Facebook</a> <a href="/tags/Godaddy/" style="font-size: 12px;">Godaddy</a> <a href="/tags/Gulp/" style="font-size: 12px;">Gulp</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Jquery/" style="font-size: 18px;">Jquery</a> <a href="/tags/Life/" style="font-size: 12px;">Life</a> <a href="/tags/Logstash/" style="font-size: 12px;">Logstash</a> <a href="/tags/Machine-Learning/" style="font-size: 18px;">Machine Learning</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 12px;">Nginx</a> <a href="/tags/NodeJs/" style="font-size: 12px;">NodeJs</a> <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/Nvm/" style="font-size: 12px;">Nvm</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/PHP/" style="font-size: 14px;">PHP</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/Scrape/" style="font-size: 12px;">Scrape</a> <a href="/tags/TeamCity/" style="font-size: 12px;">TeamCity</a> <a href="/tags/Visual-Studio/" style="font-size: 12px;">Visual Studio</a>
     </div>
   </div>
 
@@ -654,6 +656,10 @@ ga('send', 'pageview');
       <ul>
         
           <li>
+            <a href="/2017/02/08/ky-luat-la-tu-do/">Kỷ luật là tự do</a>
+          </li>
+        
+          <li>
             <a href="/2016/12/17/nhung-chuc-nang-moi-cua-es6/">Những chức năng mới của ES6</a>
           </li>
         
@@ -669,10 +675,6 @@ ga('send', 'pageview');
             <a href="/2016/11/26/toi-hoc-machine-learning-004-unsupervised-learning-hoc-khong-co-giam-sat/">Tôi học Machine Learning - 004 - Unsupervised Learning - Học không có giám sát</a>
           </li>
         
-          <li>
-            <a href="/2016/11/25/toi-hoc-machine-learning-003-supervised-learning-hoc-co-giam-sat/">Tôi học Machine Learning - 003 - Supervised Learning - Học có giám sát</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -682,7 +684,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 

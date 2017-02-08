@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://saysua.com/"/>
-  <updated>2016-12-17T16:18:21.871Z</updated>
+  <updated>2017-02-08T08:02:35.156Z</updated>
   <id>http://saysua.com/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kỷ luật là tự do</title>
+    <link href="http://saysua.com/2017/02/08/ky-luat-la-tu-do/"/>
+    <id>http://saysua.com/2017/02/08/ky-luat-la-tu-do/</id>
+    <published>2017-02-08T07:35:24.000Z</published>
+    <updated>2017-02-08T08:02:35.156Z</updated>
+    
+    <content type="html"><![CDATA[<p>Như vậy là sau khoảng 2 tháng rưỡi tham gia khóa học Machine Learning trên Coursera, ngay tối ngày hôm qua, mình đã hoàn thành xong khóa học và nhận được chứng chỉ. Đây chỉ là chứng chỉ để ghi nhận rằng mình đã hoàn thành hết khóa học, coi hết videos, làm hết các bài quiz, và hoàn thành hết các bài tập code, chứ không phải ghi nhận rằng mình đã nắm vững kiến thức về machine learning, bởi vì muốn nắm vững còn phải làm nhiều và tìm hiểu nhiều.</p>
+<p>Tuy nhiên, cảm giác khi thấy thông báo chúc mừng hiện lên, được nghe những lời tổng kết của thầy <code>Andrew Ng</code>, thấy háo hứng, thú vị và phấn khích. Bởi vì đây là lần đầu sau bao lâu mình mới hoàn thành một điều gì đó khi đã theo đuổi nó trong một thời gian dài.</p>
+<p>Tại sao lại như vậy?</p>
+<p>Đây là những khóa học mình đã đăng ký tham gia trước đó.</p>
+<p><img src="/images/coursera-courses.png" alt="courses"></p>
+<p>Cả 10 khóa mà chẳng hoàn thành được một khóa nào, khóa cao nhất chỉ hoàn thành được gần 50%. Đó là do cái tính của mình, cái tính khi bắt đầu thì rất hứng thú, nhưng dần dần lại lười đi. Nên có nhiều dự định, cứ bắt đầu rồi âm thầm kết thúc. Để rồi, một thời gian sau nhìn lại mình lại cảm thấy tiếc, thấy bức rứt, thấy xấu hổ với bản thân vì đã không theo đuổi được đến cùng (theo như cái bài nào đó mình mới đọc, thì đó là bản thân mình đã trở thành nô lệ của lười nhác, khi phải gánh chịu những cảm xúc tiêu cực về bản thân). Không biết bạn nào đã từng có cảm giác như mình không.</p>
+<p>Đến với khóa học Machine Learning lần này, mình đã áp dụng một phương pháp, để đưa bản thân vào khuôn khổ hơn (ít nhất là với khóa học này). Mình in ra một tờ lịch năm trên tờ giấy A4 để đánh dấu lại những ngày nào mình học, ngày nào không học, cứ mỗi tối mình kiểm tra lại và cập nhật lại tờ lịch.</p>
+<p>Đây là, những ngày học và không học của mình:</p>
+<p><img src="/images/lich1.jpg" alt="Lich 1"></p>
+<p><img src="/images/lich2.jpg" alt="Lich 2"></p>
+<p>Mỗi lần nhìn lên tờ lịch này, mình sẽ biết được mình đã học ngày nào, đã bỏ ngày nào và quan trong nhất nhìn những ngày bị đánh dấu [X] cái cảm giác nó khó chịu lắm. Vì thế mình càng hạn chế dấu X càng tốt.</p>
+<p>Một cái nữa, mình dán tờ lịch ngay chỗ làm nên ngày nào nó cũng đập vào mắt mình, nhắc nhở mình, cho nên nhiều khi đi nhậu về, hơi mệt mệt định nghỉ rồi mà nghĩ đến phải đánh dấu X vào ngày đó cũng không đành, nên cố gắng ngồi học một chút cho đúng tiến độ, mặc dù ngày hôm sau vẫn phải coi lại bài đã qua. Nhưng như vậy nó cũng có tác dụng thúc ép mình phải tiếp tục ngay cả khi cảm thấy không hứng thú, cho đến khi nào hoàn thành thì thôi.</p>
+<p>Và đây là kết quả của mình sau bao nhiêu cố gắng chiến đấu với bệnh lười của bản thân để thỏa mãn ham muốn tìm hiểu của mình.</p>
+<p><img src="/images/coursera-ml.png" alt="Coursera-ML"></p>
+<p>Một cảm giác thật tuyệt!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Như vậy là sau khoảng 2 tháng rưỡi tham gia khóa học Machine Learning trên Coursera, ngay tối ngày hôm qua, mình đã hoàn thành xong khóa 
+    
+    </summary>
+    
+    
+      <category term="Life" scheme="http://saysua.com/tags/Life/"/>
+    
+  </entry>
   
   <entry>
     <title>Những chức năng mới của ES6</title>
@@ -917,102 +952,6 @@
     
     
       <category term="Javascript" scheme="http://saysua.com/tags/Javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Khởi tạo dự án AngularJS với generator-boom</title>
-    <link href="http://saysua.com/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/"/>
-    <id>http://saysua.com/2014/10/11/khoi-tao-du-an-angularjs-voi-generator-boom/</id>
-    <published>2014-10-11T09:03:00.000Z</published>
-    <updated>2016-10-16T01:41:43.189Z</updated>
-    
-    <content type="html"><![CDATA[<p>Khi bắt đầu một dự án AngularJS chúng ta có rất nhiều việc phải làm như tạo cấu trúc thư mục, viết code để tự động build các file js, css, chuẩn bị code để test… Dĩ nhiên ta có thể tự mình lần lượt làm các việc đó, hoặc như trước đây, tôi tạo sẵn một thư mục dự án mẫu rồi khi nào dùng sẽ copy qua dùng lại. Tuy nhiên vẫn tốt hơn nếu như có một công cụ giúp mình làm các việc kể trên, và trong bài này tôi giới thiệu đến các bạn công cụ <a href="https://www.npmjs.org/package/generator-boom" target="_blank" rel="external">generator-boom</a>, một công cụ sinh code AngularJS dành cho Yeoman.</p>
-<h1 id="Cai-dat-generator-boom"><a href="#Cai-dat-generator-boom" class="headerlink" title="Cài đặt generator-boom"></a>Cài đặt generator-boom</h1><a id="more"></a>
-<p>Để có thể dùng generator-boom ta cần phải cài:</p>
-<ul>
-<li><p><a href="http://nodejs.org/" target="_blank" rel="external">NodeJS</a></p>
-</li>
-<li><p>Yeoman</p>
-<p><code>$ npm install -g yo</code></p>
-</li>
-<li><p>Generator-boom</p>
-<p><code>$ npm install -g generator-boom</code></p>
-</li>
-<li><p>Bower</p>
-<p><code>$ npm install -g bower</code></p>
-</li>
-<li><p>Gulp : Generator-boom sử dụng Gulp để build code nên ta cài đặt Gulp luôn</p>
-<p><code>$ npm install -g gulp</code></p>
-</li>
-</ul>
-<h1 id="Khoi-tao-du-an-bang-generator-boom"><a href="#Khoi-tao-du-an-bang-generator-boom" class="headerlink" title="Khởi tạo dự án bằng generator-boom"></a>Khởi tạo dự án bằng generator-boom</h1><p>Đúng như tên gọi của nó “Boom”, chỉ cần một câu lệnh và boom tất cả đã xong.</p>
-<ul>
-<li><p>Di chuyển đến thư mục code của bạn</p>
-<p><code>$ cd /path/to/your/code</code></p>
-</li>
-<li><p>Gõ lệnh</p>
-<p><code>$ yo boom [app-name]</code></p>
-<p><strong>app-name</strong> ở đây là tên module chính cho dự án angularjs của bạn.</p>
-</li>
-</ul>
-<p>Sau đó công cụ sẽ hỏi bạn một vài câu hỏi như bạn có muốn nhúng thư viện jquery vào không, muốn sử dụng những thành phần nào của angularjs… Cuối cùng, công cụ sẽ tạo thư mục code cho bạn, tự động tải các thư viện liên quan về. Xong, giờ là thời gian cho bạn viết code, chỉ mất chưa đầy 1 phút.</p>
-<h1 id="Generator-boom-co-gi"><a href="#Generator-boom-co-gi" class="headerlink" title="Generator-boom có gì?"></a>Generator-boom có gì?</h1><p>Dưới đầy là một vài đặc điểm của generator-boom:</p>
-<ul>
-<li>Sử dụng Gulp để build code.</li>
-<li>LiveReload: khi sửa code, tự động tải lại trang web.</li>
-<li>Code của Development và Production được tách riêng.</li>
-<li>Sử dụng JsHint để kiểm tra JS code.</li>
-<li>Có sẵn Protractor cho E2E testing.</li>
-<li>Một đống các câu lệnh giúp tạo nhanh file style, controller, service …</li>
-</ul>
-<h1 id="Cau-truc-cua-du-an-do-boom-tao-ra"><a href="#Cau-truc-cua-du-an-do-boom-tao-ra" class="headerlink" title="Cấu trúc của dự án do boom tạo ra"></a>Cấu trúc của dự án do boom tạo ra</h1><p>Dự án của boom tạo ra có cấu trúc phân chia rõ ràng các thành phần:</p>
-<pre>- app/
-    |- css/
-        |- application.scss
-        |- fonts.css
-    |- fonts/
-    |- img/
-    |- js/
-        |- controllers/
-        |- directives/
-        |- factories/
-        |- filters/
-        |- libs/
-        |- providers/
-        |- services/
-        |- app.js
-    |- templates/
-    |- index.html
-    |- bower.json
-    |- package.json
-    |- gulpfile.js
-</pre>
-
-<h1 id="Chay-code"><a href="#Chay-code" class="headerlink" title="Chạy code"></a>Chạy code</h1><p>Để chạy dự án ta gõ lệnh:</p>
-<p><code>$ gulp</code></p>
-<p>Khi đó Gulp sẽ tự động tạo 1 thư mục build, đưa các files cần chạy vào đó và mở 1 tab mới trên trình duyệt vào trang chủ của dự án.</p>
-<h1 id="Build-code-cho-phien-ban-Production"><a href="#Build-code-cho-phien-ban-Production" class="headerlink" title="Build code cho phiên bản Production"></a>Build code cho phiên bản Production</h1><p>Khi đã hoàn thành xong dự án ta muốn build một phiên bản code đã được minify, ta chạy:</p>
-<p><code>$ gulp prod</code></p>
-<h1 id="Thong-tin-them"><a href="#Thong-tin-them" class="headerlink" title="Thông tin thêm"></a>Thông tin thêm</h1><ul>
-<li>Style trong boom có thể dùng scss hoặc css bình thường.</li>
-<li>Boom có sẵn các câu lệnh để nhanh chóng tạo file, xem phần Commands trong trang của Boom.</li>
-<li>Khi đã chạy Gulp, mỗi lần bạn chỉnh sửa file trình duyệt sẽ tự động tải lại trang web cho bạn.</li>
-<li>Mọi thông tin thêm về Boom có thể coi tại đây <a href="https://www.npmjs.org/package/generator-boom" target="_blank" rel="external">Generator-boom</a></li>
-</ul>
-<h1 id="Ket"><a href="#Ket" class="headerlink" title="Kết"></a>Kết</h1><p>Tất nhiên, công cụ sinh code ngoài generator-boom ra còn rất nhiều, các bạn có thể tự mình tìm hiểu và thử nghiệm. Dù gì đi nữa thì mục đích của các công cụ cũng giúp ta giảm thiểu thời gian tạo dự án, tự động hóa các tác vụ phải làm thường xuyên như build code, kiểm tra code…</p>
-<p>Hy vọng các bạn sẽ thích công cụ này, hoặc nếu các bạn đang làm việc với một công cụ khác xin hãy chia sẻ với tôi và mọi người cùng biết tại đây.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Khi bắt đầu một dự án AngularJS chúng ta có rất nhiều việc phải làm như tạo cấu trúc thư mục, viết code để tự động build các file js, css, chuẩn bị code để test… Dĩ nhiên ta có thể tự mình lần lượt làm các việc đó, hoặc như trước đây, tôi tạo sẵn một thư mục dự án mẫu rồi khi nào dùng sẽ copy qua dùng lại. Tuy nhiên vẫn tốt hơn nếu như có một công cụ giúp mình làm các việc kể trên, và trong bài này tôi giới thiệu đến các bạn công cụ &lt;a href=&quot;https://www.npmjs.org/package/generator-boom&quot;&gt;generator-boom&lt;/a&gt;, một công cụ sinh code AngularJS dành cho Yeoman.&lt;/p&gt;
-&lt;h1 id=&quot;Cai-dat-generator-boom&quot;&gt;&lt;a href=&quot;#Cai-dat-generator-boom&quot; class=&quot;headerlink&quot; title=&quot;Cài đặt generator-boom&quot;&gt;&lt;/a&gt;Cài đặt generator-boom&lt;/h1&gt;
-    
-    </summary>
-    
-    
-      <category term="Angularjs" scheme="http://saysua.com/tags/Angularjs/"/>
     
   </entry>
   
