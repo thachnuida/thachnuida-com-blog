@@ -3,20 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Trích xuất dữ liệu web bằng PHP với PQLite | Saysua Blog</title>
+  <title>Download file bằng Restangular và FileSaver | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Đã bao giờ bạn muốn trích xuất thông tin từ một trang web bằng PHP, chẳng hạn như giá cổ phiếu, giá vàng, nội dung bài báo… công việc đầu tiên là bạn sẽ đọc nội dung của trang web đó rồi tìm đến phần">
+  <meta name="description" content="Mình cần viết chức năng download có API đã được xây dựng trước để tải file bằng phương thức POST. Ở client mình dùng Restangular. Như các bạn biết thì dùng Restangular ta chỉ có thể đọc được dữ liệu c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Trích xuất dữ liệu web bằng PHP với PQLite">
-<meta property="og:url" content="http://saysua.com/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/index.html">
+<meta property="og:title" content="Download file bằng Restangular và FileSaver">
+<meta property="og:url" content="http://saysua.com/2017/03/27/download-file-bang-restangular-va-filesaver-js/index.html">
 <meta property="og:site_name" content="Saysua Blog">
-<meta property="og:description" content="Đã bao giờ bạn muốn trích xuất thông tin từ một trang web bằng PHP, chẳng hạn như giá cổ phiếu, giá vàng, nội dung bài báo… công việc đầu tiên là bạn sẽ đọc nội dung của trang web đó rồi tìm đến phần">
-<meta property="og:image" content="http://saysua.com/images/giavang.png">
-<meta property="og:updated_time" content="2016-10-16T01:44:44.102Z">
+<meta property="og:description" content="Mình cần viết chức năng download có API đã được xây dựng trước để tải file bằng phương thức POST. Ở client mình dùng Restangular. Như các bạn biết thì dùng Restangular ta chỉ có thể đọc được dữ liệu c">
+<meta property="og:updated_time" content="2017-03-27T08:58:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Trích xuất dữ liệu web bằng PHP với PQLite">
-<meta name="twitter:description" content="Đã bao giờ bạn muốn trích xuất thông tin từ một trang web bằng PHP, chẳng hạn như giá cổ phiếu, giá vàng, nội dung bài báo… công việc đầu tiên là bạn sẽ đọc nội dung của trang web đó rồi tìm đến phần">
-<meta name="twitter:image" content="http://saysua.com/images/giavang.png">
+<meta name="twitter:title" content="Download file bằng Restangular và FileSaver">
+<meta name="twitter:description" content="Mình cần viết chức năng download có API đã được xây dựng trước để tải file bằng phương thức POST. Ở client mình dùng Restangular. Như các bạn biết thì dùng Restangular ta chỉ có thể đọc được dữ liệu c">
   
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -84,10 +82,10 @@ ga('send', 'pageview');
   
 </nav>
           <div class="content">
-            <article id="post-trich-xuat-du-lieu-web-bang-php-voi-pqlite" class="article article-type-post" itemscope itemprop="blogPost">
+            <article id="post-download-file-bang-restangular-va-filesaver-js" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/" class="article-date">
-  <time datetime="2013-09-14T07:58:32.000Z" itemprop="datePublished">2013-09-14</time>
+    <a href="/2017/03/27/download-file-bang-restangular-va-filesaver-js/" class="article-date">
+  <time datetime="2017-03-27T08:41:00.000Z" itemprop="datePublished">2017-03-27</time>
 </a>
   </div>
   <div class="article-inner">
@@ -97,7 +95,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      Trích xuất dữ liệu web bằng PHP với PQLite
+      Download file bằng Restangular và FileSaver
     </h1>
   
 
@@ -105,29 +103,25 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Đã bao giờ bạn muốn trích xuất thông tin từ một trang web bằng PHP, chẳng hạn như giá cổ phiếu, giá vàng, nội dung bài báo… công việc đầu tiên là bạn sẽ đọc nội dung của trang web đó rồi tìm đến phần tử chứa nội dung cần lấy. Hẳn các bạn đã từng thử nhiều cách bằng hàm tìm chuỗi hoặc dùng biểu thức chính quy và bạn thấy nó thật phức tạp, hoặc nếu trên trang web đó có thay đổi lại cấu trúc thì chúng ta cũng phải rất vất vã để sửa lại hàm lấy thông tin của mình.</p>
-<p>Và rồi bạn tự hỏi rằng, ước gì mình có thể thao tác với nội dung trang web đó đơn giản như bạn đã làm với JQuery, bạn có thể lấy các thẻ bằng ID hoặc là class của nó.</p>
-<p>Và đây, tôi xin giới thiệu đến cho các bạn một thư viện PHP có thể giúp bạn làm việc với các phần tử HTML đơn giản như các bạn đang làm với Jquery. Các bạn có thể đi qua từng phần tử, lấy nội dung của nó, thậm chí có thể thay đổi nội dung bên trong của 1 phần tử, thay đổi class,…</p>
-<p>PQlite sẽ giúp chúng ta làm phần khó.</p>
-<a id="more"></a>
-<p>Thay vì trình bày chi tiết về nó, tôi sẽ cùng với các bạn làm một chức năng nho nhỏ như sau:</p>
-<p>Đây là trang web chúng ta sẽ cùng nhau lấy dữ liệu:</p>
-<p><a href="http://hcm.24h.com.vn/ttcb/giavang/giavang.php" target="_blank" rel="external">http://hcm.24h.com.vn/ttcb/giavang/giavang.php</a></p>
-<p>Nội dung tôi muốn lấy ở đây là bảng giá vàng. Các bạn dùng Chrome mở trang web lên, rồi kích chuột phải vào bảng giá vàng, chọn “Inspect Element” để coi nội dung.</p>
-<p><img src="/images/giavang.png" alt="Bang Gia Vang"></p>
-<p>Ta có thể thấy bảng giá vàng ở đây là một table  với class là tb-giaVang . Thường thì để lấy chính xác nội dung của một phần tử ta nên dựa vào ID của nó bởi vì ID được đặt là định danh duy nhất, nhưng ở đây bảng giá vàng lại không có ID, tuy nhiên khi kiểm tra class tb-giaVang  cũng là duy nhất nên chúng ta có thể dựa vào nó để lấy giá trị của bảng giá vàng được.</p>
-<p>Đầu tiên các bạn tải thư viện PQlite về, sau đó tạo 1 file test.php  với nội dung như sau. Chạy nó và xem kết quả.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line"><span class="keyword">include_once</span>( <span class="string">'PQLite.php'</span> );</div><div class="line"></div><div class="line">$content = file_get_contents(<span class="string">'http://hcm.24h.com.vn/ttcb/giavang/giavang.php'</span>);</div><div class="line"></div><div class="line">$pq = <span class="keyword">new</span> PQLite($content);</div><div class="line"></div><div class="line">$giavang = $pq-&gt;find(<span class="string">'.tb-giaVang'</span>)-&gt;getOuterHtml();</div><div class="line"></div><div class="line"><span class="keyword">echo</span> $giavang;</div><div class="line"></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+        <p>Mình cần viết chức năng download có API đã được xây dựng trước để tải file bằng phương thức <code>POST</code>. Ở client mình dùng <code>Restangular</code>. Như các bạn biết thì dùng <code>Restangular</code> ta chỉ có thể đọc được dữ liệu chứ không lưu nó thành dạng file được. Sau một hồi tìm kiếm, mình tìm được thư viện <a href="https://github.com/eligrey/FileSaver.js/" target="_blank" rel="external">FileSaver.js</a> giúp ta lưu file từ <code>javascript</code>.</p>
+<p>Đây là kết quả trả về từ server khi ta gọi API:</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">POST /api/download</div><div class="line"></div><div class="line"></div><div class="line"><span class="section">Request Headers:</span></div><div class="line">----------------</div><div class="line"></div><div class="line">Authorization: Bearer .... (Server của mình yêu cầu token này để xác thực user)</div><div class="line"></div><div class="line"><span class="section">Response Header:</span></div><div class="line">----------------</div><div class="line">Content-Type: application/vnd.ms-excel</div><div class="line">Content-Disposition: attachement; filename=report.xls</div></pre></td></tr></table></figure>
+<p>Đây là đoạn code mình xử lý để gọi đến API và lưu data trả về thành file trên máy tính:</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> DownloadRestangular = Restangular.withConfig(<span class="function"><span class="keyword">function</span>(<span class="params">RestangularConfigurer</span>) </span>&#123;</div><div class="line">  RestangularConfigurer.setFullResponse(<span class="literal">true</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">DownloadRestangular.all(<span class="built_in">url</span>)</div><div class="line">.withHttpConfig(&#123;<span class="attribute">responseType</span>: <span class="string">'arraybuffer'</span>&#125;)</div><div class="line">.post(postValue, params)</div><div class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">    <span class="built_in">var</span> filename = res.headers(<span class="string">'Content-Disposition'</span>).match(<span class="regexp">/filename=(.*)/</span>)[<span class="number">1</span>];</div><div class="line">    <span class="built_in">var</span> file = <span class="keyword">new</span> Blob([res.data], &#123; <span class="attribute">type</span>: res.headers(<span class="string">'Content-Type'</span>) &#125;);</div><div class="line">    saveAs(file, filename);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Trước tiên, ta cần cài đặt <code>setFullResponse</code> cho <code>Restangular</code> để lấy được thông tin <code>headers</code> từ đó ta mới có <code>file type</code> và <code>file name</code>. </p>
+<p>Sau đó ta cần <code>response</code> trả về kiểu <code>arraybuffer</code> như vậy ta mới dùng được với thư viện <code>FileSaver.js</code>.</p>
+<p>Cuối cùng là chuyển dữ liệu trả về sang <code>Blob</code> và lưu lại bằng hàm <code>saveAs</code> của <code>FileSaver</code>.</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saysua.com/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/" data-id="ciwkxg378001gk0vlnty8to7o" class="article-share-link">Share</a>
+      <a data-url="http://saysua.com/2017/03/27/download-file-bang-restangular-va-filesaver-js/" data-id="cj0rvssy40000ktrrpan827qo" class="article-share-link">Share</a>
       
-        <a href="http://saysua.com/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://saysua.com/2017/03/27/download-file-bang-restangular-va-filesaver-js/#disqus_thread" class="article-comment-link">Comments</a>
       
       <div class="tagcloud">
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Scrape/">Scrape</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angularjs/">Angularjs</a></li></ul>
 
       </div>
     </footer>
@@ -136,19 +130,10 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
   
-    <a href="/2013/10/09/doi-doi-tuong-jquery-sang-dom/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Đổi đối tượng JQuery sang DOM
-        
-      </div>
-    </a>
   
-  
-    <a href="/2013/09/09/javascript-hoisting-la-cai-gi/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/02/08/ky-luat-la-tu-do/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Javascript Hoisting là gì?</div>
+      <div class="article-nav-title">Kỷ luật là tự do</div>
     </a>
   
 </nav>
@@ -287,7 +272,7 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'saysua';
   
-  var disqus_url = 'http://saysua.com/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/';
+  var disqus_url = 'http://saysua.com/2017/03/27/download-file-bang-restangular-va-filesaver-js/';
   
   (function(){
     var dsq = document.createElement('script');

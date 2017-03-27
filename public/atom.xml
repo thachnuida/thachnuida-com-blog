@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://saysua.com/"/>
-  <updated>2017-02-08T14:13:07.000Z</updated>
+  <updated>2017-03-27T08:58:07.000Z</updated>
   <id>http://saysua.com/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Download file bằng Restangular và FileSaver</title>
+    <link href="http://saysua.com/2017/03/27/download-file-bang-restangular-va-filesaver-js/"/>
+    <id>http://saysua.com/2017/03/27/download-file-bang-restangular-va-filesaver-js/</id>
+    <published>2017-03-27T08:41:00.000Z</published>
+    <updated>2017-03-27T08:58:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Mình cần viết chức năng download có API đã được xây dựng trước để tải file bằng phương thức <code>POST</code>. Ở client mình dùng <code>Restangular</code>. Như các bạn biết thì dùng <code>Restangular</code> ta chỉ có thể đọc được dữ liệu chứ không lưu nó thành dạng file được. Sau một hồi tìm kiếm, mình tìm được thư viện <a href="https://github.com/eligrey/FileSaver.js/" target="_blank" rel="external">FileSaver.js</a> giúp ta lưu file từ <code>javascript</code>.</p>
+<p>Đây là kết quả trả về từ server khi ta gọi API:</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">POST /api/download</div><div class="line"></div><div class="line"></div><div class="line"><span class="section">Request Headers:</span></div><div class="line">----------------</div><div class="line"></div><div class="line">Authorization: Bearer .... (Server của mình yêu cầu token này để xác thực user)</div><div class="line"></div><div class="line"><span class="section">Response Header:</span></div><div class="line">----------------</div><div class="line">Content-Type: application/vnd.ms-excel</div><div class="line">Content-Disposition: attachement; filename=report.xls</div></pre></td></tr></table></figure>
+<p>Đây là đoạn code mình xử lý để gọi đến API và lưu data trả về thành file trên máy tính:</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> DownloadRestangular = Restangular.withConfig(<span class="function"><span class="keyword">function</span>(<span class="params">RestangularConfigurer</span>) </span>&#123;</div><div class="line">  RestangularConfigurer.setFullResponse(<span class="literal">true</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">DownloadRestangular.all(<span class="built_in">url</span>)</div><div class="line">.withHttpConfig(&#123;<span class="attribute">responseType</span>: <span class="string">'arraybuffer'</span>&#125;)</div><div class="line">.post(postValue, params)</div><div class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">    <span class="built_in">var</span> filename = res.headers(<span class="string">'Content-Disposition'</span>).match(<span class="regexp">/filename=(.*)/</span>)[<span class="number">1</span>];</div><div class="line">    <span class="built_in">var</span> file = <span class="keyword">new</span> Blob([res.data], &#123; <span class="attribute">type</span>: res.headers(<span class="string">'Content-Type'</span>) &#125;);</div><div class="line">    saveAs(file, filename);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Trước tiên, ta cần cài đặt <code>setFullResponse</code> cho <code>Restangular</code> để lấy được thông tin <code>headers</code> từ đó ta mới có <code>file type</code> và <code>file name</code>. </p>
+<p>Sau đó ta cần <code>response</code> trả về kiểu <code>arraybuffer</code> như vậy ta mới dùng được với thư viện <code>FileSaver.js</code>.</p>
+<p>Cuối cùng là chuyển dữ liệu trả về sang <code>Blob</code> và lưu lại bằng hàm <code>saveAs</code> của <code>FileSaver</code>.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Mình cần viết chức năng download có API đã được xây dựng trước để tải file bằng phương thức &lt;code&gt;POST&lt;/code&gt;. Ở client mình dùng &lt;code&gt;R
+    
+    </summary>
+    
+    
+      <category term="Angularjs" scheme="http://saysua.com/tags/Angularjs/"/>
+    
+  </entry>
   
   <entry>
     <title>Kỷ luật là tự do</title>
@@ -912,46 +940,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Xử lý hình ảnh hiển thị sai hướng bằng cách xác định giá trị EXIF orientation</title>
-    <link href="http://saysua.com/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/"/>
-    <id>http://saysua.com/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/</id>
-    <published>2015-08-06T03:13:37.000Z</published>
-    <updated>2016-10-16T01:44:01.701Z</updated>
-    
-    <content type="html"><![CDATA[<p>Trong thời gian này mình có làm một ứng dụng chat, trong đó có tính năng upload file và hình ảnh. Và mình đã gặp một vấn đề với các hình ảnh được chụp bằng điện thoại. Đó là hình ảnh bị hiển thị sai hướng, do khi chụp người dùng đã để dọc điện thoại, dẫn đến lúc hiển thị hình ảnh trên trang web, thay vì hình ảnh hiển thị thẳng đứng thì lại nằm ngang. Giống như thế này:</p>
-<p><img src="/images/orientation-6.jpg" alt="Orientation 6"></p>
-<p>Và công việc của mình là phải xác định được, hình ảnh đó bị sai thế nào, để hiển thị lại cho đúng.</p>
-<a id="more"></a>
-<p>Để làm được việc này, trước tiên mình cần phải xác định được một thuộc tính của hình ảnh mà qua đó mình biết được hình ảnh đó đang bị quay theo hướng nào. Sau một hồi tìm kiếm, mình đã phát hiện ra thuộc tính <code>EXIF:orientation</code> sẽ cho ta biết được điều này:</p>
-<p><code>EXIF</code>: Exchangeable image file format (đây là một chuẩn để lưu giữ các thông tin thông số của ảnh như chế độ flash, ngày tạo, ống kính thế nào. Các bạn có thể coi ở đây chi tiết các thông số nó có thể lưu <a href="http://forum.vietdesigner.net/threads/thuat-ngu-exif-anh-anh-viet.27870/" target="_blank" rel="external">http://forum.vietdesigner.net/threads/thuat-ngu-exif-anh-anh-viet.27870/</a>)</p>
-<p>Tất nhiên là mình không cần phải biết hết các thông số này, ở đây có một thông số đặc biệt mình cần dùng đó là <code>orientation</code> thông số cho biết hướng của ảnh.</p>
-<p>Hình vẽ dưới đây sẽ cho các bạn biết được các giá trị của orientation và ví dụ:</p>
-<p><img src="/images/EXIF_Orientations.gif" alt="Orientation 6"><br>(Hình ảnh được lấy từ <a href="http://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/" target="_blank" rel="external">http://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/</a>)</p>
-<p>Như hình vẽ, ta thấy nếu orientation là 6, nghĩa là hình ảnh đã bị xoay sang trái 90 độ). Vậy là chỉ cần lấy được giá trị EXIF:orientation là xong. Lúc này mình sẽ cần đến thư viện <code>exif-js</code> (<a href="https://github.com/exif-js/exif-js" target="_blank" rel="external">https://github.com/exif-js/exif-js</a>) để lấy giá trị orientation:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;img id=<span class="string">"test-img"</span> src=<span class="string">"url/of/image"</span> /&gt;</div><div class="line"></div><div class="line"><span class="keyword">var</span> element = $(<span class="string">'#test-img'</span>);</div><div class="line"></div><div class="line">element.bind(<span class="string">'load'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  EXIF.getData(element[<span class="number">0</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> orientation = EXIF.getTag(element[<span class="number">0</span>], <span class="string">'Orientation'</span>);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>Sau khi đã có được orientation, ta dựa vào từng giá trị tương ứng để xoay ảnh lại cho thích hợp, ở đây mình sử dụng thuộc tính <code>transform</code> của css để xoay ảnh:</p>
-<p>Ví dụ với orientation là 6 mình sẽ xoay ảnh thế này:</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">function</span> <span class="selector-tag">setTransform</span>(transform) &#123;</div><div class="line">  <span class="selector-tag">element</span><span class="selector-class">.css</span>(<span class="string">'-ms-transform'</span>, transform);</div><div class="line">  <span class="selector-tag">element</span><span class="selector-class">.css</span>(<span class="string">'-webkit-transform'</span>, transform);</div><div class="line">  <span class="selector-tag">element</span><span class="selector-class">.css</span>(<span class="string">'-moz-transform'</span>, transform);</div><div class="line">  <span class="selector-tag">element</span><span class="selector-class">.css</span>(<span class="string">'transform'</span>, transform);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">setTransform</span>(<span class="string">'rotate(90deg)'</span>);</div></pre></td></tr></table></figure>
-<p>Làm tương tự với các giá trị orientation khác là coi như giải quyết được vấn đề. Trong vấn đề thực của mình gặp phải, mình đã viết 1 directive của Angularjs để xử lý, các bạn có thể coi ở đây: <a href="https://gist.github.com/thachnuida/2f76fe3aaa15dbd1dfa3" target="_blank" rel="external">https://gist.github.com/thachnuida/2f76fe3aaa15dbd1dfa3</a></p>
-<p>Ngoài ra, mình thấy hiện tại bên trình duyệt firefox đang hỗ trợ một thuộc tính <code>image-orientation</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image-orientation" target="_blank" rel="external">https://developer.mozilla.org/en-US/docs/Web/CSS/image-orientation</a>) nhưng mà cũng chỉ có duy nhất mỗi nó đang hỗ trợ, nên có lẽ cần đợi thêm thời giãn xem sao.</p>
-<p>Hoặc là cũng có một cách sử dụng thư viện load image để load hình ảnh vào canvas như ở đây <a href="http://stackoverflow.com/questions/20600800/js-client-side-exif-orientation-rotate-and-mirror-jpeg-images" target="_blank" rel="external">http://stackoverflow.com/questions/20600800/js-client-side-exif-orientation-rotate-and-mirror-jpeg-images</a></p>
-<p>Cách giải quyết của mình ở đây là chỉ ở phía client, còn khi mình upload lên server thì mình có sử dung thư viện để sửa lại hình ảnh cho đúng rồi. :D Hy vọng bài viết này mang lại cho các bạn một chút thú vị trong ngày.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Trong thời gian này mình có làm một ứng dụng chat, trong đó có tính năng upload file và hình ảnh. Và mình đã gặp một vấn đề với các hình ảnh được chụp bằng điện thoại. Đó là hình ảnh bị hiển thị sai hướng, do khi chụp người dùng đã để dọc điện thoại, dẫn đến lúc hiển thị hình ảnh trên trang web, thay vì hình ảnh hiển thị thẳng đứng thì lại nằm ngang. Giống như thế này:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/orientation-6.jpg&quot; alt=&quot;Orientation 6&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Và công việc của mình là phải xác định được, hình ảnh đó bị sai thế nào, để hiển thị lại cho đúng.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Javascript" scheme="http://saysua.com/tags/Javascript/"/>
     
   </entry>
   

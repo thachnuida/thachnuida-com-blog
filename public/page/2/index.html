@@ -80,6 +80,59 @@ ga('send', 'pageview');
           <div class="content">
             
   
+    <article id="post-teamcity-build-agent-disconnected" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/07/teamcity-build-agent-disconnected/" class="article-date">
+  <time datetime="2016-09-06T23:49:01.000Z" itemprop="datePublished">2016-09-07</time>
+</a>
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/07/teamcity-build-agent-disconnected/">TeamCity – Build agent disconnected</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Bellow is how I resolve my problem with TeamCity – Build agent disconnected.</p>
+<p><img src="/images/teamcity-agent-disconnected.png" alt="TeamCity Agent Disconected"></p>
+<ul>
+<li>ssh to my centos agent machine.</li>
+<li>Go to agent folder, in this case it is <code>BuildAgent</code></li>
+<li>I tried to stop the agent by <code>bin/agent.sh stop</code> but got no luck. When I started the agent it said that <code>Build agent is already running with PID 1795</code>, so that I could not restart it.</li>
+<li>KILL the process by <code>sudo kill 1795</code></li>
+<li>Restart again <code>bin/agent.sh start</code><br>=&gt; It should work now.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://saysua.com/2016/09/07/teamcity-build-agent-disconnected/" data-id="ciwkxg367000wk0vlpik21tnj" class="article-share-link">Share</a>
+      
+        <a href="http://saysua.com/2016/09/07/teamcity-build-agent-disconnected/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      <div class="tagcloud">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TeamCity/">TeamCity</a></li></ul>
+
+      </div>
+    </footer>
+  </div>
+  
+</article>
+
+<hr>
+
+
+
+  
     <article id="post-nodejs-module-cache-trying" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/04/19/nodejs-module-cache-trying/" class="article-date">
@@ -538,57 +591,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/" class="article-date">
-  <time datetime="2015-08-06T03:13:37.000Z" itemprop="datePublished">2015-08-06</time>
-</a>
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/">Xử lý hình ảnh hiển thị sai hướng bằng cách xác định giá trị EXIF orientation</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Trong thời gian này mình có làm một ứng dụng chat, trong đó có tính năng upload file và hình ảnh. Và mình đã gặp một vấn đề với các hình ảnh được chụp bằng điện thoại. Đó là hình ảnh bị hiển thị sai hướng, do khi chụp người dùng đã để dọc điện thoại, dẫn đến lúc hiển thị hình ảnh trên trang web, thay vì hình ảnh hiển thị thẳng đứng thì lại nằm ngang. Giống như thế này:</p>
-<p><img src="/images/orientation-6.jpg" alt="Orientation 6"></p>
-<p>Và công việc của mình là phải xác định được, hình ảnh đó bị sai thế nào, để hiển thị lại cho đúng.</p>
-        
-          <p class="article-more-link">
-            <a href="/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/#more">READ MORE</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://saysua.com/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/" data-id="ciwkxg378001lk0vlqlahzllu" class="article-share-link">Share</a>
-      
-        <a href="http://saysua.com/2015/08/06/xu-ly-hinh-anh-hien-thi-sai-huong-voi-exif-orientation/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      <div class="tagcloud">
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
-
-      </div>
-    </footer>
-  </div>
-  
-</article>
-
-<hr>
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -627,7 +629,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Labels</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Ajax/" style="font-size: 12px;">Ajax</a> <a href="/tags/Angular2/" style="font-size: 18px;">Angular2</a> <a href="/tags/Angularjs/" style="font-size: 12px;">Angularjs</a> <a href="/tags/Bower/" style="font-size: 12px;">Bower</a> <a href="/tags/Elastic-search/" style="font-size: 12px;">Elastic search</a> <a href="/tags/Facebook/" style="font-size: 12px;">Facebook</a> <a href="/tags/Godaddy/" style="font-size: 12px;">Godaddy</a> <a href="/tags/Gulp/" style="font-size: 12px;">Gulp</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Jquery/" style="font-size: 18px;">Jquery</a> <a href="/tags/Life/" style="font-size: 12px;">Life</a> <a href="/tags/Logstash/" style="font-size: 12px;">Logstash</a> <a href="/tags/Machine-Learning/" style="font-size: 18px;">Machine Learning</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 12px;">Nginx</a> <a href="/tags/NodeJs/" style="font-size: 12px;">NodeJs</a> <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/Nvm/" style="font-size: 12px;">Nvm</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/PHP/" style="font-size: 14px;">PHP</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/Scrape/" style="font-size: 12px;">Scrape</a> <a href="/tags/TeamCity/" style="font-size: 12px;">TeamCity</a> <a href="/tags/Visual-Studio/" style="font-size: 12px;">Visual Studio</a>
+      <a href="/tags/Ajax/" style="font-size: 12px;">Ajax</a> <a href="/tags/Angular2/" style="font-size: 18px;">Angular2</a> <a href="/tags/Angularjs/" style="font-size: 14px;">Angularjs</a> <a href="/tags/Bower/" style="font-size: 12px;">Bower</a> <a href="/tags/Elastic-search/" style="font-size: 12px;">Elastic search</a> <a href="/tags/Facebook/" style="font-size: 12px;">Facebook</a> <a href="/tags/Godaddy/" style="font-size: 12px;">Godaddy</a> <a href="/tags/Gulp/" style="font-size: 12px;">Gulp</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Jquery/" style="font-size: 18px;">Jquery</a> <a href="/tags/Life/" style="font-size: 12px;">Life</a> <a href="/tags/Logstash/" style="font-size: 12px;">Logstash</a> <a href="/tags/Machine-Learning/" style="font-size: 18px;">Machine Learning</a> <a href="/tags/Mysql/" style="font-size: 12px;">Mysql</a> <a href="/tags/Nginx/" style="font-size: 12px;">Nginx</a> <a href="/tags/NodeJs/" style="font-size: 12px;">NodeJs</a> <a href="/tags/Nodejs/" style="font-size: 16px;">Nodejs</a> <a href="/tags/Nvm/" style="font-size: 12px;">Nvm</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/PHP/" style="font-size: 14px;">PHP</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/Scrape/" style="font-size: 12px;">Scrape</a> <a href="/tags/TeamCity/" style="font-size: 12px;">TeamCity</a> <a href="/tags/Visual-Studio/" style="font-size: 12px;">Visual Studio</a>
     </div>
   </div>
 
@@ -656,6 +658,10 @@ ga('send', 'pageview');
       <ul>
         
           <li>
+            <a href="/2017/03/27/download-file-bang-restangular-va-filesaver-js/">Download file bằng Restangular và FileSaver</a>
+          </li>
+        
+          <li>
             <a href="/2017/02/08/ky-luat-la-tu-do/">Kỷ luật là tự do</a>
           </li>
         
@@ -671,10 +677,6 @@ ga('send', 'pageview');
             <a href="/2016/12/01/chay-visual-studio-solution-tu-command-line/">Chạy Visual Studio Solution từ command line</a>
           </li>
         
-          <li>
-            <a href="/2016/11/26/toi-hoc-machine-learning-004-unsupervised-learning-hoc-khong-co-giam-sat/">Tôi học Machine Learning - 004 - Unsupervised Learning - Học không có giám sát</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -684,7 +686,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
