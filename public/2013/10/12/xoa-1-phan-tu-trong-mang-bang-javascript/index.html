@@ -5,19 +5,18 @@
   
   <title>Xóa 1 phần tử trong mảng bằng Javascript | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Khi lập trình với javascript và một vài ngôn ngữ khác, có một thao tác tưởng chừng rất đơn giản nhưng lại luôn khiến tôi bối rối về cách thực hiện nó. Đó chính là Xóa một phần tử trong mảng.
-Javascrip">
+  <meta name="description" content="Khi lập trình với javascript và một vài ngôn ngữ khác, có một thao tác tưởng chừng rất đơn giản nhưng lại luôn khiến tôi bối rối về cách thực hiện nó. Đó chính là Xóa một phần tử trong mảng. Javascrip">
+<meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Xóa 1 phần tử trong mảng bằng Javascript">
 <meta property="og:url" content="http://saysua.com/2013/10/12/xoa-1-phan-tu-trong-mang-bang-javascript/index.html">
 <meta property="og:site_name" content="Saysua Blog">
-<meta property="og:description" content="Khi lập trình với javascript và một vài ngôn ngữ khác, có một thao tác tưởng chừng rất đơn giản nhưng lại luôn khiến tôi bối rối về cách thực hiện nó. Đó chính là Xóa một phần tử trong mảng.
-Javascrip">
-<meta property="og:updated_time" content="2016-10-16T01:43:34.400Z">
+<meta property="og:description" content="Khi lập trình với javascript và một vài ngôn ngữ khác, có một thao tác tưởng chừng rất đơn giản nhưng lại luôn khiến tôi bối rối về cách thực hiện nó. Đó chính là Xóa một phần tử trong mảng. Javascrip">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-06T08:45:44.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xóa 1 phần tử trong mảng bằng Javascript">
-<meta name="twitter:description" content="Khi lập trình với javascript và một vài ngôn ngữ khác, có một thao tác tưởng chừng rất đơn giản nhưng lại luôn khiến tôi bối rối về cách thực hiện nó. Đó chính là Xóa một phần tử trong mảng.
-Javascrip">
+<meta name="twitter:description" content="Khi lập trình với javascript và một vài ngôn ngữ khác, có một thao tác tưởng chừng rất đơn giản nhưng lại luôn khiến tôi bối rối về cách thực hiện nó. Đó chính là Xóa một phần tử trong mảng. Javascrip">
   
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -109,16 +108,16 @@ ga('send', 'pageview');
         <p>Khi lập trình với javascript và một vài ngôn ngữ khác, có một thao tác tưởng chừng rất đơn giản nhưng lại luôn khiến tôi bối rối về cách thực hiện nó. Đó chính là Xóa một phần tử trong mảng.</p>
 <h1 id="Javascript-Splice"><a href="#Javascript-Splice" class="headerlink" title="Javascript: Splice"></a>Javascript: Splice</h1><p>Trong javascript, để xóa một phần tử trong mảng ta có thể dùng hàm <code>splice()</code></p>
 <a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="string">'say'</span>, <span class="string">'sua'</span>, <span class="string">'com'</span>];</div><div class="line">a.splice(<span class="number">0</span>,<span class="number">1</span>); <span class="comment">// Xóa 1 phần tử tại vị trí 0</span></div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// =&gt; a = ['sua', 'com']</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'say'</span>, <span class="string">'sua'</span>, <span class="string">'com'</span>];</span><br><span class="line">a.splice(<span class="number">0</span>,<span class="number">1</span>); <span class="comment">// Xóa 1 phần tử tại vị trí 0</span></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// =&gt; a = ['sua', 'com']</span></span><br></pre></td></tr></table></figure>
 <p>Chúng ta có thể kết hợp <code>splice()</code>  cùng với <code>indexOf()</code>  để xóa phần tử dựa vào giá trị của nó:</p>
-<figure class="highlight cal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [<span class="string">'say'</span>, <span class="string">'sua'</span>, <span class="string">'com'</span>];</div><div class="line"><span class="keyword">var</span> deleteElement = <span class="string">'sua'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> i = a.indexOf(deleteElement);</div><div class="line"><span class="keyword">if</span> (i != -<span class="number">1</span>) &#123;</div><div class="line">    a.splice(i,<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(a); // =&gt; [<span class="string">'say'</span>, <span class="string">'com'</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight cal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'say'</span>, <span class="string">'sua'</span>, <span class="string">'com'</span>];</span><br><span class="line"><span class="keyword">var</span> deleteElement = <span class="string">'sua'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i = a.indexOf(deleteElement);</span><br><span class="line"><span class="keyword">if</span> (i != -<span class="number">1</span>) &#123;</span><br><span class="line">    a.splice(i,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(a); // =&gt; [<span class="string">'say'</span>, <span class="string">'com'</span>]</span><br></pre></td></tr></table></figure>
 <p>Nếu các bạn muốn thực hiện thêm nhiều thao tác với mảng các bạn có thể tham khảo thư viện <code>underscore</code> như ở bài viết <a href="http://saysua.com/2013/08/12/js-xu-ly-mang-voi-underscore-js/">Xử lý mảng với underscore</a></p>
 <p>Tóm lại: để xóa một phần tử trong mảng ta có thể dùng <code>array.splice(vị trí cần xóa, 1)</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saysua.com/2013/10/12/xoa-1-phan-tu-trong-mang-bang-javascript/" data-id="ciwkxg36t001dk0vl5kwxxcev" class="article-share-link">Share</a>
+      <a data-url="http://saysua.com/2013/10/12/xoa-1-phan-tu-trong-mang-bang-javascript/" data-id="cjlqbzfrz001ll4h1q679dx98" class="article-share-link">Share</a>
       
         <a href="http://saysua.com/2013/10/12/xoa-1-phan-tu-trong-mang-bang-javascript/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -264,7 +263,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Thach Nguyen<br>
+      &copy; 2018 Thach Nguyen<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
       Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
     </div>

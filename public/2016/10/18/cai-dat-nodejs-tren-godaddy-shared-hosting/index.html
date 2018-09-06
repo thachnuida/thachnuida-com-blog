@@ -5,21 +5,20 @@
   
   <title>Cài đặt Nodejs trên Godaddy shared hosting | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku.
-Ngày hôm nay, mình nhận đư">
+  <meta name="description" content="Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku. Ngày hôm nay, mình nhận đư">
+<meta name="keywords" content="NodeJs,Nvm,Godaddy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cài đặt Nodejs trên Godaddy shared hosting">
 <meta property="og:url" content="http://saysua.com/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/index.html">
 <meta property="og:site_name" content="Saysua Blog">
-<meta property="og:description" content="Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku.
-Ngày hôm nay, mình nhận đư">
+<meta property="og:description" content="Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku. Ngày hôm nay, mình nhận đư">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="http://saysua.com/images/godaddy-open-cpanel.png">
 <meta property="og:image" content="http://saysua.com/images/godaddy-get-ssh-user.png">
-<meta property="og:updated_time" content="2016-10-18T14:46:40.041Z">
+<meta property="og:updated_time" content="2018-09-06T08:45:44.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cài đặt Nodejs trên Godaddy shared hosting">
-<meta name="twitter:description" content="Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku.
-Ngày hôm nay, mình nhận đư">
+<meta name="twitter:description" content="Năm ngoái, có người cần mình deploy code nodejs trên shared hosting của Godaddy, sau một hồi tìm kiếm thì mình kết luận không thể làm được. Sau đó mình đã deploy lên Heroku. Ngày hôm nay, mình nhận đư">
 <meta name="twitter:image" content="http://saysua.com/images/godaddy-open-cpanel.png">
   
   
@@ -117,30 +116,30 @@ ga('send', 'pageview');
 <p>Sau đó vào phần <strong>FPT Accounts</strong>, các bạn nhìn vào danh sách <code>Special FPT Accounts</code> sẽ có username để ssh.</p>
 <p><img src="/images/godaddy-get-ssh-user.png" alt="Get ssh username"></p>
 <p>Để ssh nếu dùng windown thì ta có thể sử dụng chương trình Putty, còn ở Mac hoặc Linux thì mở terminal lên để ssh.</p>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml">ssh </span><span class="template-variable">&#123;username&#125;</span><span class="xml">@</span><span class="template-variable">&#123;public_ip&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">ssh </span><span class="template-variable">&#123;username&#125;</span><span class="xml">@</span><span class="template-variable">&#123;public_ip&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
 <p>Ở đây <code>Password</code> nhập vào là password các bạn login vào Godaddy.</p>
 <h1 id="Kiem-tra-xem-nodejs-da-duoc-cai-chua"><a href="#Kiem-tra-xem-nodejs-da-duoc-cai-chua" class="headerlink" title="Kiểm tra xem nodejs đã được cài chưa"></a>Kiểm tra xem nodejs đã được cài chưa</h1><p>Sau khi <code>ssh</code> vào server các bạn kiểm tra xem nodejs được cài chưa bằng cách.</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">which <span class="keyword">node</span></div><div class="line"><span class="title">which</span> npm</div><div class="line">which nvm</div></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">which <span class="keyword">node</span><span class="title"></span></span><br><span class="line"><span class="title">which</span> npm</span><br><span class="line">which nvm</span><br></pre></td></tr></table></figure>
 <p>Nếu không có thông tin gì, thì ta bắt đầu quá trình cài đặt.</p>
-<h1 id="Cai-dat-nodejs-bang-nvm"><a href="#Cai-dat-nodejs-bang-nvm" class="headerlink" title="Cài đặt nodejs bằng nvm"></a>Cài đặt nodejs bằng nvm</h1><p>Để cài đặt <code>nodejs</code> không cần dùng quyền <code>sudo</code> ta sẽ sử dụng <a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm</a>.</p>
+<h1 id="Cai-dat-nodejs-bang-nvm"><a href="#Cai-dat-nodejs-bang-nvm" class="headerlink" title="Cài đặt nodejs bằng nvm"></a>Cài đặt nodejs bằng nvm</h1><p>Để cài đặt <code>nodejs</code> không cần dùng quyền <code>sudo</code> ta sẽ sử dụng <a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">nvm</a>.</p>
 <p>Ta chạy lần lượt các lệnh sau:</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o- https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/creationix/</span>nvm<span class="regexp">/v0.32.0/i</span>nstall.sh | bash</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/creationix/</span>nvm<span class="regexp">/v0.32.0/i</span>nstall.sh | bash</span><br></pre></td></tr></table></figure>
 <p>Sau khi đã chạy xong ta có thể kiểm tra lại <code>nvm</code> đã được cài đặt bằng:</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm <span class="comment">--version</span></div></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm <span class="comment">--version</span></span><br></pre></td></tr></table></figure>
 <p>Cài đặt <code>nodejs</code> bằng <code>nvm</code>:</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install <span class="keyword">node</span><span class="title"></span></div></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install <span class="keyword">node</span><span class="title"></span></span><br></pre></td></tr></table></figure>
 <p>Để kiểm tra <code>nodejs</code> đã được cài thành công ta chạy lệnh:</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">node</span> <span class="title">-v</span></div><div class="line">npm -v</div></pre></td></tr></table></figure>
-<p>Từ đây ta có thể cài thêm <a href="https://github.com/Unitech/pm2" target="_blank" rel="external">pm2</a> để chạy các ứng dụng <code>nodejs</code> trên server mà không làm ứng dụng tắt đi khi ta thoát phiên ssh.</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span> pm2 -g</div></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>Từ đây ta có thể cài thêm <a href="https://github.com/Unitech/pm2" target="_blank" rel="noopener">pm2</a> để chạy các ứng dụng <code>nodejs</code> trên server mà không làm ứng dụng tắt đi khi ta thoát phiên ssh.</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> pm2 -g</span><br></pre></td></tr></table></figure>
 <h1 id="Ket"><a href="#Ket" class="headerlink" title="Kết"></a>Kết</h1><p>Như vậy là mình đã có thể chạy nodejs trên shared hosting của Godaddy, tuy nhiên mình không chạy được ứng dụng ở cổng <code>http 80</code>. Khi mình chạy một ứng dụng ở cổng 5000 chẳng hạn. Mình cũng không thể truy cập được từ public IP. Tuy nhiên nếu mình truy cập từ localhost thì vẫn có thể được. Ví dụ:</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl <span class="string">http:</span><span class="comment">//localhost:5000</span></div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">http:</span><span class="comment">//localhost:5000</span></span><br></pre></td></tr></table></figure>
 <p>Ngoài ra mình thấy Godaddy cũng đang có dịch vụ NodeJS cloud. Cái này mình chưa thử, nên chưa biết thế nào. Dù sao thì chạy đưọc nodejs trên shared hosting cũng có thể giúp ích đưọc trong một vài trường hợp đặt biệt.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saysua.com/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/" data-id="ciwkxg34w0006k0vl19wuow8n" class="article-share-link">Share</a>
+      <a data-url="http://saysua.com/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/" data-id="cjlqbzfqy0004l4h1k8pbg65s" class="article-share-link">Share</a>
       
         <a href="http://saysua.com/2016/10/18/cai-dat-nodejs-tren-godaddy-shared-hosting/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -286,7 +285,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Thach Nguyen<br>
+      &copy; 2018 Thach Nguyen<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
       Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
     </div>

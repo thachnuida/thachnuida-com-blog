@@ -5,19 +5,18 @@
   
   <title>Kiểm tra một phần tử tồn tại bằng JQuery | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa.
-Ngay khi nảy ra câu hỏi tôi nghĩ ngay">
+  <meta name="description" content="Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa. Ngay khi nảy ra câu hỏi tôi nghĩ ngay">
+<meta name="keywords" content="Jquery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kiểm tra một phần tử tồn tại bằng JQuery">
 <meta property="og:url" content="http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/index.html">
 <meta property="og:site_name" content="Saysua Blog">
-<meta property="og:description" content="Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa.
-Ngay khi nảy ra câu hỏi tôi nghĩ ngay">
-<meta property="og:updated_time" content="2016-10-16T01:41:48.065Z">
+<meta property="og:description" content="Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa. Ngay khi nảy ra câu hỏi tôi nghĩ ngay">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-06T08:45:44.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kiểm tra một phần tử tồn tại bằng JQuery">
-<meta name="twitter:description" content="Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa.
-Ngay khi nảy ra câu hỏi tôi nghĩ ngay">
+<meta name="twitter:description" content="Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa. Ngay khi nảy ra câu hỏi tôi nghĩ ngay">
   
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -108,19 +107,19 @@ ga('send', 'pageview');
       
         <p>Trong khi sử dụng JQuery, có nhiều trường hợp tôi tự hỏi làm sao để kiểm tra một phần tử có tồn tại hay không. Chẳng hạn như div có id là “exist” đã có hay chưa.</p>
 <p>Ngay khi nảy ra câu hỏi tôi nghĩ ngay đến một cách kiểm tra đơn giản:</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="symbol">$</span>(<span class="string">'#exist'</span>)) &#123;</div><div class="line">  console.<span class="built-in">log</span>(<span class="string">'exist'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="symbol">$</span>(<span class="string">'#exist'</span>)) &#123;</span><br><span class="line">  console.<span class="built-in">log</span>(<span class="string">'exist'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Nhưng thực tế thì cách trên hoàn toàn sai bởi vì khi sử dụng <code>$()</code>  nó luôn trả về một đối tượng cho dù không tồn tại phần tử ta muốn xác định thì nó cũng sẽ trả về một đối tượng rỗng.  Vì vậy điều kiện trong câu lệnh if  sẽ luôn luôn đúng.</p>
 <a id="more"></a>
 <p>Do đó, để kiểm tra một phần tử có tồn tại hay không bằng JQuery ta có thể thực hiện như sau:</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="symbol">$</span>(<span class="string">'#exist'</span>).length) &#123;</div><div class="line">  console.<span class="built-in">log</span>(<span class="string">'exist'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="symbol">$</span>(<span class="string">'#exist'</span>).length) &#123;</span><br><span class="line">  console.<span class="built-in">log</span>(<span class="string">'exist'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Hoặc là:</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="symbol">$</span>(<span class="string">'#exist'</span>)[<span class="number">0</span>]) &#123;</div><div class="line">  console.<span class="built-in">log</span>(<span class="string">'exist'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="symbol">$</span>(<span class="string">'#exist'</span>)[<span class="number">0</span>]) &#123;</span><br><span class="line">  console.<span class="built-in">log</span>(<span class="string">'exist'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Nếu phần tử ta cần xác định không xuất hiện, JQuery sẽ trả về đối tượng rỗng do đó <code>length</code> sẽ cho giá trị 0 và [0]  sẽ cho giá trị <code>undefined</code> .</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/" data-id="ciwkxg34w000ck0vly2obld8b" class="article-share-link">Share</a>
+      <a data-url="http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/" data-id="cjlqbzfra000jl4h1yjgnnatl" class="article-share-link">Share</a>
       
         <a href="http://saysua.com/2013/10/15/kiem-tra-mot-phan-tu-ton-tai-bang-jquery/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -266,7 +265,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Thach Nguyen<br>
+      &copy; 2018 Thach Nguyen<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
       Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
     </div>

@@ -6,13 +6,15 @@
   <title>Trích xuất dữ liệu web bằng PHP với PQLite | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Đã bao giờ bạn muốn trích xuất thông tin từ một trang web bằng PHP, chẳng hạn như giá cổ phiếu, giá vàng, nội dung bài báo… công việc đầu tiên là bạn sẽ đọc nội dung của trang web đó rồi tìm đến phần">
+<meta name="keywords" content="PHP,Scrape">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Trích xuất dữ liệu web bằng PHP với PQLite">
 <meta property="og:url" content="http://saysua.com/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/index.html">
 <meta property="og:site_name" content="Saysua Blog">
 <meta property="og:description" content="Đã bao giờ bạn muốn trích xuất thông tin từ một trang web bằng PHP, chẳng hạn như giá cổ phiếu, giá vàng, nội dung bài báo… công việc đầu tiên là bạn sẽ đọc nội dung của trang web đó rồi tìm đến phần">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="http://saysua.com/images/giavang.png">
-<meta property="og:updated_time" content="2016-10-16T01:44:44.102Z">
+<meta property="og:updated_time" content="2018-09-06T08:45:44.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Trích xuất dữ liệu web bằng PHP với PQLite">
 <meta name="twitter:description" content="Đã bao giờ bạn muốn trích xuất thông tin từ một trang web bằng PHP, chẳng hạn như giá cổ phiếu, giá vàng, nội dung bài báo… công việc đầu tiên là bạn sẽ đọc nội dung của trang web đó rồi tìm đến phần">
@@ -112,16 +114,16 @@ ga('send', 'pageview');
 <a id="more"></a>
 <p>Thay vì trình bày chi tiết về nó, tôi sẽ cùng với các bạn làm một chức năng nho nhỏ như sau:</p>
 <p>Đây là trang web chúng ta sẽ cùng nhau lấy dữ liệu:</p>
-<p><a href="http://hcm.24h.com.vn/ttcb/giavang/giavang.php" target="_blank" rel="external">http://hcm.24h.com.vn/ttcb/giavang/giavang.php</a></p>
+<p><a href="http://hcm.24h.com.vn/ttcb/giavang/giavang.php" target="_blank" rel="noopener">http://hcm.24h.com.vn/ttcb/giavang/giavang.php</a></p>
 <p>Nội dung tôi muốn lấy ở đây là bảng giá vàng. Các bạn dùng Chrome mở trang web lên, rồi kích chuột phải vào bảng giá vàng, chọn “Inspect Element” để coi nội dung.</p>
 <p><img src="/images/giavang.png" alt="Bang Gia Vang"></p>
 <p>Ta có thể thấy bảng giá vàng ở đây là một table  với class là tb-giaVang . Thường thì để lấy chính xác nội dung của một phần tử ta nên dựa vào ID của nó bởi vì ID được đặt là định danh duy nhất, nhưng ở đây bảng giá vàng lại không có ID, tuy nhiên khi kiểm tra class tb-giaVang  cũng là duy nhất nên chúng ta có thể dựa vào nó để lấy giá trị của bảng giá vàng được.</p>
 <p>Đầu tiên các bạn tải thư viện PQlite về, sau đó tạo 1 file test.php  với nội dung như sau. Chạy nó và xem kết quả.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line"><span class="keyword">include_once</span>( <span class="string">'PQLite.php'</span> );</div><div class="line"></div><div class="line">$content = file_get_contents(<span class="string">'http://hcm.24h.com.vn/ttcb/giavang/giavang.php'</span>);</div><div class="line"></div><div class="line">$pq = <span class="keyword">new</span> PQLite($content);</div><div class="line"></div><div class="line">$giavang = $pq-&gt;find(<span class="string">'.tb-giaVang'</span>)-&gt;getOuterHtml();</div><div class="line"></div><div class="line"><span class="keyword">echo</span> $giavang;</div><div class="line"></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="keyword">include_once</span>( <span class="string">'PQLite.php'</span> );</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">$content = file_get_contents(<span class="string">'http://hcm.24h.com.vn/ttcb/giavang/giavang.php'</span>);</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">$pq = <span class="keyword">new</span> PQLite($content);</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">$giavang = $pq-&gt;find(<span class="string">'.tb-giaVang'</span>)-&gt;getOuterHtml();</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> $giavang;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saysua.com/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/" data-id="ciwkxg378001gk0vlnty8to7o" class="article-share-link">Share</a>
+      <a data-url="http://saysua.com/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/" data-id="cjlqbzfrx001kl4h14jk63lck" class="article-share-link">Share</a>
       
         <a href="http://saysua.com/2013/09/14/trich-xuat-du-lieu-web-bang-php-voi-pqlite/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -267,7 +269,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Thach Nguyen<br>
+      &copy; 2018 Thach Nguyen<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
       Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
     </div>

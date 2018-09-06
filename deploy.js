@@ -4,10 +4,14 @@ var fs = require('fs');
 var logStream = fs.createWriteStream('./update.txt', {flags: 'w'});
 var config = require('./deploy.config');
 var request = require('request');
+var isWin = process.platform === "win32";
 
 function generateHtml(cb) {
-  //var generate = spawn(process.env.comspec, ['/c', 'hexo', 'generate']);
-  generate = spawn('hexo', ['generate'])
+  if (isWin) {
+    var generate = spawn(process.env.comspec, ['/c', 'hexo', 'generate']);
+  } else {
+    generate = spawn('hexo', ['generate'])
+  }
   var updateList = '';
 
   // Log to file

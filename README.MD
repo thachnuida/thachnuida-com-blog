@@ -18,6 +18,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit 
 # Run local server
 
 ```
+npm install hexo-cli -g
 hexo server
 ```
 

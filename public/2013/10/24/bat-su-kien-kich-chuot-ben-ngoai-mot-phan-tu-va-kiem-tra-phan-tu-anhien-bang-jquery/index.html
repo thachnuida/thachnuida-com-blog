@@ -6,14 +6,16 @@
   <title>Bắt sự kiện kích chuột bên ngoài một phần tử và kiểm tra phần tử ẩn/hiện bằng JQuery | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Ngày hôm nay, trong khi đang làm, tôi bắt gặp 2 trường hợp cần giải quyết với jquery. Trường hợp thứ nhất là bắt sự kiện khi người dùng kích chuột bên ngoài một phần tử và trường hợp thứ hai là kiểm t">
+<meta name="keywords" content="Jquery">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bắt sự kiện kích chuột bên ngoài một phần tử và kiểm tra phần tử ẩn/hiện bằng JQuery">
+<meta property="og:title" content="Bắt sự kiện kích chuột bên ngoài một phần tử và kiểm tra phần tử ẩn&#x2F;hiện bằng JQuery">
 <meta property="og:url" content="http://saysua.com/2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/index.html">
 <meta property="og:site_name" content="Saysua Blog">
 <meta property="og:description" content="Ngày hôm nay, trong khi đang làm, tôi bắt gặp 2 trường hợp cần giải quyết với jquery. Trường hợp thứ nhất là bắt sự kiện khi người dùng kích chuột bên ngoài một phần tử và trường hợp thứ hai là kiểm t">
-<meta property="og:updated_time" content="2016-10-16T01:36:11.728Z">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-06T08:45:44.245Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bắt sự kiện kích chuột bên ngoài một phần tử và kiểm tra phần tử ẩn/hiện bằng JQuery">
+<meta name="twitter:title" content="Bắt sự kiện kích chuột bên ngoài một phần tử và kiểm tra phần tử ẩn&#x2F;hiện bằng JQuery">
 <meta name="twitter:description" content="Ngày hôm nay, trong khi đang làm, tôi bắt gặp 2 trường hợp cần giải quyết với jquery. Trường hợp thứ nhất là bắt sự kiện khi người dùng kích chuột bên ngoài một phần tử và trường hợp thứ hai là kiểm t">
   
   
@@ -107,17 +109,17 @@ ga('send', 'pageview');
 <p>Cách giải quyết hai trường hợp này cũng khá đơn giản, nhưng tôi nghĩ nõ cũng sẽ làm ta mất một số thời gian nếu như chưa biết. Vì vậy tôi sẽ chia sẽ hai thủ thuật này ở đây.</p>
 <a id="more"></a>
 <h1 id="Bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu"><a href="#Bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu" class="headerlink" title="Bắt sự kiện kích chuột bên ngoài một phần tử"></a>Bắt sự kiện kích chuột bên ngoài một phần tử</h1><p>Giả sử tôi có một phần tử có id là click-me  và tôi cần bắt sự kiện kích chuột lên nó hoặc kích chuột bên ngoài nó để có những xử lý khác nhau. Đoạn code ngắn dưới đây sẽ giải quyết vấn đề đó:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="string">"Click outside :D "</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">$(<span class="string">'#click-me'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    alert(<span class="string">"Click me"</span>);</div><div class="line">    event.stopPropagation();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"Click outside :D "</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$(<span class="string">'#click-me'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"Click me"</span>);</span><br><span class="line">    event.stopPropagation();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><a href="http://jsfiddle.net/thachnuida/gFGUt/" target="_blank" rel="external">Xem ví dụ.</a></p>
+<p><a href="http://jsfiddle.net/thachnuida/gFGUt/" target="_blank" rel="noopener">Xem ví dụ.</a></p>
 </blockquote>
 <p>Ngoài ra ta còn có thể sử dụng <code>return false;</code>  thay cho <code>event.stopPropagation()</code>.  Các bạn có thể đoán xem, nếu ta bỏ dòng <code>event.stopPropagation()</code> thì chuyện gì sẽ xảy ra?</p>
 <h1 id="Kiem-tra-mot-phan-tu-dang-hien-thi-hay-dang-an"><a href="#Kiem-tra-mot-phan-tu-dang-hien-thi-hay-dang-an" class="headerlink" title="Kiểm tra một phần tử đang hiển thị hay đang ẩn"></a>Kiểm tra một phần tử đang hiển thị hay đang ẩn</h1><p>Muốn kiểm tra một phần tử đang ẩn hay đang hiện, chúng ta có thể dùng đoạn code sau:</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#click-me'</span>).<span class="keyword">is</span>(<span class="string">':visible'</span>) <span class="regexp">//</span> =&gt; <span class="literal">true</span> <span class="keyword">or</span> <span class="literal">false</span></div></pre></td></tr></table></figure>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#click-me'</span>).<span class="keyword">is</span>(<span class="string">':visible'</span>) <span class="regexp">//</span> =&gt; <span class="literal">true</span> <span class="keyword">or</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saysua.com/2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/" data-id="ciwkxg3400000k0vl9q0kb10t" class="article-share-link">Share</a>
+      <a data-url="http://saysua.com/2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/" data-id="cjlqbzfqz0005l4h1ssqkym26" class="article-share-link">Share</a>
       
         <a href="http://saysua.com/2013/10/24/bat-su-kien-kich-chuot-ben-ngoai-mot-phan-tu-va-kiem-tra-phan-tu-anhien-bang-jquery/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -263,7 +265,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Thach Nguyen<br>
+      &copy; 2018 Thach Nguyen<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
       Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
     </div>

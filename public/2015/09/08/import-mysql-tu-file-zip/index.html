@@ -5,19 +5,18 @@
   
   <title>Import mysql từ file zip | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Vừa rồi mình phải import dữ liệu mysql từ một file zip khoảng 700MB nhưng khi giải nén ra thì đến 4GB lận. Để import quả là không đơn giản. Và rồi cũng đã tìm được 1 cách import với chỉ 1 câu lệnh:
-1u">
+  <meta name="description" content="Vừa rồi mình phải import dữ liệu mysql từ một file zip khoảng 700MB nhưng khi giải nén ra thì đến 4GB lận. Để import quả là không đơn giản. Và rồi cũng đã tìm được 1 cách import với chỉ 1 câu lệnh: 1u">
+<meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Import mysql từ file zip">
 <meta property="og:url" content="http://saysua.com/2015/09/08/import-mysql-tu-file-zip/index.html">
 <meta property="og:site_name" content="Saysua Blog">
-<meta property="og:description" content="Vừa rồi mình phải import dữ liệu mysql từ một file zip khoảng 700MB nhưng khi giải nén ra thì đến 4GB lận. Để import quả là không đơn giản. Và rồi cũng đã tìm được 1 cách import với chỉ 1 câu lệnh:
-1u">
-<meta property="og:updated_time" content="2016-10-16T01:41:15.387Z">
+<meta property="og:description" content="Vừa rồi mình phải import dữ liệu mysql từ một file zip khoảng 700MB nhưng khi giải nén ra thì đến 4GB lận. Để import quả là không đơn giản. Và rồi cũng đã tìm được 1 cách import với chỉ 1 câu lệnh: 1u">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-06T08:45:44.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Import mysql từ file zip">
-<meta name="twitter:description" content="Vừa rồi mình phải import dữ liệu mysql từ một file zip khoảng 700MB nhưng khi giải nén ra thì đến 4GB lận. Để import quả là không đơn giản. Và rồi cũng đã tìm được 1 cách import với chỉ 1 câu lệnh:
-1u">
+<meta name="twitter:description" content="Vừa rồi mình phải import dữ liệu mysql từ một file zip khoảng 700MB nhưng khi giải nén ra thì đến 4GB lận. Để import quả là không đơn giản. Và rồi cũng đã tìm được 1 cách import với chỉ 1 câu lệnh: 1u">
   
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -107,19 +106,19 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>Vừa rồi mình phải import dữ liệu mysql từ một file zip khoảng 700MB nhưng khi giải nén ra thì đến 4GB lận. Để import quả là không đơn giản. Và rồi cũng đã tìm được 1 cách import với chỉ 1 câu lệnh:</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">unzip -p dbdump.sql.zip <span class="string">| mysql -u root -p dbname</span></div></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip -p dbdump.sql.zip <span class="string">| mysql -u root -p dbname</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>Câu lệnh này chỉ thực hiện được với điều kiện file zip của bạn chỉ có 1 file sql.</li>
 <li>Thay <code>root</code> bằng user mysql của bạn</li>
 <li>Thay <code>dbname</code> bằng tên của DB</li>
 <li>Nhập password vào và chờ kết thúc.</li>
 </ul>
-<p>Cách này mình tìm được từ đây: <a href="http://snippets.khromov.se/import-zipped-mysql-dumps/" target="_blank" rel="external">http://snippets.khromov.se/import-zipped-mysql-dumps/</a></p>
+<p>Cách này mình tìm được từ đây: <a href="http://snippets.khromov.se/import-zipped-mysql-dumps/" target="_blank" rel="noopener">http://snippets.khromov.se/import-zipped-mysql-dumps/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saysua.com/2015/09/08/import-mysql-tu-file-zip/" data-id="ciwkxg34w000ak0vlwhbpul9q" class="article-share-link">Share</a>
+      <a data-url="http://saysua.com/2015/09/08/import-mysql-tu-file-zip/" data-id="cjlqbzfr8000gl4h18vllb6si" class="article-share-link">Share</a>
       
         <a href="http://saysua.com/2015/09/08/import-mysql-tu-file-zip/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -265,7 +264,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Thach Nguyen<br>
+      &copy; 2018 Thach Nguyen<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
       Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
     </div>

@@ -6,12 +6,14 @@
   <title>Đổi đối tượng JQuery sang DOM | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Trong đối tượng JQuery nó đã có chứa thành phần DOM. Để lấy được thành phần DOM từ đối tượng JQuery ta có thể sử dụng phương thức get() .">
+<meta name="keywords" content="Jquery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Đổi đối tượng JQuery sang DOM">
 <meta property="og:url" content="http://saysua.com/2013/10/09/doi-doi-tuong-jquery-sang-dom/index.html">
 <meta property="og:site_name" content="Saysua Blog">
 <meta property="og:description" content="Trong đối tượng JQuery nó đã có chứa thành phần DOM. Để lấy được thành phần DOM từ đối tượng JQuery ta có thể sử dụng phương thức get() .">
-<meta property="og:updated_time" content="2016-10-16T01:41:10.266Z">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-06T08:45:44.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Đổi đối tượng JQuery sang DOM">
 <meta name="twitter:description" content="Trong đối tượng JQuery nó đã có chứa thành phần DOM. Để lấy được thành phần DOM từ đối tượng JQuery ta có thể sử dụng phương thức get() .">
@@ -106,18 +108,18 @@ ga('send', 'pageview');
         <p>Trong đối tượng JQuery nó đã có chứa thành phần DOM. Để lấy được thành phần DOM từ đối tượng JQuery ta có thể sử dụng phương thức get() .</p>
 <a id="more"></a>
 <p>Ví dụ ta có một danh sách như sau :</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>say<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>sua<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>say<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>sua<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Nếu như đối tượng JQuery chỉ có một thành phần DOM ta có thể dùng 2 cách lấy:</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$<span class="comment">(‘ul’)</span>.get<span class="comment">(0)</span>  hoặc $<span class="comment">(‘ul’)</span>[<span class="number">0</span>]</div></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$<span class="comment">(‘ul’)</span>.get<span class="comment">(0)</span>  hoặc $<span class="comment">(‘ul’)</span>[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 <p>Nếu đối tượng JQuery có nhiều thành phần DOM, để lấy hết tất cả ta sử dụng:</p>
-<figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$<span class="comment">(‘li’)</span>.get<span class="comment">()</span></div></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$<span class="comment">(‘li’)</span>.get<span class="comment">()</span></span><br></pre></td></tr></table></figure>
 <p>Ví dụ:</p>
 <iframe src="http://jsfiddle.net/thachnuida/HRfVT/embedded" width="100%" height="300" frameborder="0" allowfullscreen></iframe>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saysua.com/2013/10/09/doi-doi-tuong-jquery-sang-dom/" data-id="ciwkxg34g0004k0vlwulaf5i5" class="article-share-link">Share</a>
+      <a data-url="http://saysua.com/2013/10/09/doi-doi-tuong-jquery-sang-dom/" data-id="cjlqbzfr00006l4h1d44v75j5" class="article-share-link">Share</a>
       
         <a href="http://saysua.com/2013/10/09/doi-doi-tuong-jquery-sang-dom/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -263,7 +265,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Thach Nguyen<br>
+      &copy; 2018 Thach Nguyen<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
       Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
     </div>

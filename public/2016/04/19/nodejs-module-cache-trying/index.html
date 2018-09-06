@@ -6,12 +6,14 @@
   <title>Nodejs Module Caching | Saysua Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Nodejs Module CachingModules are cached after the first time they are loaded. This means (among other things) that every call to require(‘foo’) will get exactly the same object returned, if it would r">
+<meta name="keywords" content="Nodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nodejs Module Caching">
 <meta property="og:url" content="http://saysua.com/2016/04/19/nodejs-module-cache-trying/index.html">
 <meta property="og:site_name" content="Saysua Blog">
 <meta property="og:description" content="Nodejs Module CachingModules are cached after the first time they are loaded. This means (among other things) that every call to require(‘foo’) will get exactly the same object returned, if it would r">
-<meta property="og:updated_time" content="2016-10-16T01:42:38.566Z">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-06T08:45:44.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nodejs Module Caching">
 <meta name="twitter:description" content="Nodejs Module CachingModules are cached after the first time they are loaded. This means (among other things) that every call to require(‘foo’) will get exactly the same object returned, if it would r">
@@ -106,21 +108,21 @@ ga('send', 'pageview');
         <h1 id="Nodejs-Module-Caching"><a href="#Nodejs-Module-Caching" class="headerlink" title="Nodejs Module Caching"></a>Nodejs Module Caching</h1><p>Modules are cached after the first time they are loaded. This means (among other things) that every call to require(‘foo’) will get exactly the same object returned, if it would resolve to the same file.</p>
 <p>Multiple calls to require(‘foo’) may not cause the module code to be executed multiple times. This is an important feature. With it, “partially done” objects can be returned, thus allowing transitive dependencies to be loaded even when they would cause cycles.</p>
 <p>If you want to have a module execute code multiple times, then export a function, and call that function.</p>
-<p>(<a href="https://nodejs.org/api/modules.html#modules_caching" target="_blank" rel="external">https://nodejs.org/api/modules.html#modules_caching</a>)</p>
+<p>(<a href="https://nodejs.org/api/modules.html#modules_caching" target="_blank" rel="noopener">https://nodejs.org/api/modules.html#modules_caching</a>)</p>
 <a id="more"></a>
 <h1 id="Trying-code"><a href="#Trying-code" class="headerlink" title="Trying code"></a>Trying code</h1><p>Let’s see bellow test code and the result:</p>
 <p>A.js  </p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var <span class="built_in">list</span> = [];</div><div class="line"></div><div class="line"><span class="keyword">module</span>.exports = &#123;</div><div class="line">  <span class="built_in">list</span>: <span class="built_in">list</span>,</div><div class="line">  name: <span class="string">'t'</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var <span class="built_in">list</span> = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">list</span>: <span class="built_in">list</span>,</span><br><span class="line">  name: <span class="string">'t'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>index.js  </p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var <span class="built_in">a1</span> = require(<span class="string">'./A'</span>)<span class="comment">;</span></div><div class="line">var <span class="built_in">a2</span> = require(<span class="string">'./A'</span>)<span class="comment">;</span></div><div class="line"></div><div class="line"><span class="built_in">a1</span>.list.push(<span class="number">1</span>)<span class="comment">;</span></div><div class="line">console.log(<span class="built_in">a1</span>.list)<span class="comment">;</span></div><div class="line">console.log(<span class="built_in">a2</span>.list)<span class="comment">;</span></div><div class="line"></div><div class="line">console.log(<span class="built_in">a2</span>.name)<span class="comment">;</span></div><div class="line">console.log(<span class="built_in">a1</span>.name)<span class="comment">;</span></div><div class="line"><span class="built_in">a1</span>.name = <span class="string">'update'</span><span class="comment">;</span></div><div class="line">console.log(<span class="built_in">a2</span>.name)<span class="comment">;</span></div><div class="line">console.log(<span class="built_in">a1</span>.name)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var <span class="built_in">a1</span> = require(<span class="string">'./A'</span>)<span class="comment">;</span></span><br><span class="line">var <span class="built_in">a2</span> = require(<span class="string">'./A'</span>)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">a1</span>.list.push(<span class="number">1</span>)<span class="comment">;</span></span><br><span class="line">console.log(<span class="built_in">a1</span>.list)<span class="comment">;</span></span><br><span class="line">console.log(<span class="built_in">a2</span>.list)<span class="comment">;</span></span><br><span class="line"></span><br><span class="line">console.log(<span class="built_in">a2</span>.name)<span class="comment">;</span></span><br><span class="line">console.log(<span class="built_in">a1</span>.name)<span class="comment">;</span></span><br><span class="line"><span class="built_in">a1</span>.name = <span class="string">'update'</span><span class="comment">;</span></span><br><span class="line">console.log(<span class="built_in">a2</span>.name)<span class="comment">;</span></span><br><span class="line">console.log(<span class="built_in">a1</span>.name)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <p>Result  </p>
-<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="string">[ 1 ]</span></div><div class="line"><span class="string">[ 1 ]</span></div><div class="line">t</div><div class="line">t</div><div class="line">update</div><div class="line">update</div></pre></td></tr></table></figure>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">[ 1 ]</span></span><br><span class="line"><span class="string">[ 1 ]</span></span><br><span class="line">t</span><br><span class="line">t</span><br><span class="line">update</span><br><span class="line">update</span><br></pre></td></tr></table></figure>
 <p>So, we know <code>a1</code> and <code>a2</code> are the same object.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://saysua.com/2016/04/19/nodejs-module-cache-trying/" data-id="ciwkxg36n0011k0vlrsm4cf7a" class="article-share-link">Share</a>
+      <a data-url="http://saysua.com/2016/04/19/nodejs-module-cache-trying/" data-id="cjlqbzfri000vl4h1ow8rdhm8" class="article-share-link">Share</a>
       
         <a href="http://saysua.com/2016/04/19/nodejs-module-cache-trying/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -266,7 +268,7 @@ ga('send', 'pageview');
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Thach Nguyen<br>
+      &copy; 2018 Thach Nguyen<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a><br>
       Theme is based on <a href="http://demo.s5themes.com/focused/">Focused</a>
     </div>
