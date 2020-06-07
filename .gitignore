@@ -7,3 +7,5 @@ node_modules/
 live/*
 !live/server-update.php
 deploy.config.js
+_config.yml
+/public
