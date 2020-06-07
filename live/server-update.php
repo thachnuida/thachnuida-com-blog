@@ -3,7 +3,7 @@
  Update code on server
  */
 
-$rawGitUrl = 'https://cdn.rawgit.com/thachnuida/saysua-com-blog/'.$_GET['commit'];
+$rawGitUrl = 'https://cdn.rawgit.com/thachnuida/thachnuida-com-blog/'.$_GET['commit'];
 
 /**
  * create file with content, and create folder structure if doesn't exist 

@@ -1,10 +1,11 @@
-title: Giới thiệu về saysua.com và mình
-date: 2015-08-13 11:37:43
+title: Thachnuida.com
+date: 2020-06-07 11:37:43
 ---
-Chào mừng các bạn đến với trang giới thiệu về saysua.com và người viết nó. Mình là Nguyễn Xuân Thạch (thachnuida), mình thích viết và chia sẻ, tuy nhiên cho đến hôm nay mình mới nghiêm túc tạo một blog cá nhân cho bản thân. Trước đây, khi bắt gặp các thủ thuật hay, hoặc những thông tin mới mình thường có thói quen lưu nó lại vào một file để sử dụng sau này. Qua một thời gian mình thấy rằng, nếu những thông tin đó được nhiều người biết đến thì nó sẽ có ích nhiều hơn. Vì vậy, mục đích của blog này trước hết là để mình lưu giữ lại những kiến thức hay mà mình bắt gặp, và tiếp theo chính là mình muốn chia sẻ nó cho chính bạn. Có thể đó chỉ là những thông tin vụn vặt, hay những kiến thức lướt qua, nhưng mình sẽ rất vui khi biết rằng một vài điều thực sự có ích cho bạn.
 
-# Tại sao lại là SAYSUA?
+Chào các bạn, thachnuida.com là một blog được tiếp tục từ saysua.com. Trước đây mình muốn có một nơi để chia sẻ các kiến thức mình biết cho mọi người, tuy nhiên theo thời gian mình trở nên lười nhác, viết ít đi. Cho nên bây giờ, mình tạo ra thachnuida.com để nó trở thành một blog cá nhân, viết những thứ mình muốn viết, chia sẻ những điều mình có thể chia sẻ, không nặng nề về nội dung, hình thức.
 
-Saysua (say sưa) ở đây có nghĩa là say mê, tập trung, chăm chú vào một việc. Mình nghĩ rằng khi làm một việc với đam mê và niềm vui ta sẽ làm nó một cách say sưa và sẽ cảm thấy nó thú vị.
+Mặc dù bây giờ đã có nhiều thứ để chúng ta chia sẻ với nhau như facebook, twitter, các trang blog cộng đồng ... tuy nhiên mình vẫn muốn có một vùng đất riêng của mình, ai biết thì vào, thấy vui thì đọc.
 
-Mình sẽ rất vui khi nhận được các ý kiến phản hồi và đóng góp của các bạn. Chúc các bạn có được những thông tin bổ ích khi dừng chân tại đây.
+Gọi là có chút dấu vết riêng trên vũ trụ internet rộng lớn này.
+
+Xin chào mừng các bạn đã ghé thăm thachnuida.com.
