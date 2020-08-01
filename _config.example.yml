@@ -66,13 +66,3 @@ pagination_dir: page
 theme: focused-port
 
 disqus_shortname: saysua
-
-# Deployment
-## Docs: http://hexo.io/docs/deployment.html
-deploy:
-  type: ftpsync
-  host: <host>
-  user: <user>
-  pass: <password>
-  remote: [remote]
-  port: [port]

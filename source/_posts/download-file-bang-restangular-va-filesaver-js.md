@@ -2,6 +2,7 @@ title: Download file bằng Restangular và FileSaver
 date: 2017-03-27 15:41:00
 tags:
   - Angularjs
+  - Restangular
 ---
 
 Mình cần viết chức năng download có API đã được xây dựng trước để tải file bằng phương thức `POST`. Ở client mình dùng `Restangular`. Như các bạn biết thì dùng `Restangular` ta chỉ có thể đọc được dữ liệu chứ không lưu nó thành dạng file được. Sau một hồi tìm kiếm, mình tìm được thư viện [FileSaver.js](https://github.com/eligrey/FileSaver.js/) giúp ta lưu file từ `javascript`.
