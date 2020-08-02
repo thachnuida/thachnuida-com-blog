@@ -40,9 +40,11 @@ var server = http.createServer(function (request, response) {
     if (loginInfo[0] === credentials.userName && loginInfo[1] === credentials.password) {
       response.writeHead(200, {'Content-Type': 'text/plain'});
       var exec = require('child_process').exec;
-      exec('npm run generate', function(error, stdout, stderr) {
-        response.end(stdout);
-      });
+      exec('git pull', function() {
+        exec('npm run generate', function(error, stdout, stderr) {
+          response.end(stdout);
+        });
+      });      
       return;
     }
     authenticationStatus (response);
