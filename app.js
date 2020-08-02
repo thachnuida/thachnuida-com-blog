@@ -43,6 +43,7 @@ var server = http.createServer(function (request, response) {
       exec('npm run generate', function(error, stdout, stderr) {
         response.end(stdout);
       });
+      return;
     }
     authenticationStatus (response);
  
