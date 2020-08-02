@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 //1.
 var http = require('http');
  
