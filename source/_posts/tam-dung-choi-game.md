@@ -6,7 +6,7 @@ tags:
 
 Mấy bữa nay dịch dã, ở nhà sinh rãnh rỗi. Mình lại cày game. Nghe chừng cũng rất bình thường và hợp lý. Nhưng khổ nỗi cái game này nó có chế độ cày rank. Gặp tính mình càng cày càng hăng. Game nó cũng biết trêu ngươi mình, lúc cho thắng, lúc cho thua nên cứ càng cố cày. Thức đêm thức khuya rồi dậy sớm cày một lúc liên tù tì mấy trận, phải cố lắm mới dừng được.
 
-Nhiều lần trong quá khứ đã tuyên bố bỏ game rồi, bỏ vì nó quá mất thời gian, bỏ vì ngồi chơi con nó thấy thì không tốt cho cả con lẫn mình, bỏ vì mình mà chơi thì rất dễ nghiện. Bằng chứng mấy lần bỏ xong chơi thử 1 ván là nghiện lại.
+Nhiều lần trong quá khứ đã tuyên bố bỏ game rồi, bỏ vì nó quá mất thời gian, bỏ vì ngồi chơi con nó thấy thì không tốt cho cả con lẫn mình, bỏ vì mình mà chơi thì rất dễ nghiện. Bằng chứng mấy lần bỏ xong chơi thử một ván là nghiện lại.
 
 Nên khi mình nói bỏ, vợ con bạn bè chẳng ai tin nữa, thành ra bây giờ không bỏ nữa, chỉ là TẠM DỪNG một thời gian, khi nào thích hợp sẽ quay lại nếu còn muốn. Tuyên bố  như vậy, mình cũng đỡ cảm thấy áp lực hơn, thoải mái hơn, không bị nặng nề tâm lý :D Chứ cứ BỎ BỎ, rồi nghĩ mãi về việc đó có khi ham chơi lại như mấy lần trước cũng nên.
 
