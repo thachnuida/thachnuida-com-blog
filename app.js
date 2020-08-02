@@ -38,10 +38,10 @@ var server = http.createServer(function (request, response) {
  
     //9.
     if (loginInfo[0] === credentials.userName && loginInfo[1] === credentials.password) {
-      res.writeHead(200, {'Content-Type': 'text/plain'});
+      response.writeHead(200, {'Content-Type': 'text/plain'});
       var exec = require('child_process').exec;
       exec('npm run generate', function(error, stdout, stderr) {
-        res.end(stdout);
+        response.end(stdout);
       });
     }
     authenticationStatus (response);
