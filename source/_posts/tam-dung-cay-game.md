@@ -1,4 +1,4 @@
-title: Tạm dừng chơi game - Lần nỗ lực thứ 4
+title: Tạm dừng cày game - Lần nỗ lực thứ 4
 date: 2020-08-02 07:21:26
 tags: 
   - Linh tinh
