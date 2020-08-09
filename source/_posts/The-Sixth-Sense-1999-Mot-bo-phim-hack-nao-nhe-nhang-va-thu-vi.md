@@ -5,9 +5,9 @@ tags:
 - Giải trí
 ---
 
-```
+{% blockquote %}
 Chú ý: Đây không phải là review phim, chỉ là những dòng lưu lại để nhớ, sau khi xem một bộ phim mình cảm thấy thú vị.
-```
+{% endblockquote %}
 
 Đã được vài ngày kể từ khi tạm dừng chơi game, thật ra thỉnh thoảng cũng mò vào một tí nhưng rồi thoát ra.
 Tuy nhiên nhiều khi rãnh rỗi thật sự, không biết làm gì và không muốn làm gì. Thế là mình tìm phim để coi. Mình muốn coi phim gì đó gay cấn một chút, kích thích đầu óc một chút. Vì vậy mình đã tìm những bộ phim gọi là hack não, theo thông tin tìm kiếm mình đã coi được bộ phim `The Sixth Sense (1999)`.
