@@ -21,9 +21,3 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit 
 npm install hexo-cli -g
 hexo server
 ```
-
-# Build files and Deploy to PHP server
-
-```
-node deploy.js
-```
